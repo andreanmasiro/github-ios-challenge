@@ -14,5 +14,9 @@ f) [+1] o aplicativo persistir a busca de CEPs
 g) [+3] criar um projeto de testes automatizados
 g) [+8] usar frameworks de testes : Specta| Expecta | OCMock
 
+### **URL e Documentação de um serviço de consulta de CEP RESTful:** ###
+Documentação da API: http://correiosapi.apphb.com
+Exemplo de uso da API: http://correiosapi.apphb.com/cep/76873274
+
 ### **Processo de submissão** ###
 O candidato deverá implementar a solução e enviar um pull request para este repositório com a solução.
