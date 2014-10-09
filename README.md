@@ -28,5 +28,10 @@ Criar um aplicativo para consultar a [Dribbble API](http://developer.dribbble.co
 
 As sugestões de bibliotecas fornecidas são só um guideline , sintam-se a vontade para usar diferentes e nos surpreenderem . O importante de fato é que os objetivos macros sejam atingidos. =)
 
+### **OBS** ###
+
+A foto do mockup é meramente ilustrativa , não existe necessidade de fazer share em redes sociais .Dito isso , consideraremos como um plus caso seja feito .  
+
+
 ### **Processo de submissão** ###
 O candidato deverá implementar a solução e enviar um pull request para este repositório com a solução.
