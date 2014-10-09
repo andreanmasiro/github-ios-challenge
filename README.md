@@ -1,22 +1,30 @@
-# **Criar um aplicativo iOS de consulta de CEP** #
-O aplicativo deverá consultar um serviço REST público de CEP (passaremos URL e documentação).A interface deverá conter um campo para digitar o CEP, um botão de consulta e um botão de visualizar consultas anteriores.
-A lista de consultas anteriores deverá ser apresentada em uma nova viewcontroller
-O aplicativo deverá ter tratamento para os casos de erro (sem conexão, CEP inválido, serviço indisponível)
+# **Criar um aplicativo de consulta na api do [Dribbble](https://dribbble.com)#
+
+Criar um aplicativo para consultar a [Dribbble API](http://developer.dribbble.com/v1/) e trazer os shots + populares . Basear-se no mockup fornecido:
+
+![Screen Shot 2014-10-09 at 3.42.06 PM.png](https://bitbucket.org/repo/bApLBb/images/3039998141-Screen%20Shot%202014-10-09%20at%203.42.06%20PM.png)
+
+### **Deve conter** ###
+
+* Lista de shots . API (http://api.dribbble.com/shots/popular?page=1)
+* Paginação na tela de listas.
+* Detalhe de um shot . API(http://api.dribbble.com/shots/1757954)
+* Tela de detalhe de um shot deve conter Autor com foto.
+* Lazy Load de Imagens
+
+### **Ganha + pontos se conter** ###
+
+* Gestão de dependencias no projeto. Ex: [Cocoapods](http://cocoapods.org)
+* Mapeamento json -> Objeto . Ex: [Mantle](https://github.com/Mantle/Mantle)
+* Framework para Comunicação com API. [AFNetwork](https://github.com/AFNetworking/AFNetworking)
+* Testes no projeto . 
+* Testes funcionais . Ex [KIF](https://github.com/kif-framework/KIF)
+* App Universal , Ipad | Iphone | Landscape | Portrait 
+* Plus se usar UniversalStoryboard 
+* Cache de Imagens . Ex [SDWebImage](https://github.com/rs/SDWebImage)
+ 
 
 
-### **Ganha pontos se:** ###
-a) [+3] o aplicativo for desenvolvido com AFNetwork ou STHTTPRequest
-b) [+3] fazer o mapeamento da resposta do serviço de cep para um objeto usando Mantl
-c) [+5] o aplicativo for desenvolvido com CocoaPods
-d) [+2] o aplicativo suportar mudanças de orientação sem erros (portrait e landscape)
-e) [+1] o campo de CEP possuir máscara
-f) [+1] o aplicativo persistir a busca de CEPs
-g) [+3] criar um projeto de testes automatizados
-g) [+8] usar frameworks de testes : Specta| Expecta | OCMock
-
-### **URL e Documentação de um serviço de consulta de CEP RESTful:** ###
-Documentação da API: http://correiosapi.apphb.com
-Exemplo de uso da API: http://correiosapi.apphb.com/cep/76873274
 
 ### **Processo de submissão** ###
 O candidato deverá implementar a solução e enviar um pull request para este repositório com a solução.
