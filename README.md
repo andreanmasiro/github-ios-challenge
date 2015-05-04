@@ -16,7 +16,7 @@ Criar um aplicativo para consultar a [Dribbble API](http://developer.dribbble.co
 
 * Gestão de dependencias no projeto. Ex: [Cocoapods](http://cocoapods.org)
 * Mapeamento json -> Objeto . Ex: [Mantle](https://github.com/Mantle/Mantle)
-* Framework para Comunicação com API. [AFNetwork](https://github.com/AFNetworking/AFNetworking)
+* Framework para Comunicação com API. Ex:  [AFNetwork](https://github.com/AFNetworking/AFNetworking)
 * Testes no projeto . 
 * Testes funcionais . Ex [KIF](https://github.com/kif-framework/KIF)
 * App Universal , Ipad | Iphone | Landscape | Portrait 
