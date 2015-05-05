@@ -8,6 +8,7 @@ Nos envie uma solução mesmo que você não consiga fazer tudo. O teste serve p
 
 # Deve conter #
 
+* Arquivo .gitignore
 * Usar Storyboard e Autolayout
 * Gestão de dependências no projeto. Ex: Cocoapods
 * Framework para Comunicação com API. Ex:  AFNetwork
