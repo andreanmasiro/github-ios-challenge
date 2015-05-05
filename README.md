@@ -1,37 +1,33 @@
-# Criar um aplicativo de consulta na api do [Dribbble](https://dribbble.com)#
+# Criar um aplicativo de consulta na api do [Dribbble](https://dribbble.com) #
 
 Criar um aplicativo para consultar a [Dribbble API](http://developer.dribbble.com/v1/) e trazer os shots + populares . Basear-se no mockup fornecido:
 
 ![Screen Shot 2014-10-09 at 3.42.06 PM.png](https://bitbucket.org/repo/bApLBb/images/3039998141-Screen%20Shot%202014-10-09%20at%203.42.06%20PM.png)
 
-### **Deve conter** ###
+Nos envie uma solução mesmo que você não consiga fazer tudo. O teste serve pra conhecermos a sua forma de pensar, resolver problemas e seu estilo de código.
 
-* Lista de shots . API (http://api.dribbble.com/shots/popular?page=1)
-* Paginação na tela de listas.
-* Detalhe de um shot . API(http://api.dribbble.com/shots/1757954)
-* Tela de detalhe de um shot deve conter Autor com foto.
-* Lazy Load de Imagens
+# Deve conter #
 
-### **Ganha + pontos se conter** ###
+* Usar Storyboard e Autolayout
+* Gestão de dependências no projeto. Ex: Cocoapods
+* Framework para Comunicação com API. Ex:  AFNetwork
+* Mapeamento json -> Objeto . Ex: Mantle
+* Lista de shots API (http://api.dribbble.com/shots/popular?page=1)
+* Paginação automática (scroll infinito) na tela de lista de shots
+* Paginação deve detectar quando chega a última página e parar de solicitar mais
+* Pull to refresh
+* Tela de detalhe de um shot ao clicar em um item da lista de shots
+* Tela de detalhe de um shot deve conter nome do autor, foto e descrição do shot
 
-* Gestão de dependencias no projeto. Ex: [Cocoapods](http://cocoapods.org)
-* Mapeamento json -> Objeto . Ex: [Mantle](https://github.com/Mantle/Mantle)
-* Framework para Comunicação com API. Ex:  [AFNetwork](https://github.com/AFNetworking/AFNetworking)
-* Testes no projeto . 
-* Testes funcionais . Ex [KIF](https://github.com/kif-framework/KIF)
-* App Universal , Ipad | Iphone | Landscape | Portrait 
-* Plus se usar UniversalStoryboard 
-* Cache de Imagens . Ex [SDWebImage](https://github.com/rs/SDWebImage)
- 
+# Ganha + pontos se contiver #
 
-### **Sugestões** ###
+* Testes unitários no projeto. Ex: XCTests
+* Testes funcionais. Ex: KIF
+* App Universal , Ipad | Iphone | Landscape | Portrait (Size Classes)
+* Cache de Imagens. Ex SDWebImage
+* Compartilhar shots no facebook e twitter
 
-As sugestões de bibliotecas fornecidas são só um guideline , sintam-se a vontade para usar diferentes e nos surpreenderem . O importante de fato é que os objetivos macros sejam atingidos. =)
+# Submissão #
 
-### **OBS** ###
-
-A foto do mockup é meramente ilustrativa , não existe necessidade de fazer share em redes sociais .Dito isso , consideraremos como um plus caso seja feito .  
-
-
-### **Processo de submissão** ###
-O candidato deverá implementar a solução e enviar um pull request para este repositório com a solução.
+Para iniciar o desafio, faça um fork do nosso repositório, crie uma branch com o seu nome e depois envie pra gente o pull request.
+Se você apenas clonar o repositório não vai conseguir fazer push pra gente e depois vai ser mais complicado fazer o pull request.
