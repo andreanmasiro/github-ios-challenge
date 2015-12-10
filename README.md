@@ -15,7 +15,7 @@ Nos envie uma solução mesmo que você não consiga fazer tudo. O teste serve p
 * Gestão de dependências no projeto. Ex: Cocoapods
 * Framework para Comunicação com API. Ex:  AFNetwork
 * Mapeamento json -> Objeto . Ex: [Mantle](https://github.com/Mantle/Mantle#mtlmodel)
-* Lista de shots API (http://api.dribbble.com/shots/popular?page=1)
+* Lista de shots API (http://developer.dribbble.com/v1/shots/)
 * Paginação automática (scroll infinito) na tela de lista de shots
 * Paginação deve detectar quando chega a última página e parar de solicitar mais
 * Pull to refresh
