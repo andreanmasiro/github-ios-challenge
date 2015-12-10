@@ -1,36 +1,55 @@
-# Criar um aplicativo de consulta na api do [Dribbble](https://dribbble.com) #
+# Criar um aplicativo de consulta a API do [GitHub](https://github.com)#
 
-** Desafio deve ser feito em Objective-C, soluções em Swift serão consideradas um plus mas Objc é fundamental **
+Criar um aplicativo para consultar a [API do GitHub](https://developer.github.com/v3/) e trazer os repositórios mais populares de Java. Basear-se no mockup fornecido:
 
-Criar um aplicativo para consultar a [Dribbble API](http://developer.dribbble.com/v1/) e trazer os shots + populares . Basear-se no mockup fornecido:
+![bitbucket.png](https://bitbucket.org/repo/bApLBb/images/1070562783-bitbucket.png)
+### **Deve conter** ###
 
-![Screen Shot 2014-10-09 at 3.42.06 PM.png](https://bitbucket.org/repo/bApLBb/images/3039998141-Screen%20Shot%202014-10-09%20at%203.42.06%20PM.png)
+- __Lista de repositórios__. Exemplo de chamada na API: `https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1`
+  * Paginação na tela de lista, com endless scroll / scroll infinito (incrementando o parâmetro `page`).
+  * Cada repositório deve exibir Nome do repositório, Descrição do Repositório, Nome / Foto do autor, Número de Stars, Número de Forks
+  * Ao tocar em um item, deve levar a lista de Pull Requests do repositório
+- __Pull Requests de um repositório__. Exemplo de chamada na API: `https://api.github.com/repos/<criador>/<repositório>/pulls`
+  * Cada item da lista deve exibir Nome / Foto do autor do PR, Título do PR, Data do PR e Body do PR
+  * Ao tocar em um item, deve abrir no browser a página do Pull Request em questão
 
-Nos envie uma solução mesmo que você não consiga fazer tudo. O teste serve pra conhecermos a sua forma de pensar, resolver problemas e seu estilo de código.
-
-# Deve conter #
+### **A solução DEVE conter** ##
 
 * Arquivo .gitignore
 * Usar Storyboard e Autolayout
 * Gestão de dependências no projeto. Ex: Cocoapods
 * Framework para Comunicação com API. Ex:  AFNetwork
 * Mapeamento json -> Objeto . Ex: [Mantle](https://github.com/Mantle/Mantle#mtlmodel)
-* Lista de shots API (http://developer.dribbble.com/v1/shots/)
-* Paginação automática (scroll infinito) na tela de lista de shots
-* Paginação deve detectar quando chega a última página e parar de solicitar mais
-* Pull to refresh
-* Tela de detalhe de um shot ao clicar em um item da lista de shots
-* Tela de detalhe de um shot deve conter nome do autor, foto e descrição do shot
 
-# Ganha + pontos se contiver #
+### **Ganha + pontos se conter** ###
 
 * Testes unitários no projeto. Ex: XCTests / Specta + Expecta
 * Testes funcionais. Ex: KIF
 * App Universal , Ipad | Iphone | Landscape | Portrait (Size Classes)
 * Cache de Imagens. Ex SDWebImage
-* Compartilhar shots no facebook e twitter
 
-# Submissão #
+### **Sugestões** ###
 
-Para iniciar o desafio, faça um fork do nosso repositório, crie uma branch com o seu nome e depois envie pra gente o pull request.
-Se você apenas clonar o repositório não vai conseguir fazer push pra gente e depois vai ser mais complicado fazer o pull request.
+As sugestões de bibliotecas fornecidas são só um guideline, sintam-se a vontade para usar diferentes e nos surpreenderem. O importante de fato é que os objetivos macros sejam atingidos. =)
+
+### **OBS** ###
+
+A foto do mockup é meramente ilustrativa.  
+
+
+### **Processo de submissão** ###
+
+O candidato deverá implementar a solução e enviar um pull request para este repositório com a solução.
+
+O processo de Pull Request funciona da seguinte maneira:
+
+1. Candidato fará um fork desse repositório (não irá clonar direto!)
+2. Fará seu projeto nesse fork.
+3. Commitará e subirá as alterações para o __SEU__ fork.
+4. Pela interface do Bitbucket, irá enviar um Pull Request.
+
+Se possível deixar o fork público para facilitar a inspeção do código.
+
+### **ATENÇÃO** ###
+
+Não se deve tentar fazer o PUSH diretamente para ESTE repositório!
