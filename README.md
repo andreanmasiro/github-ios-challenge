@@ -15,6 +15,7 @@ Criar um aplicativo para consultar a [API do GitHub](https://developer.github.co
 
 ### **A solução DEVE conter** ##
 
+* Versão mínima do iOS : 8.*
 * Arquivo .gitignore
 * Usar Storyboard e Autolayout
 * Gestão de dependências no projeto. Ex: Cocoapods
