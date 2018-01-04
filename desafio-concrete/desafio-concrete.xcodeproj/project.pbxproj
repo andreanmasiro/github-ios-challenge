@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0BC8E832CD6C6C13DA6900E8 /* Pods_desafio_concreteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E17CA76746DF846F7BDF8FD /* Pods_desafio_concreteTests.framework */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
-		4CFA86A31FFEBC2200F39F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A11FFEBC2200F39F99 /* Main.storyboard */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
 		4CFA86B31FFEBC2200F39F99 /* desafio_concreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86B21FFEBC2200F39F99 /* desafio_concreteTests.swift */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CFA86A21FFEBC2200F39F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFA86A71FFEBC2200F39F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFA86A91FFEBC2200F39F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,11 +105,8 @@
 		4CFA869C1FFEBC2200F39F99 /* desafio-concrete */ = {
 			isa = PBXGroup;
 			children = (
-				4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */,
-				4CFA86A11FFEBC2200F39F99 /* Main.storyboard */,
-				4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */,
-				4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */,
 				4CFA86A91FFEBC2200F39F99 /* Info.plist */,
+				4CFA86BD1FFEBE3600F39F99 /* Base */,
 			);
 			path = "desafio-concrete";
 			sourceTree = "<group>";
@@ -123,6 +118,16 @@
 				4CFA86B41FFEBC2200F39F99 /* Info.plist */,
 			);
 			path = "desafio-concreteTests";
+			sourceTree = "<group>";
+		};
+		4CFA86BD1FFEBE3600F39F99 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */,
+				4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */,
+				4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +221,6 @@
 			files = (
 				4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */,
 				4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */,
-				4CFA86A31FFEBC2200F39F99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,14 +386,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4CFA86A11FFEBC2200F39F99 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CFA86A21FFEBC2200F39F99 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -397,6 +393,7 @@
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 /* End PBXVariantGroup section */
 
@@ -516,6 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concrete/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concrete";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concrete/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concrete";
 				PRODUCT_NAME = "$(TARGET_NAME)";
