@@ -11,6 +11,7 @@ import UIKit
 protocol UITableViewCellHelper: class {
   static var cellHeight: CGFloat { get }
   static var defaultNibName: String? { get }
+  static var defaultIdentifier: String? { get }
 }
 
 extension UITableViewCellHelper {
@@ -19,6 +20,10 @@ extension UITableViewCellHelper {
   }
   
   static var defaultNibName: String? {
+    return nil
+  }
+  
+  static var defaultIdentifier: String? {
     return nil
   }
 }

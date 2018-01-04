@@ -18,6 +18,10 @@ class RepositoryTableViewCell: UITableViewCell {
     return "RepositoryTableViewCell"
   }
   
+  static var defaultIdentifier: String? {
+    return "RepositoryTableViewCell"
+  }
+  
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var branchCountLabel: UILabel!
