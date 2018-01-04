@@ -105,8 +105,8 @@
                 <outlet property="branchImageView" destination="O04-18-dJF" id="wmT-h6-YSV"/>
                 <outlet property="descriptionLabel" destination="LdT-gw-dzg" id="2AW-Hc-yop"/>
                 <outlet property="nameLabel" destination="xSF-g2-459" id="tHd-6e-w38"/>
-                <outlet property="stargazerCountLabel" destination="e62-sR-8Ld" id="Pr9-sJ-3Gq"/>
                 <outlet property="stargazerImageView" destination="mfs-XF-U3a" id="0Uq-DD-mJr"/>
+                <outlet property="stargazersCountLabel" destination="e62-sR-8Ld" id="Pr9-sJ-3Gq"/>
                 <outlet property="userAvatarImageView" destination="QDb-PP-buZ" id="sph-7F-gyW"/>
                 <outlet property="userFullNameLabel" destination="Lv7-Zt-QeH" id="bjj-DX-ga9"/>
                 <outlet property="usernameLabel" destination="Q22-vA-fVH" id="X3b-l9-EBJ"/>

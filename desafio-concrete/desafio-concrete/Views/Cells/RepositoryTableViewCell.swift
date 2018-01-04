@@ -25,7 +25,7 @@ class RepositoryTableViewCell: UITableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var branchCountLabel: UILabel!
-  @IBOutlet weak var stargazerCountLabel: UILabel!
+  @IBOutlet weak var stargazersCountLabel: UILabel!
   
   @IBOutlet weak var userAvatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -44,7 +44,7 @@ class RepositoryTableViewCell: UITableViewCell {
     stargazerImageView.tintColor = UIColor.golden
     
     branchCountLabel.textColor = UIColor.golden
-    stargazerCountLabel.textColor = UIColor.golden
+    stargazersCountLabel.textColor = UIColor.golden
     
     nameLabel.textColor = UIColor.oilBlue
     usernameLabel.textColor = UIColor.oilBlue
