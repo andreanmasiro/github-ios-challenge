@@ -14,6 +14,8 @@
 		4CFA86B31FFEBC2200F39F99 /* desafio_concreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86B21FFEBC2200F39F99 /* desafio_concreteTests.swift */; };
 		4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86C11FFEC20800F39F99 /* RepositoryListViewController.swift */; };
 		4CFA86C51FFEC23B00F39F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86C41FFEC23B00F39F99 /* Main.storyboard */; };
+		4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */; };
+		4CFA86CB1FFEC3A100F39F99 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86C91FFEC3A100F39F99 /* RepositoryTableViewCell.xib */; };
 		F1B06D9F8CECA74E20BF3D30 /* Pods_desafio_concrete.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB8790C919FF215925AE842 /* Pods_desafio_concrete.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		4CFA86B41FFEBC2200F39F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFA86C11FFEC20800F39F99 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		4CFA86C41FFEC23B00F39F99 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		4CFA86C91FFEC3A100F39F99 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		4DB8790C919FF215925AE842 /* Pods_desafio_concrete.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_concrete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E17CA76746DF846F7BDF8FD /* Pods_desafio_concreteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_concreteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E313495A42F8B8F9B2FBF67 /* Pods-desafio-concrete.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-concrete.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-concrete/Pods-desafio-concrete.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		4CFA869C1FFEBC2200F39F99 /* desafio-concrete */ = {
 			isa = PBXGroup;
 			children = (
+				4CFA86C61FFEC33C00F39F99 /* Views */,
 				4CFA86BE1FFEC1DF00F39F99 /* Scenes */,
 				4CFA86A91FFEBC2200F39F99 /* Info.plist */,
 				4CFA86BD1FFEBE3600F39F99 /* Base */,
@@ -158,6 +163,23 @@
 				4CFA86C41FFEC23B00F39F99 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4CFA86C61FFEC33C00F39F99 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CFA86C71FFEC34000F39F99 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4CFA86C71FFEC34000F39F99 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */,
+				4CFA86C91FFEC3A100F39F99 /* RepositoryTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +274,7 @@
 				4CFA86C51FFEC23B00F39F99 /* Main.storyboard in Resources */,
 				4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */,
 				4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */,
+				4CFA86CB1FFEC3A100F39F99 /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */,
 				4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */,
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
 			);
@@ -545,7 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concrete/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concrete";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -562,7 +586,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concrete/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concrete";
 				PRODUCT_NAME = "$(TARGET_NAME)";
