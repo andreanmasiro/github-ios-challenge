@@ -10,11 +10,11 @@ import UIKit
 
 extension UITableView {
   
-  func registerCell(type: UITableViewCell.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
+  func registerNib(cellClass: UITableViewCell.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
     
-    guard let nibName = customNibName ?? type
+    guard let nibName = customNibName ?? cellClass
       .value(forKey: "defaultNibName") as? String,
-      let identifier = customIdentifier ?? type
+      let identifier = customIdentifier ?? cellClass
         .value(forKey: "defaultIdentifier") as? String else {
       return
     }
@@ -23,18 +23,18 @@ extension UITableView {
     self.register(nib, forCellReuseIdentifier: identifier)
   }
   
-  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(type: T.Type) -> T? {
+  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(cellClass: T.Type) -> T? {
     
-    guard let identifier = type
+    guard let identifier = cellClass
       .value(forKey: "defaultIdentifier") as? String else {
         return nil
     }
     return dequeueReusableCell(withIdentifier: identifier) as? T
   }
   
-  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(type: T.Type, for indexPath: IndexPath) -> T? {
+  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(cellClass: T.Type, for indexPath: IndexPath) -> T? {
     
-    guard let identifier = type
+    guard let identifier = cellClass
       .value(forKey: "defaultIdentifier") as? String else {
       return nil
     }
