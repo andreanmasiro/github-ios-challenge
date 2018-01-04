@@ -6,7 +6,7 @@
 //  Copyright © 2018 Vergil. All rights reserved.
 //
 
-import UIKit.UIColor
+import UIKit
 
 extension UIColor {
   

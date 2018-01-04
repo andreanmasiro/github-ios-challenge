@@ -10,6 +10,14 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
   
+  static var cellHeight: CGFloat {
+    return 100.0
+  }
+  
+  static var defaultNibName: String? {
+    return "RepositoryTableViewCell"
+  }
+  
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var branchCountLabel: UILabel!
