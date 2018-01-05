@@ -9,5 +9,6 @@
 import Foundation
 
 protocol NibLoadableView: class {
+  
   static var defaultNibName: String { get }
 }

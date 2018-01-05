@@ -16,7 +16,8 @@ enum PullRequestListCellModel: IdentifiableType, Equatable {
     title: String,
     description: String,
     authorUsername: String,
-    authorFullName: String
+    authorFullName: String,
+    authorAvatarURL: URL
   )
   
   case pullRequestHeader(
@@ -27,7 +28,7 @@ enum PullRequestListCellModel: IdentifiableType, Equatable {
   var identity: Int {
     
     switch self {
-    case .pullRequest(let id, _, _, _, _):
+    case .pullRequest(let id, _, _, _, _, _):
       return id
     case .pullRequestHeader(_, _):
       return 0
@@ -37,8 +38,8 @@ enum PullRequestListCellModel: IdentifiableType, Equatable {
   static func ==(lhs: PullRequestListCellModel, rhs: PullRequestListCellModel) -> Bool {
     
     switch (lhs, rhs) {
-    case (.pullRequest(let id1, _, _, _, _),
-          .pullRequest(let id2, _, _, _, _)):
+    case (.pullRequest(let id1, _, _, _, _, _),
+          .pullRequest(let id2, _, _, _, _, _)):
       return id1 == id2
     default: return false
     }

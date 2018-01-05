@@ -22,6 +22,7 @@
 		4C98FDFC1FFFE591009B9ACF /* User+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFB1FFFE591009B9ACF /* User+Fake.swift */; };
 		4C98FDFE1FFFE5DA009B9ACF /* Repository+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFD1FFFE5DA009B9ACF /* Repository+Fake.swift */; };
 		4C98FE001FFFE63F009B9ACF /* PullRequest+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFF1FFFE63F009B9ACF /* PullRequest+Fake.swift */; };
+		4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FE031FFFFA00009B9ACF /* Segue.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -70,6 +71,7 @@
 		4C98FDFB1FFFE591009B9ACF /* User+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Fake.swift"; sourceTree = "<group>"; };
 		4C98FDFD1FFFE5DA009B9ACF /* Repository+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Fake.swift"; sourceTree = "<group>"; };
 		4C98FDFF1FFFE63F009B9ACF /* PullRequest+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PullRequest+Fake.swift"; sourceTree = "<group>"; };
+		4C98FE031FFFFA00009B9ACF /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,8 +210,8 @@
 				4CFA86CC1FFECB8A00F39F99 /* Util */,
 				4CFA86C61FFEC33C00F39F99 /* Views */,
 				4CFA86BE1FFEC1DF00F39F99 /* Scenes */,
-				4CFA86A91FFEBC2200F39F99 /* Info.plist */,
 				4CFA86BD1FFEBE3600F39F99 /* Base */,
+				4CFA86A91FFEBC2200F39F99 /* Info.plist */,
 			);
 			path = "desafio-concrete";
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 			children = (
 				4CFA86E41FFEFD9A00F39F99 /* ReusableView.swift */,
 				4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */,
+				4C98FE031FFFFA00009B9ACF /* Segue.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -447,6 +451,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
@@ -572,6 +577,7 @@
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
 				4C98FDFC1FFFE591009B9ACF /* User+Fake.swift in Sources */,
 				4C98FDFA1FFFE4E0009B9ACF /* PullRequest+CellModel.swift in Sources */,
+				4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */,
 				4CFA86DC1FFED89100F39F99 /* User.swift in Sources */,
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
 				4C98FE001FFFE63F009B9ACF /* PullRequest+Fake.swift in Sources */,

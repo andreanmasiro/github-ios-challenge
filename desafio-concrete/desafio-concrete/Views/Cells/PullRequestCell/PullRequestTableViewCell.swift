@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PullRequestTableViewCell: UITableViewCell {
   
@@ -23,6 +24,7 @@ class PullRequestTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
+    setUpImageView()
     authorAvatarImageView.setRound(true)
   }
   
@@ -34,6 +36,10 @@ class PullRequestTableViewCell: UITableViewCell {
     authorFullNameLabel.textColor = UIColor.lightGray
   }
   
+  func setUpImageView() {
+    authorAvatarImageView.kf.indicatorType = .activity
+  }
+  
   func config(model: PullRequestListCellModel) {
     
     guard case let .pullRequest(
@@ -41,12 +47,20 @@ class PullRequestTableViewCell: UITableViewCell {
       title,
       description,
       authorUsername,
-      authorFullname
+      authorFullname,
+      authorAvatarURL
       ) = model else { return }
     
     titleLabel.text = title
     descriptionLabel.text = description
     authorUsernameLabel.text = authorUsername
     authorFullNameLabel.text = authorFullname
+
+    authorAvatarImageView.kf.setImage(with: authorAvatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
+  }
+  
+  override func prepareForReuse() {
+    authorAvatarImageView.kf.cancelDownloadTask()
+    super.prepareForReuse()
   }
 }

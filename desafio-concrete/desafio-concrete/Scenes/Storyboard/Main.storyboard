@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iVb-VW-dtl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nGm-p9-bf7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="Github Java" id="dpF-Si-2iQ"/>
                     <connections>
                         <outlet property="tableView" destination="Qjn-Sa-7d4" id="c9F-v1-gA7"/>
-                        <segue destination="iVb-VW-dtl" kind="show" id="UHe-5r-aGi"/>
+                        <segue destination="iVb-VW-dtl" kind="show" identifier="pullRequestList" id="UHe-5r-aGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAh-eZ-W8w" userLabel="First Responder" sceneMemberID="firstResponder"/>

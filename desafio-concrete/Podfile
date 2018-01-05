@@ -13,6 +13,7 @@ target 'desafio-concrete' do
   pod 'RealmSwift'
   pod 'RxRealm'
   pod 'Action'
+  pod 'Kingfisher', '~> 4.0'
   
   target 'desafio-concreteTests' do
     inherit! :search_paths

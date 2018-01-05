@@ -12,10 +12,14 @@ extension PullRequest {
   
   var cellModel: PullRequestListCellModel {
     
+    guard let url = URL(string: author.avatarPath) else {
+      fatalError("invalid avatar url")
+    }
     return .pullRequest(id: id,
                         title: title,
                         description: description,
                         authorUsername: author.username,
-                        authorFullName: author.fullName)
+                        authorFullName: author.fullName,
+                        authorAvatarURL: url)
   }
 }

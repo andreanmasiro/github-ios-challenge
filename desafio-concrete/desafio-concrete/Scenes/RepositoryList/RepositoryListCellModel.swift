@@ -18,12 +18,13 @@ enum RepositoryListCellModel: IdentifiableType, Equatable {
     branchCount: Int,
     stargazersCount: Int,
     ownerUsername: String,
-    ownerFullName: String
+    ownerFullName: String,
+    ownerAvatarURL: URL
   )
   
   var identity: Int {
     switch self {
-    case .repository(let id, _, _, _, _, _, _):
+    case .repository(let id, _, _, _, _, _, _, _):
       return id
     }
   }
@@ -31,8 +32,8 @@ enum RepositoryListCellModel: IdentifiableType, Equatable {
   static func ==(lhs: RepositoryListCellModel, rhs: RepositoryListCellModel) -> Bool {
     
     switch (lhs, rhs) {
-    case (.repository(let id1, _, _, _, _, _, _),
-      .repository(let id2, _, _, _, _, _, _)):
+    case (.repository(let id1, _, _, _, _, _, _, _),
+      .repository(let id2, _, _, _, _, _, _, _)):
       return id1 == id2
     }
   }

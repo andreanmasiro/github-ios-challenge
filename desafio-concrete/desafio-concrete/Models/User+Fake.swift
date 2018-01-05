@@ -11,7 +11,7 @@ import Foundation
 extension User {
   
   static var fake: User {
-    var fake = User(username: "andreanmasiro",
+    let fake = User(username: "andreanmasiro",
                          fullName: "Andre Rodrigues",
                          avatarPath: "https://bitbucket.org/account/andreanmasiro/avatar/192/?ts=1515094371")
     return fake

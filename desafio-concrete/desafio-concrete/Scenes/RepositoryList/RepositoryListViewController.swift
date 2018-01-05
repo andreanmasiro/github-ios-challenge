@@ -41,6 +41,13 @@ class RepositoryListViewController: UIViewController {
     
     tableView.rx.setDelegate(tableViewDelegate)
       .disposed(by: bag)
+    
+    tableView.rx.itemSelected
+      .subscribe(onNext: { indexPath in
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: Segue.RepositoryListViewController.pullRequestList, sender: nil)
+      })
+      .disposed(by: bag)
   }
   
   var dataSource: RepositoriesDataSource {
@@ -62,5 +69,13 @@ class RepositoryListViewController: UIViewController {
         return cell
     }
     )
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if segue.identifier == Segue.RepositoryListViewController.pullRequestList {
+      
+      
+    }
   }
 }

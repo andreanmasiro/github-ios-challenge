@@ -12,12 +12,16 @@ extension Repository {
   
   var cellModel: RepositoryListCellModel {
     
+    guard let url = URL(string: owner.avatarPath) else {
+      fatalError("invalid avatar url")
+    }
     return .repository(id: id,
                        name: name,
                        description: description,
                        branchCount: branchCount,
                        stargazersCount: stargazersCount,
                        ownerUsername: owner.username,
-                       ownerFullName: owner.fullName)
+                       ownerFullName: owner.fullName,
+                       ownerAvatarURL: url)
   }
 }
