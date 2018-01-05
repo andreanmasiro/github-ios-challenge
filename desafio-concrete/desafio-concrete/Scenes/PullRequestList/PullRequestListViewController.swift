@@ -34,13 +34,18 @@ class PullRequestListViewController: UIViewController {
   
   func bindUI() {
     
-    let viewModel = PullRequestListViewModel()
+    let viewModel = PullRequestListViewModel(repository: Repository.fake(owner: User.fake))
     
     tableView.rx.setDelegate(tableViewDelegate)
       .disposed(by: bag)
     
     viewModel.sectionedPullRequests
       .drive(tableView.rx.items(dataSource: dataSource))
+      .disposed(by: bag)
+    
+    viewModel.repository.asDriver()
+      .map { $0.name }
+      .drive(navigationItem.rx.title)
       .disposed(by: bag)
   }
   

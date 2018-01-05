@@ -15,19 +15,24 @@ typealias PullRequestsSection = AnimatableSectionModel<PullRequestListCellModel,
 
 struct PullRequestListViewModel {
   
-  let author = User.fake
+  let repository: Variable<Repository>
+  
+  init(repository: Repository) {
+    self.repository = Variable(repository)
+  }
+  
+  let fakeAuthor = User.fake
   var pullRequests: [PullRequest] {
     return [
-      PullRequest.fake(author: author),
-      PullRequest.fake(author: author),
-      PullRequest.fake(author: author)
+      PullRequest.fake(author: fakeAuthor),
+      PullRequest.fake(author: fakeAuthor),
+      PullRequest.fake(author: fakeAuthor)
     ]
   }
   var headerData: (openCount: Int, closedCount: Int) {
     let openCount = pullRequests.filter { $0.open }.count
     return (openCount, pullRequests.count - openCount)
   }
-  
   
   var sectionedPullRequests: Driver<[PullRequestsSection]> {
     
