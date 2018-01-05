@@ -58,33 +58,33 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QDb-PP-buZ">
-                        <rect key="frame" x="321.5" y="10" width="39.5" height="39.5"/>
+                        <rect key="frame" x="310.5" y="22.5" width="39.5" height="39.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="QDb-PP-buZ" secondAttribute="height" multiplier="1:1" id="xRK-7x-JyK"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-vA-fVH">
-                        <rect key="frame" x="317.5" y="55" width="47.5" height="12"/>
+                        <rect key="frame" x="306.5" y="67.5" width="47.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QDb-PP-buZ" secondAttribute="trailing" constant="25" id="2ur-Rl-7HL"/>
                     <constraint firstItem="xSF-g2-459" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3xt-DR-bGI"/>
                     <constraint firstItem="mfs-XF-U3a" firstAttribute="centerY" secondItem="O04-18-dJF" secondAttribute="centerY" id="62k-UB-wIt"/>
                     <constraint firstItem="QDb-PP-buZ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2/5" id="DsR-gG-1VO"/>
                     <constraint firstItem="fxd-nJ-RB5" firstAttribute="leading" secondItem="O04-18-dJF" secondAttribute="trailing" id="E3e-Wh-XlJ"/>
                     <constraint firstItem="Q22-vA-fVH" firstAttribute="centerX" secondItem="QDb-PP-buZ" secondAttribute="centerX" id="Et3-Hi-48S"/>
+                    <constraint firstItem="QDb-PP-buZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LdT-gw-dzg" secondAttribute="trailing" constant="20" id="GKe-X3-7Ca"/>
                     <constraint firstItem="Q22-vA-fVH" firstAttribute="top" secondItem="QDb-PP-buZ" secondAttribute="bottom" constant="5" id="IWN-9x-em6"/>
                     <constraint firstItem="fxd-nJ-RB5" firstAttribute="centerY" secondItem="O04-18-dJF" secondAttribute="centerY" id="O82-W6-Uce"/>
-                    <constraint firstItem="Q22-vA-fVH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LdT-gw-dzg" secondAttribute="trailing" constant="20" id="Q2I-Ae-Pd1"/>
                     <constraint firstItem="mfs-XF-U3a" firstAttribute="height" secondItem="O04-18-dJF" secondAttribute="height" id="RSx-f6-1hk"/>
                     <constraint firstItem="LdT-gw-dzg" firstAttribute="leading" secondItem="xSF-g2-459" secondAttribute="leading" id="W0N-EL-g9U"/>
                     <constraint firstItem="e62-sR-8Ld" firstAttribute="leading" secondItem="mfs-XF-U3a" secondAttribute="trailing" constant="3" id="WfC-rZ-s2W"/>
-                    <constraint firstItem="QDb-PP-buZ" firstAttribute="top" secondItem="xSF-g2-459" secondAttribute="top" id="YuG-li-lbA"/>
                     <constraint firstItem="LdT-gw-dzg" firstAttribute="top" secondItem="xSF-g2-459" secondAttribute="bottom" constant="5" id="b9a-KL-0MX"/>
-                    <constraint firstAttribute="trailing" secondItem="Q22-vA-fVH" secondAttribute="trailing" constant="10" id="e6R-iR-RV7"/>
+                    <constraint firstItem="QDb-PP-buZ" firstAttribute="centerY" secondItem="LdT-gw-dzg" secondAttribute="centerY" id="g8L-TD-yPp"/>
                     <constraint firstItem="xSF-g2-459" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="iMf-Zv-zc9"/>
                     <constraint firstItem="O04-18-dJF" firstAttribute="top" secondItem="LdT-gw-dzg" secondAttribute="bottom" constant="8" id="jEU-6n-QY0"/>
                     <constraint firstItem="e62-sR-8Ld" firstAttribute="centerY" secondItem="mfs-XF-U3a" secondAttribute="centerY" id="kav-Wo-ejI"/>

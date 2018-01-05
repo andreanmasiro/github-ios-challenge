@@ -33,7 +33,7 @@ extension Scene {
       vc.loadViewIfNeeded()
       vc.bindUI(viewModel: viewModel)
       
-      return vc
+      return nc
       
     case .pullRequestList(let viewModel):
       
