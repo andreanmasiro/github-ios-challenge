@@ -28,7 +28,20 @@ class PullRequestListViewController: UIViewController {
     
     registerNibs()
     configDataSource()
+    bindUI()
     super.viewDidLoad()
+  }
+  
+  func bindUI() {
+    
+    let viewModel = PullRequestListViewModel()
+    
+    tableView.rx.setDelegate(tableViewDelegate)
+      .disposed(by: bag)
+    
+    viewModel.sectionedPullRequests
+      .drive(tableView.rx.items(dataSource: dataSource))
+      .disposed(by: bag)
   }
   
   func registerNibs() {

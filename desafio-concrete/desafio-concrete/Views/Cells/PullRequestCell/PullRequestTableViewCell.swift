@@ -11,7 +11,7 @@ import UIKit
 class PullRequestTableViewCell: UITableViewCell {
   
   static var cellHeight: CGFloat {
-    return 120.0
+    return 130.0
   }
   
   @IBOutlet weak var titleLabel: UILabel!
