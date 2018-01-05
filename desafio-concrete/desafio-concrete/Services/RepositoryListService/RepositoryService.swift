@@ -29,7 +29,6 @@ struct RepositoryService: RepositoryServiceType {
     repositories = BehaviorSubject<[Repository]>(value: gatheringRepositories.value)
     
     gatheringRepositories.asObservable()
-      .debug()
       .bind(to: repositories)
       .disposed(by: bag)
   }

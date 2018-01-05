@@ -16,17 +16,27 @@ typealias RepositoriesDataSource = RxTableViewSectionedAnimatedDataSource<Reposi
 class RepositoryListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
   let bag = DisposeBag()
   let tableViewDelegate = RepositoryTableViewDelegate()
+  let bottomMargin = CGFloat(10)
+  lazy var reloadBottomOffsetThreshold = {
+    return $0 + $1
+  }(bottomMargin, loadIndicator.bounds.height)
   
   override func viewDidLoad() {
     
     registerNibs()
+    setUpTableView()
     super.viewDidLoad()
   }
   
   func registerNibs() {
     tableView.registerNib(RepositoryTableViewCell.self)
+  }
+  
+  func setUpTableView() {
+    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomMargin, right: 0)
   }
   
   func bindUI(viewModel: RepositoryListViewModel) {
@@ -41,7 +51,16 @@ class RepositoryListViewController: UIViewController {
     tableView.rx.itemSelected
       .subscribe(onNext: { indexPath in
         self.tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: Segue.RepositoryListViewController.pullRequestList, sender: nil)
+      })
+      .disposed(by: bag)
+    
+    tableView.rx.contentOffset
+      .map { $0.y > self.tableView.contentSize.height - self.tableView.bounds.height - self.reloadBottomOffsetThreshold }
+      .distinctUntilChanged()
+      .filter { $0 && !viewModel.loading.value }
+      .debug()
+      .subscribe(onNext: { _ in
+        viewModel.loadNextPage()
       })
       .disposed(by: bag)
   }
