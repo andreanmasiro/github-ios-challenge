@@ -31,9 +31,9 @@ class RepositoryTableViewCell: UITableViewCell {
     setUpColors()
   }
   
-  func configure(model: RepositoryListCellModels) {
+  func configure(model: RepositoryListCellModel) {
     
-    if case let RepositoryListCellModels.repository(_, name, description, branchCount, stargazersCount, ownerUsername, ownerFullName) = model {
+    if case let .repository(_, name, description, branchCount, stargazersCount, ownerUsername, ownerFullName) = model {
       
       nameLabel.text = name
       descriptionLabel.text = description

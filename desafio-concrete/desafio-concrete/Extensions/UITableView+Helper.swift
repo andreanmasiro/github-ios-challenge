@@ -10,7 +10,7 @@ import UIKit
 
 extension UITableView {
   
-  func registerNib<T: UITableViewCell & UITableViewCellHelper>(_: T.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
+  func registerNib<T: UITableViewCell>(_: T.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
     
     let nibName = customNibName ?? T.defaultNibName
     let identifier = customIdentifier ?? T.defaultReuseIdentifier

@@ -21,14 +21,14 @@ extension UITableViewCellHelper where Self: UITableViewCell {
 extension ReusableView where Self: UITableViewCell {
   
   static var defaultReuseIdentifier: String {
-    return NSStringFromClass(self)
+    return className
   }
 }
 
 extension NibLoadableView where Self: UITableViewCell {
   
   static var defaultNibName: String {
-    return String(NSStringFromClass(self).split(separator: ".").last ?? "")
+    return className
   }
 }
 

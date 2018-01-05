@@ -19,4 +19,7 @@ extension UIColor {
     )
     return UIColor(red: r, green: g, blue: b, alpha: alpha)
   }
+  
+  static let golden = UIColor.with(rgb: 0xDF9305)
+  static let oilBlue = UIColor.with(rgb: 0x638EDC)
 }

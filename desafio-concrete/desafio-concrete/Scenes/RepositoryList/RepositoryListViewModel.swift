@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-typealias RepositoriesSection = AnimatableSectionModel<String, RepositoryListCellModels>
+typealias RepositoriesSection = AnimatableSectionModel<String, RepositoryListCellModel>
 
 struct RepositoryListViewModel {
   
@@ -32,7 +32,7 @@ struct RepositoryListViewModel {
   var sectionedRepositories: Driver<[RepositoriesSection]> {
     
     let items = fakeRepositories.map {
-      RepositoryListCellModels
+      RepositoryListCellModel
         .repository(id: $0.id,
                     name: $0.name,
                     description: $0.description,

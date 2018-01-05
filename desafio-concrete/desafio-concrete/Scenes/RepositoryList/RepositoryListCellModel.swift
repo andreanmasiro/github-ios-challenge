@@ -1,5 +1,5 @@
 //
-//  RepositoryListCellModels.swift
+//  RepositoryListCellModel.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 04/01/18.
@@ -9,7 +9,7 @@
 import Foundation
 import RxDataSources
 
-enum RepositoryListCellModels: IdentifiableType, Equatable {
+enum RepositoryListCellModel: IdentifiableType, Equatable {
   
   case repository(
     id: Int,
@@ -28,7 +28,7 @@ enum RepositoryListCellModels: IdentifiableType, Equatable {
     }
   }
   
-  static func ==(lhs: RepositoryListCellModels, rhs: RepositoryListCellModels) -> Bool {
+  static func ==(lhs: RepositoryListCellModel, rhs: RepositoryListCellModel) -> Bool {
     
     switch (lhs, rhs) {
     case (.repository(let id1, _, _, _, _, _, _),
