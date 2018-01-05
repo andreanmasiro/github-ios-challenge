@@ -28,13 +28,9 @@ extension UIView {
     }
   }
   
-  @IBInspectable var makeRound: Bool {
-    get {
-      return layer.cornerRadius == bounds.height/2
-    }
-    set {
-      layer.cornerRadius = newValue ? bounds.height/2 : 0
-      masksToBounds = newValue
-    }
+  func setRound(_ round: Bool) {
+    
+    cornerRadius = round ? bounds.height/2 : 0
+    masksToBounds = round
   }
 }

@@ -29,6 +29,7 @@ class RepositoryTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
+    userAvatarImageView.setRound(true)
   }
   
   func configure(model: RepositoryListCellModel) {

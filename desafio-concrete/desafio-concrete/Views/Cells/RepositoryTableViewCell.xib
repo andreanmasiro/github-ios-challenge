@@ -62,9 +62,6 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="QDb-PP-buZ" secondAttribute="height" multiplier="1:1" id="xRK-7x-JyK"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="makeRound" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-vA-fVH">
                         <rect key="frame" x="317.5" y="55" width="47.5" height="12"/>
