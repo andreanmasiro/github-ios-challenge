@@ -14,14 +14,6 @@ class RepositoryTableViewCell: UITableViewCell {
     return 100.0
   }
   
-  static var defaultNibName: String? {
-    return "RepositoryTableViewCell"
-  }
-  
-  static var defaultIdentifier: String? {
-    return "RepositoryTableViewCell"
-  }
-  
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var branchCountLabel: UILabel!
@@ -37,6 +29,21 @@ class RepositoryTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
+    
+  }
+  
+  func configure(model: RepositoryListCellModels) {
+    
+    if case let RepositoryListCellModels.repository(_, name, description, branchCount, stargazersCount, ownerUsername, ownerFullName) = model {
+      
+      nameLabel.text = name
+      descriptionLabel.text = description
+      branchCountLabel.text = String(branchCount)
+      stargazersCountLabel.text = String(stargazersCount)
+      
+      usernameLabel.text = ownerUsername
+      userFullNameLabel.text = ownerFullName
+    }
   }
   
   func setUpColors() {

@@ -10,34 +10,22 @@ import UIKit
 
 extension UITableView {
   
-  func registerNib(cellClass: UITableViewCell.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
+  func registerNib<T: UITableViewCell & UITableViewCellHelper>(_: T.Type, customIdentifier: String? = nil, customNibName: String? = nil) {
     
-    guard let nibName = customNibName ?? cellClass
-      .value(forKey: "defaultNibName") as? String,
-      let identifier = customIdentifier ?? cellClass
-        .value(forKey: "defaultIdentifier") as? String else {
-      return
-    }
+    let nibName = customNibName ?? T.defaultNibName
+    let identifier = customIdentifier ?? T.defaultReuseIdentifier
     
     let nib = UINib(nibName: nibName, bundle: nil)
     self.register(nib, forCellReuseIdentifier: identifier)
   }
   
-  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(cellClass: T.Type) -> T? {
+  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(_: T.Type) -> T? {
     
-    guard let identifier = cellClass
-      .value(forKey: "defaultIdentifier") as? String else {
-        return nil
-    }
-    return dequeueReusableCell(withIdentifier: identifier) as? T
+    return dequeueReusableCell(withIdentifier: T.defaultReuseIdentifier) as? T
   }
   
-  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(cellClass: T.Type, for indexPath: IndexPath) -> T? {
+  func dequeueReusableCellWithDefaultIdentifier<T: UITableViewCell>(_: T.Type, for indexPath: IndexPath) -> T? {
     
-    guard let identifier = cellClass
-      .value(forKey: "defaultIdentifier") as? String else {
-      return nil
-    }
-    return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T
+    return dequeueReusableCell(withIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T
   }
 }

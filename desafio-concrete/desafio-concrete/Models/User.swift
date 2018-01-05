@@ -13,4 +13,13 @@ struct User: Codable {
   var username: String
   var fullName: String
   var avatarPath: String
+  
+  init(username: String,
+       fullName: String,
+       avatarPath: String) {
+    
+    self.username = username
+    self.fullName = fullName
+    self.avatarPath = avatarPath
+  }
 }

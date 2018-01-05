@@ -10,22 +10,26 @@ import UIKit
 
 protocol UITableViewCellHelper: class {
   static var cellHeight: CGFloat { get }
-  static var defaultNibName: String? { get }
-  static var defaultIdentifier: String? { get }
 }
 
-extension UITableViewCellHelper {
+extension UITableViewCellHelper where Self: UITableViewCell {
   static var cellHeight: CGFloat {
     return 44.0
   }
+}
+
+extension ReusableView where Self: UITableViewCell {
   
-  static var defaultNibName: String? {
-    return nil
-  }
-  
-  static var defaultIdentifier: String? {
-    return nil
+  static var defaultReuseIdentifier: String {
+    return NSStringFromClass(self)
   }
 }
-extension UITableViewCell: UITableViewCellHelper {
+
+extension NibLoadableView where Self: UITableViewCell {
+  
+  static var defaultNibName: String {
+    return String(NSStringFromClass(self).split(separator: ".").last ?? "")
+  }
 }
+
+extension UITableViewCell: ReusableView, NibLoadableView, UITableViewCellHelper { }
