@@ -34,7 +34,15 @@ class RepositoryTableViewCell: UITableViewCell {
   
   func configure(model: RepositoryListCellModel) {
     
-    if case let .repository(_, name, description, branchCount, stargazersCount, ownerUsername, ownerFullName) = model {
+    if case let .repository(
+      _,
+      name,
+      description,
+      branchCount,
+      stargazersCount,
+      ownerUsername,
+      ownerFullName
+      ) = model {
       
       nameLabel.text = name
       descriptionLabel.text = description

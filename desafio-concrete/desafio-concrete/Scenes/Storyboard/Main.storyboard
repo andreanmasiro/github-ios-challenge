@@ -37,11 +37,45 @@
                     <navigationItem key="navigationItem" title="Github Java" id="dpF-Si-2iQ"/>
                     <connections>
                         <outlet property="tableView" destination="Qjn-Sa-7d4" id="c9F-v1-gA7"/>
+                        <segue destination="iVb-VW-dtl" kind="show" id="UHe-5r-aGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAh-eZ-W8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="375" y="-116"/>
+        </scene>
+        <!--Pull Request List View Controller-->
+        <scene sceneID="8UO-EW-hNO">
+            <objects>
+                <viewController id="iVb-VW-dtl" customClass="PullRequestListViewController" customModule="desafio_concrete" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h48-TX-DQe"/>
+                        <viewControllerLayoutGuide type="bottom" id="z0J-T0-gOW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rkx-PS-9ff">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opp-SP-hUp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="opp-SP-hUp" firstAttribute="leading" secondItem="rkx-PS-9ff" secondAttribute="leading" id="Ke4-pY-J82"/>
+                            <constraint firstItem="z0J-T0-gOW" firstAttribute="top" secondItem="opp-SP-hUp" secondAttribute="bottom" id="dNJ-OK-ja6"/>
+                            <constraint firstAttribute="trailing" secondItem="opp-SP-hUp" secondAttribute="trailing" id="ehY-aa-SQE"/>
+                            <constraint firstItem="opp-SP-hUp" firstAttribute="top" secondItem="h48-TX-DQe" secondAttribute="bottom" id="kKl-Ae-Lfr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="opp-SP-hUp" id="T7n-QM-z2K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ank-qm-uXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="-116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yew-VQ-Pd5">

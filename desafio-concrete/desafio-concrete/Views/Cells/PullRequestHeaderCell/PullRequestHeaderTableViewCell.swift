@@ -20,4 +20,13 @@ class PullRequestHeaderTableViewCell: UITableViewCell {
     super.awakeFromNib()
     // Initialization code
   }
+  
+  func config(model: PullRequestListCellModel) {
+    
+    guard case let .pullRequestHeader(closedCount, openCount) = model else {
+      return
+    }
+    
+    // config with attributed text
+  }
 }

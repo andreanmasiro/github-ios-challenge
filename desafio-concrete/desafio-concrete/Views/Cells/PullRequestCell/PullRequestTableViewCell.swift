@@ -33,4 +33,20 @@ class PullRequestTableViewCell: UITableViewCell {
     
     authorFullNameLabel.textColor = UIColor.lightGray
   }
+  
+  func config(model: PullRequestListCellModel) {
+    
+    guard case let .pullRequest(
+      _,
+      title,
+      description,
+      authorUsername,
+      authorFullname
+      ) = model else { return }
+    
+    titleLabel.text = title
+    descriptionLabel.text = description
+    authorUsernameLabel.text = authorUsername
+    authorFullNameLabel.text = authorFullname
+  }
 }

@@ -10,12 +10,12 @@ import Foundation
 
 struct Repository: Codable {
   
-  var id: Int
-  var name: String
-  var description: String
-  var branchCount: Int
-  var stargazersCount: Int
-  var owner: User
+  let id: Int
+  let name: String
+  let description: String
+  let branchCount: Int
+  let stargazersCount: Int
+  let owner: User
   
   init(id: Int,
        name: String,

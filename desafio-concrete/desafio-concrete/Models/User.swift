@@ -10,9 +10,9 @@ import Foundation
 
 struct User: Codable {
   
-  var username: String
-  var fullName: String
-  var avatarPath: String
+  let username: String
+  let fullName: String
+  let avatarPath: String
   
   init(username: String,
        fullName: String,
