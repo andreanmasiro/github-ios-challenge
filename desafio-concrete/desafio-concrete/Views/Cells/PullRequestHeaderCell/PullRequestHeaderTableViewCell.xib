@@ -19,20 +19,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="34.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 opened/800 closed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rh-Jr-asn">
-                        <rect key="frame" x="88" y="10" width="144.5" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 open / 800 closed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rh-Jr-asn">
+                        <rect key="frame" x="93" y="10" width="135" height="16"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxy-X3-kjd">
+                        <rect key="frame" x="0.0" y="33.5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Xkz-ij-vlO"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mxy-X3-kjd" secondAttribute="bottom" id="7nG-zF-knr"/>
+                    <constraint firstAttribute="trailing" secondItem="mxy-X3-kjd" secondAttribute="trailing" id="Bkr-Uo-gq9"/>
                     <constraint firstItem="0rh-Jr-asn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F56-C8-UCM"/>
                     <constraint firstItem="0rh-Jr-asn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fke-QC-8Uf"/>
+                    <constraint firstItem="mxy-X3-kjd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u43-TJ-p9y"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="statusLabel" destination="0rh-Jr-asn" id="J6V-Tr-Lnw"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="53.5"/>
         </tableViewCell>
     </objects>
 </document>

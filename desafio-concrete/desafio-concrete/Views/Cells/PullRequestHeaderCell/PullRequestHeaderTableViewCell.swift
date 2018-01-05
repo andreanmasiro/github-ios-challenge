@@ -27,6 +27,17 @@ class PullRequestHeaderTableViewCell: UITableViewCell {
       return
     }
     
-    // config with attributed text
+    let openText = "\(openCount) open "
+    let closedText = "/ \(closedCount) closed"
+    
+    let text = NSMutableAttributedString(string: openText + closedText)
+    
+    let goldenRange = NSRange.init(location: 0, length: openText.count)
+    let blackRange = NSRange.init(location: openText.count, length: closedText.count)
+    
+    text.addAttribute(.foregroundColor, value: UIColor.golden, range: goldenRange)
+    text.addAttribute(.foregroundColor, value: UIColor.black, range: blackRange)
+    
+    statusLabel.attributedText = text
   }
 }
