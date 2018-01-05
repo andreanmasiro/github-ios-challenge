@@ -16,14 +16,18 @@ enum RepositoryServiceError: Error {
 
 struct RepositoryService: RepositoryServiceType {
 
-  private let apiPath = "https://api.github.com/search/repositories?q=language:Java&sort=stars&page="
+  private let apiPath: String
+  
+  init(apiPath: String) {
+    self.apiPath = apiPath
+  }
   
   func getRepositoryList(page: Int) -> Observable<[Repository]> {
     
-    let path = apiPath + "\(page)"
-    guard let url = URL(string: path) else {
-      return Observable.error(RepositoryServiceError.invalidURLPath(path))
+    guard let url = URL(string: apiPath + "&page=\(page)") else {
+      return Observable.error(RepositoryServiceError.invalidURLPath(apiPath))
     }
+//    let params = ["page": page]
     
     return RxAlamofire
       .requestData(.get, url)

@@ -15,6 +15,12 @@
 		4C6633A8200011480045A1A2 /* Repository+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */; };
 		4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A92000118D0045A1A2 /* PullRequest+Identifiable.swift */; };
 		4C6633AC20001A2E0045A1A2 /* PullRequestHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633AB20001A2E0045A1A2 /* PullRequestHeaderModel.swift */; };
+		4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633AD20001C880045A1A2 /* APIPaths.swift */; };
+		4C6633B120001D520045A1A2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B020001D520045A1A2 /* Scene.swift */; };
+		4C6633B720001E800045A1A2 /* StoryboardIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */; };
+		4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */; };
+		4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */; };
+		4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BE200021750045A1A2 /* SceneTransition.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
 		4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */; };
 		4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */; };
@@ -64,6 +70,12 @@
 		4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Identifiable.swift"; sourceTree = "<group>"; };
 		4C6633A92000118D0045A1A2 /* PullRequest+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PullRequest+Identifiable.swift"; sourceTree = "<group>"; };
 		4C6633AB20001A2E0045A1A2 /* PullRequestHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderModel.swift; sourceTree = "<group>"; };
+		4C6633AD20001C880045A1A2 /* APIPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPaths.swift; sourceTree = "<group>"; };
+		4C6633B020001D520045A1A2 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifier.swift; sourceTree = "<group>"; };
+		4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
+		4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		4C6633BE200021750045A1A2 /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +161,7 @@
 			children = (
 				4C6633A2200008CF0045A1A2 /* RepositoryListService */,
 				4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */,
+				4C6633AD20001C880045A1A2 /* APIPaths.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -161,6 +174,17 @@
 				4C6633A520000B190045A1A2 /* RepositoryListHelper.swift */,
 			);
 			path = RepositoryListService;
+			sourceTree = "<group>";
+		};
+		4C6633AF20001D3F0045A1A2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4C6633B020001D520045A1A2 /* Scene.swift */,
+				4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */,
+				4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */,
+				4C6633BE200021750045A1A2 /* SceneTransition.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		4C98FDE01FFFD15F009B9ACF /* RepositoryCell */ = {
@@ -224,6 +248,7 @@
 		4CFA869C1FFEBC2200F39F99 /* desafio-concrete */ = {
 			isa = PBXGroup;
 			children = (
+				4C6633AF20001D3F0045A1A2 /* Coordinator */,
 				4C66339D200006B60045A1A2 /* Services */,
 				4CFA86D81FFED83100F39F99 /* Models */,
 				4CFA86CF1FFECC0300F39F99 /* Extensions */,
@@ -307,6 +332,7 @@
 				4CFA86E41FFEFD9A00F39F99 /* ReusableView.swift */,
 				4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */,
 				4C98FE031FFFFA00009B9ACF /* Segue.swift */,
+				4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -576,6 +602,8 @@
 			files = (
 				4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */,
 				4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */,
+				4C6633B120001D520045A1A2 /* Scene.swift in Sources */,
+				4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */,
 				4CFA86D71FFED6D400F39F99 /* RepositoryListViewModel.swift in Sources */,
 				4C6633AC20001A2E0045A1A2 /* PullRequestHeaderModel.swift in Sources */,
 				4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */,
@@ -584,13 +612,17 @@
 				4CFA86D11FFECC0F00F39F99 /* UIColor+Colors.swift in Sources */,
 				4CFA86E51FFEFD9A00F39F99 /* ReusableView.swift in Sources */,
 				4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */,
+				4C6633B720001E800045A1A2 /* StoryboardIdentifier.swift in Sources */,
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
+				4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */,
 				4C98FDF61FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
 				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Helper.swift in Sources */,
+				4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */,
 				4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */,
 				4CFA86D51FFED09F00F39F99 /* UITableView+Helper.swift in Sources */,
 				4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */,
+				4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */,
 				4C6633A620000B190045A1A2 /* RepositoryListHelper.swift in Sources */,
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
 				4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */,

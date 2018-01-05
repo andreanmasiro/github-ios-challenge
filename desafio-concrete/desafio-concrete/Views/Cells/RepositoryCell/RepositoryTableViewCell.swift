@@ -62,6 +62,6 @@ class RepositoryTableViewCell: UITableViewCell {
   
   override func prepareForReuse() {
     userAvatarImageView.kf.cancelDownloadTask()
-    prepareForReuse()
+    super.prepareForReuse()
   }
 }

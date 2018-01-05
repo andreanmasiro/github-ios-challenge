@@ -37,7 +37,6 @@
                     <navigationItem key="navigationItem" title="Github Java" id="dpF-Si-2iQ"/>
                     <connections>
                         <outlet property="tableView" destination="Qjn-Sa-7d4" id="c9F-v1-gA7"/>
-                        <segue destination="iVb-VW-dtl" kind="show" identifier="pullRequestList" id="UHe-5r-aGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAh-eZ-W8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +46,7 @@
         <!--Pull Request List View Controller-->
         <scene sceneID="8UO-EW-hNO">
             <objects>
-                <viewController id="iVb-VW-dtl" customClass="PullRequestListViewController" customModule="desafio_concrete" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pullRequestList" id="iVb-VW-dtl" customClass="PullRequestListViewController" customModule="desafio_concrete" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h48-TX-DQe"/>
                         <viewControllerLayoutGuide type="bottom" id="z0J-T0-gOW"/>
@@ -57,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opp-SP-hUp">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -80,7 +79,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Yew-VQ-Pd5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nGm-p9-bf7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="repositoryListNav" automaticallyAdjustsScrollViewInsets="NO" id="nGm-p9-bf7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uzA-pQ-V0z">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

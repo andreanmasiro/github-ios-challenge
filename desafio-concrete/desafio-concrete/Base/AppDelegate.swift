@@ -14,6 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    let coordinator = SceneCoordinator(window: window)
+    
+    let repositoryService = RepositoryService(apiPath: APIPaths.repositories)
+    
+    let repositoryViewModel = RepositoryListViewModel(coordinator: coordinator, service: repositoryService)
+      
+    coordinator.transition(.root,
+                           to: .repositoryList(repositoryViewModel))
+    
+    self.window = window
+    
     return true
   }
 }

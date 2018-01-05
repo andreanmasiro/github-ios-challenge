@@ -15,6 +15,7 @@ typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
 
+  private let coordinator: SceneCoordinator
   private let pullRequests = Variable<[PullRequest]>([])
   private let service: PullRequestServiceType
   
@@ -22,8 +23,9 @@ struct PullRequestListViewModel {
   let repositoryName: Driver<String>
   let headerModels: Driver<[PullRequestHeaderModel]>
   
-  init(service: PullRequestServiceType, repositoryName: String) {
+  init(coordinator: SceneCoordinator, service: PullRequestServiceType, repositoryName: String) {
     
+    self.coordinator = coordinator
     self.service = service
     
     self.repositoryName = Driver.just(repositoryName)
