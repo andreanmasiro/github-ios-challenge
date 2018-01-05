@@ -27,6 +27,7 @@
 		4CFA86E51FFEFD9A00F39F99 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86E41FFEFD9A00F39F99 /* ReusableView.swift */; };
 		4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */; };
 		4CFA86E91FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86E81FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift */; };
+		4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */; };
 		F1B06D9F8CECA74E20BF3D30 /* Pods_desafio_concrete.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB8790C919FF215925AE842 /* Pods_desafio_concrete.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		4CFA86E41FFEFD9A00F39F99 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		4CFA86E81FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableViewDelegate.swift; sourceTree = "<group>"; };
+		4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		4DB8790C919FF215925AE842 /* Pods_desafio_concrete.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_concrete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E17CA76746DF846F7BDF8FD /* Pods_desafio_concreteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafio_concreteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E313495A42F8B8F9B2FBF67 /* Pods-desafio-concrete.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-concrete.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-concrete/Pods-desafio-concrete.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				4CFA86D01FFECC0F00F39F99 /* UIColor+RGB.swift */,
 				4CFA86D21FFECEED00F39F99 /* UITableViewCell+Helper.swift */,
 				4CFA86D41FFED09F00F39F99 /* UITableView+Helper.swift */,
+				4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Helper.swift in Sources */,
 				4CFA86E01FFEEA2900F39F99 /* RepositoryListCellModels.swift in Sources */,
 				4CFA86D51FFED09F00F39F99 /* UITableView+Helper.swift in Sources */,
+				4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */,
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
 				4CFA86CE1FFECB9A00F39F99 /* Constants.swift in Sources */,
 				4CFA86DC1FFED89100F39F99 /* User.swift in Sources */,

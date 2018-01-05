@@ -29,7 +29,6 @@ class RepositoryTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
-    
   }
   
   func configure(model: RepositoryListCellModels) {
