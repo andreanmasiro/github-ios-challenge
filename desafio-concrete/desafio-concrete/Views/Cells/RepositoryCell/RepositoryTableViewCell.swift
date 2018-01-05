@@ -17,14 +17,13 @@ class RepositoryTableViewCell: UITableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  @IBOutlet weak var branchCountLabel: UILabel!
+  @IBOutlet weak var forksCountLabel: UILabel!
   @IBOutlet weak var stargazersCountLabel: UILabel!
   
   @IBOutlet weak var userAvatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
-  @IBOutlet weak var userFullNameLabel: UILabel!
   
-  @IBOutlet weak var branchImageView: UIImageView!
+  @IBOutlet weak var forkImageView: UIImageView!
   @IBOutlet weak var stargazerImageView: UIImageView!
   
   override func awakeFromNib() {
@@ -39,41 +38,26 @@ class RepositoryTableViewCell: UITableViewCell {
   }
   
   func setUpColors() {
-    branchImageView.tintColor = UIColor.golden
+    forkImageView.tintColor = UIColor.golden
     stargazerImageView.tintColor = UIColor.golden
     
-    branchCountLabel.textColor = UIColor.golden
+    forksCountLabel.textColor = UIColor.golden
     stargazersCountLabel.textColor = UIColor.golden
     
     nameLabel.textColor = UIColor.oilBlue
     usernameLabel.textColor = UIColor.oilBlue
-    
-    userFullNameLabel.textColor = UIColor.lightGray
   }
   
-  func configure(model: RepositoryListCellModel) {
+  func configure(model: Repository) {
     
-    if case let .repository(
-      _,
-      name,
-      description,
-      branchCount,
-      stargazersCount,
-      ownerUsername,
-      ownerFullName,
-      ownerAvatarURL
-      ) = model {
+      nameLabel.text = model.name
+      descriptionLabel.text = model.description
+      forksCountLabel.text = String(model.forksCount)
+      stargazersCountLabel.text = String(model.stargazersCount)
       
-      nameLabel.text = name
-      descriptionLabel.text = description
-      branchCountLabel.text = String(branchCount)
-      stargazersCountLabel.text = String(stargazersCount)
+      usernameLabel.text = model.owner.username
       
-      usernameLabel.text = ownerUsername
-      userFullNameLabel.text = ownerFullName
-      
-      userAvatarImageView.kf.setImage(with: ownerAvatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
-    }
+      userAvatarImageView.kf.setImage(with: model.owner.avatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
   }
   
   override func prepareForReuse() {

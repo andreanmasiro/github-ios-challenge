@@ -1,15 +1,14 @@
 //
-//  PullRequestListCellModel.swift
+//  PullRequestServiceType.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 05/01/18.
 //  Copyright © 2018 Vergil. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
-struct PullRequestHeaderModel {
+protocol PullRequestServiceType {
   
-  let openCount: Int
-  let closedCount: Int
+  func getPullRequestList(href: URL) -> Observable<[PullRequest]>
 }

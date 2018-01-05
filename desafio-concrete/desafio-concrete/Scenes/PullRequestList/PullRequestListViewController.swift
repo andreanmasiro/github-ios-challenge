@@ -17,7 +17,7 @@ class PullRequestListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   let bag = DisposeBag()
-  var tableViewDelegate: PullRequestListTableViewDelegate!
+  let tableViewDelegate = PullRequestListTableViewDelegate()
   
   override func viewDidLoad() {
     
@@ -28,22 +28,22 @@ class PullRequestListViewController: UIViewController {
   
   func bindUI() {
     
-    let viewModel = PullRequestListViewModel(repository: Repository.fake(owner: User.fake))
+//    let viewModel = PullRequestListViewModel(repository: )
     
-    let dataSource = self.dataSource
-    
-    configTableViewDelegate(dataSource: dataSource)
-    tableView.rx.setDelegate(tableViewDelegate)
-      .disposed(by: bag)
-    
-    viewModel.sectionedPullRequests
-      .drive(tableView.rx.items(dataSource: dataSource))
-      .disposed(by: bag)
-    
-    viewModel.repository.asDriver()
-      .map { $0.name }
-      .drive(navigationItem.rx.title)
-      .disposed(by: bag)
+//    let dataSource = self.dataSource
+//
+//    tableViewDelegate.headerModels = viewModel.headerModels sort of
+//    tableView.rx.setDelegate(tableViewDelegate)
+//      .disposed(by: bag)
+//    
+//    viewModel.sectionedPullRequests
+//      .drive(tableView.rx.items(dataSource: dataSource))
+//      .disposed(by: bag)
+//    
+//    viewModel.repository.asDriver()
+//      .map { $0.name }
+//      .drive(navigationItem.rx.title)
+//      .disposed(by: bag)
   }
   
   func registerNibs() {
@@ -68,16 +68,10 @@ class PullRequestListViewController: UIViewController {
             return UITableViewCell()
         }
         
-        if case .pullRequest = model {
-          cell.config(model: model)
-        }
+        cell.config(model: model)
         
         return cell
       }
     )
-  }
-  
-  func configTableViewDelegate(dataSource: PullRequestsDataSource) {
-    tableViewDelegate = PullRequestListTableViewDelegate(dataSource: dataSource)
   }
 }

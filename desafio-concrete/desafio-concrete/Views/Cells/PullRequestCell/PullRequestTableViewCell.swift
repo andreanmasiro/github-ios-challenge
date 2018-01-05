@@ -18,7 +18,6 @@ class PullRequestTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var authorUsernameLabel: UILabel!
-  @IBOutlet weak var authorFullNameLabel: UILabel!
   @IBOutlet weak var authorAvatarImageView: UIImageView!
   
   override func awakeFromNib() {
@@ -32,31 +31,19 @@ class PullRequestTableViewCell: UITableViewCell {
     
     titleLabel.textColor = UIColor.oilBlue
     authorUsernameLabel.textColor = UIColor.oilBlue
-    
-    authorFullNameLabel.textColor = UIColor.lightGray
   }
   
   func setUpImageView() {
     authorAvatarImageView.kf.indicatorType = .activity
   }
   
-  func config(model: PullRequestListCellModel) {
+  func config(model: PullRequest) {
     
-    guard case let .pullRequest(
-      _,
-      title,
-      description,
-      authorUsername,
-      authorFullname,
-      authorAvatarURL
-      ) = model else { return }
-    
-    titleLabel.text = title
-    descriptionLabel.text = description
-    authorUsernameLabel.text = authorUsername
-    authorFullNameLabel.text = authorFullname
+    titleLabel.text = model.title
+    descriptionLabel.text = model.description
+    authorUsernameLabel.text = model.author.username
 
-    authorAvatarImageView.kf.setImage(with: authorAvatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
+    authorAvatarImageView.kf.setImage(with: model.author.avatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
   }
   
   override func prepareForReuse() {

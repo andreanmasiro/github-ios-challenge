@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0BC8E832CD6C6C13DA6900E8 /* Pods_desafio_concreteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E17CA76746DF846F7BDF8FD /* Pods_desafio_concreteTests.framework */; };
+		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
+		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
+		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
+		4C6633A620000B190045A1A2 /* RepositoryListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A520000B190045A1A2 /* RepositoryListHelper.swift */; };
+		4C6633A8200011480045A1A2 /* Repository+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */; };
+		4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A92000118D0045A1A2 /* PullRequest+Identifiable.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
 		4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */; };
 		4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */; };
@@ -17,11 +23,6 @@
 		4C98FDF21FFFD8AA009B9ACF /* PullRequestListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF11FFFD8AA009B9ACF /* PullRequestListCellModel.swift */; };
 		4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */; };
 		4C98FDF61FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF51FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift */; };
-		4C98FDF81FFFE48A009B9ACF /* Repository+CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF71FFFE48A009B9ACF /* Repository+CellModel.swift */; };
-		4C98FDFA1FFFE4E0009B9ACF /* PullRequest+CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF91FFFE4E0009B9ACF /* PullRequest+CellModel.swift */; };
-		4C98FDFC1FFFE591009B9ACF /* User+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFB1FFFE591009B9ACF /* User+Fake.swift */; };
-		4C98FDFE1FFFE5DA009B9ACF /* Repository+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFD1FFFE5DA009B9ACF /* Repository+Fake.swift */; };
-		4C98FE001FFFE63F009B9ACF /* PullRequest+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDFF1FFFE63F009B9ACF /* PullRequest+Fake.swift */; };
 		4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FE031FFFFA00009B9ACF /* Segue.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
@@ -57,6 +58,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
+		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
+		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
+		4C6633A520000B190045A1A2 /* RepositoryListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListHelper.swift; sourceTree = "<group>"; };
+		4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Identifiable.swift"; sourceTree = "<group>"; };
+		4C6633A92000118D0045A1A2 /* PullRequest+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PullRequest+Identifiable.swift"; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,11 +73,6 @@
 		4C98FDF11FFFD8AA009B9ACF /* PullRequestListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListCellModel.swift; sourceTree = "<group>"; };
 		4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		4C98FDF51FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListTableViewDelegate.swift; sourceTree = "<group>"; };
-		4C98FDF71FFFE48A009B9ACF /* Repository+CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CellModel.swift"; sourceTree = "<group>"; };
-		4C98FDF91FFFE4E0009B9ACF /* PullRequest+CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PullRequest+CellModel.swift"; sourceTree = "<group>"; };
-		4C98FDFB1FFFE591009B9ACF /* User+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Fake.swift"; sourceTree = "<group>"; };
-		4C98FDFD1FFFE5DA009B9ACF /* Repository+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Fake.swift"; sourceTree = "<group>"; };
-		4C98FDFF1FFFE63F009B9ACF /* PullRequest+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PullRequest+Fake.swift"; sourceTree = "<group>"; };
 		4C98FE031FFFFA00009B9ACF /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C66339D200006B60045A1A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4C6633A2200008CF0045A1A2 /* RepositoryListService */,
+				4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4C6633A2200008CF0045A1A2 /* RepositoryListService */ = {
+			isa = PBXGroup;
+			children = (
+				4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */,
+				4C6633A3200008E00045A1A2 /* RepositoryService.swift */,
+				4C6633A520000B190045A1A2 /* RepositoryListHelper.swift */,
+			);
+			path = RepositoryListService;
+			sourceTree = "<group>";
+		};
 		4C98FDE01FFFD15F009B9ACF /* RepositoryCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +226,7 @@
 		4CFA869C1FFEBC2200F39F99 /* desafio-concrete */ = {
 			isa = PBXGroup;
 			children = (
+				4C66339D200006B60045A1A2 /* Services */,
 				4CFA86D81FFED83100F39F99 /* Models */,
 				4CFA86CF1FFECC0300F39F99 /* Extensions */,
 				4CFA86CC1FFECB8A00F39F99 /* Util */,
@@ -308,13 +330,10 @@
 			isa = PBXGroup;
 			children = (
 				4CFA86D91FFED83B00F39F99 /* Repository.swift */,
-				4C98FDF71FFFE48A009B9ACF /* Repository+CellModel.swift */,
-				4C98FDFD1FFFE5DA009B9ACF /* Repository+Fake.swift */,
 				4CFA86DB1FFED89100F39F99 /* User.swift */,
-				4C98FDFB1FFFE591009B9ACF /* User+Fake.swift */,
 				4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */,
-				4C98FDFF1FFFE63F009B9ACF /* PullRequest+Fake.swift */,
-				4C98FDF91FFFE4E0009B9ACF /* PullRequest+CellModel.swift */,
+				4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */,
+				4C6633A92000118D0045A1A2 /* PullRequest+Identifiable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,13 +577,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */,
+				4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */,
 				4CFA86D71FFED6D400F39F99 /* RepositoryListViewModel.swift in Sources */,
 				4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */,
 				4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */,
+				4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */,
 				4CFA86D11FFECC0F00F39F99 /* UIColor+Colors.swift in Sources */,
 				4CFA86E51FFEFD9A00F39F99 /* ReusableView.swift in Sources */,
 				4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */,
-				4C98FDFE1FFFE5DA009B9ACF /* Repository+Fake.swift in Sources */,
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
 				4C98FDF61FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
@@ -573,19 +594,18 @@
 				4CFA86E01FFEEA2900F39F99 /* RepositoryListCellModel.swift in Sources */,
 				4CFA86D51FFED09F00F39F99 /* UITableView+Helper.swift in Sources */,
 				4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */,
-				4C98FDF81FFFE48A009B9ACF /* Repository+CellModel.swift in Sources */,
+				4C6633A620000B190045A1A2 /* RepositoryListHelper.swift in Sources */,
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
-				4C98FDFC1FFFE591009B9ACF /* User+Fake.swift in Sources */,
-				4C98FDFA1FFFE4E0009B9ACF /* PullRequest+CellModel.swift in Sources */,
 				4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */,
 				4CFA86DC1FFED89100F39F99 /* User.swift in Sources */,
+				4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */,
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
-				4C98FE001FFFE63F009B9ACF /* PullRequest+Fake.swift in Sources */,
 				4CFA86E91FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift in Sources */,
 				4C98FDF21FFFD8AA009B9ACF /* PullRequestListCellModel.swift in Sources */,
 				4CFA86DA1FFED83B00F39F99 /* Repository.swift in Sources */,
 				4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */,
 				4C98FDF01FFFD85E009B9ACF /* PullRequestListViewModel.swift in Sources */,
+				4C6633A8200011480045A1A2 /* Repository+Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

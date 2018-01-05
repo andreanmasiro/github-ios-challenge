@@ -1,15 +1,16 @@
 //
-//  PullRequestListCellModel.swift
+//  Repository+Identifiable.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 05/01/18.
 //  Copyright © 2018 Vergil. All rights reserved.
 //
 
-import Foundation
+import RxDataSources
 
-struct PullRequestHeaderModel {
+extension Repository: IdentifiableType {
   
-  let openCount: Int
-  let closedCount: Int
+  var identity: Int {
+    return id
+  }
 }

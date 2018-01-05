@@ -1,5 +1,5 @@
 //
-//  PullRequestListCellModel.swift
+//  RepositoryListHelper.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 05/01/18.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct PullRequestHeaderModel {
+struct RepositoryListHelper: Codable {
   
-  let openCount: Int
-  let closedCount: Int
+  let items: [Repository]
 }

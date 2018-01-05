@@ -21,14 +21,10 @@ class PullRequestHeaderTableViewCell: UITableViewCell {
     // Initialization code
   }
   
-  func config(model: PullRequestListCellModel) {
+  func config(model: PullRequestHeaderModel) {
     
-    guard case let .pullRequestHeader(closedCount, openCount) = model else {
-      return
-    }
-    
-    let openText = "\(openCount) open "
-    let closedText = "/ \(closedCount) closed"
+    let openText = "\(model.openCount) open "
+    let closedText = "/ \(model.closedCount) closed"
     
     let text = NSMutableAttributedString(string: openText + closedText)
     

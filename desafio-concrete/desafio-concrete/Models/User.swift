@@ -11,15 +11,10 @@ import Foundation
 struct User: Codable {
   
   let username: String
-  let fullName: String
-  let avatarPath: String
+  let avatarURL: URL
   
-  init(username: String,
-       fullName: String,
-       avatarPath: String) {
-    
-    self.username = username
-    self.fullName = fullName
-    self.avatarPath = avatarPath
+  enum CodingKeys: String, CodingKey {
+    case username = "login"
+    case avatarURL = "avatar_url"
   }
 }

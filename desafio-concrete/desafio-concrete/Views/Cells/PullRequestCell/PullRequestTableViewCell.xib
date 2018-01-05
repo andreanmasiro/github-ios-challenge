@@ -40,16 +40,10 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FtJ-So-DSm">
-                        <rect key="frame" x="63" y="71.5" width="47.5" height="29"/>
+                        <rect key="frame" x="63" y="80" width="47.5" height="12"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-rg-dJF">
                                 <rect key="frame" x="0.0" y="0.0" width="47.5" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYh-uf-dBf">
-                                <rect key="frame" x="0.0" y="17" width="47.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,7 +67,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="authorAvatarImageView" destination="Qbb-dl-fcY" id="56j-wl-aAZ"/>
-                <outlet property="authorFullNameLabel" destination="RYh-uf-dBf" id="fDA-Er-3y4"/>
                 <outlet property="authorUsernameLabel" destination="e5F-rg-dJF" id="aAT-Ns-5Un"/>
                 <outlet property="descriptionLabel" destination="gC8-xc-Ptu" id="K7b-h3-oco"/>
                 <outlet property="titleLabel" destination="qWj-fB-4zM" id="jlF-mS-ESf"/>

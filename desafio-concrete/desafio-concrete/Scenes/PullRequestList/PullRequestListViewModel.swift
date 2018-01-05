@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-typealias PullRequestsSection = AnimatableSectionModel<PullRequestListCellModel, PullRequestListCellModel>
+typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
   
@@ -20,26 +20,9 @@ struct PullRequestListViewModel {
   init(repository: Repository) {
     self.repository = Variable(repository)
   }
-  
-  let fakeAuthor = User.fake
-  var pullRequests: [PullRequest] {
-    return [
-      PullRequest.fake(author: fakeAuthor),
-      PullRequest.fake(author: fakeAuthor),
-      PullRequest.fake(author: fakeAuthor)
-    ]
-  }
-  var headerData: (openCount: Int, closedCount: Int) {
-    let openCount = pullRequests.filter { $0.open }.count
-    return (openCount, pullRequests.count - openCount)
-  }
-  
   var sectionedPullRequests: Driver<[PullRequestsSection]> {
     
-    let headerModel = PullRequestListCellModel.pullRequestHeader(closedCount: headerData.closedCount, openCount: headerData.openCount)
-    let items = pullRequests.map { $0.cellModel }
-    
-    let section = PullRequestsSection(model: headerModel, items: items)
+    let section = PullRequestsSection(model: "", items: [])
     
     return Driver.just([section])
   }

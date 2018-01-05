@@ -33,44 +33,38 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="640" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxd-nJ-RB5">
-                        <rect key="frame" x="26" y="55.5" width="31.5" height="20.5"/>
+                        <rect key="frame" x="30" y="55.5" width="31.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e62-sR-8Ld">
-                        <rect key="frame" x="91" y="56.5" width="21" height="20.5"/>
+                        <rect key="frame" x="95" y="56.5" width="21" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="branch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="O04-18-dJF">
-                        <rect key="frame" x="10" y="56" width="12.5" height="20"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fork_icon" translatesAutoresizingMaskIntoConstraints="NO" id="O04-18-dJF">
+                        <rect key="frame" x="10" y="56" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Cjc-rl-21z"/>
-                            <constraint firstAttribute="width" secondItem="O04-18-dJF" secondAttribute="height" multiplier="5:8" id="cLk-Lo-nkz"/>
+                            <constraint firstAttribute="width" secondItem="O04-18-dJF" secondAttribute="height" multiplier="1:1" id="cLk-Lo-nkz"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_icon" translatesAutoresizingMaskIntoConstraints="NO" id="mfs-XF-U3a">
-                        <rect key="frame" x="68" y="56" width="20" height="20"/>
+                        <rect key="frame" x="72" y="56" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="mfs-XF-U3a" secondAttribute="height" multiplier="1:1" id="f1W-9d-1BY"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QDb-PP-buZ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="default_avatar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QDb-PP-buZ">
                         <rect key="frame" x="321.5" y="10" width="39.5" height="39.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="QDb-PP-buZ" secondAttribute="height" multiplier="1:1" id="xRK-7x-JyK"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-vA-fVH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-vA-fVH">
                         <rect key="frame" x="317.5" y="55" width="47.5" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv7-Zt-QeH">
-                        <rect key="frame" x="317.5" y="70" width="47.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -79,12 +73,10 @@
                 <constraints>
                     <constraint firstItem="xSF-g2-459" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3xt-DR-bGI"/>
                     <constraint firstItem="mfs-XF-U3a" firstAttribute="centerY" secondItem="O04-18-dJF" secondAttribute="centerY" id="62k-UB-wIt"/>
-                    <constraint firstItem="Lv7-Zt-QeH" firstAttribute="top" secondItem="Q22-vA-fVH" secondAttribute="bottom" constant="3" id="DKY-Sw-jRo"/>
                     <constraint firstItem="QDb-PP-buZ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2/5" id="DsR-gG-1VO"/>
-                    <constraint firstItem="fxd-nJ-RB5" firstAttribute="leading" secondItem="O04-18-dJF" secondAttribute="trailing" constant="3" id="E3e-Wh-XlJ"/>
+                    <constraint firstItem="fxd-nJ-RB5" firstAttribute="leading" secondItem="O04-18-dJF" secondAttribute="trailing" id="E3e-Wh-XlJ"/>
                     <constraint firstItem="Q22-vA-fVH" firstAttribute="centerX" secondItem="QDb-PP-buZ" secondAttribute="centerX" id="Et3-Hi-48S"/>
                     <constraint firstItem="Q22-vA-fVH" firstAttribute="top" secondItem="QDb-PP-buZ" secondAttribute="bottom" constant="5" id="IWN-9x-em6"/>
-                    <constraint firstItem="Lv7-Zt-QeH" firstAttribute="centerX" secondItem="QDb-PP-buZ" secondAttribute="centerX" id="KhY-ye-Tzy"/>
                     <constraint firstItem="fxd-nJ-RB5" firstAttribute="centerY" secondItem="O04-18-dJF" secondAttribute="centerY" id="O82-W6-Uce"/>
                     <constraint firstItem="Q22-vA-fVH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LdT-gw-dzg" secondAttribute="trailing" constant="20" id="Q2I-Ae-Pd1"/>
                     <constraint firstItem="mfs-XF-U3a" firstAttribute="height" secondItem="O04-18-dJF" secondAttribute="height" id="RSx-f6-1hk"/>
@@ -95,29 +87,27 @@
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q22-vA-fVH" secondAttribute="trailing" constant="10" id="e6R-iR-RV7"/>
                     <constraint firstItem="xSF-g2-459" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="iMf-Zv-zc9"/>
                     <constraint firstItem="O04-18-dJF" firstAttribute="top" secondItem="LdT-gw-dzg" secondAttribute="bottom" constant="8" id="jEU-6n-QY0"/>
-                    <constraint firstAttribute="trailing" secondItem="Lv7-Zt-QeH" secondAttribute="trailing" constant="10" id="kJj-ZM-8PL"/>
                     <constraint firstItem="e62-sR-8Ld" firstAttribute="centerY" secondItem="mfs-XF-U3a" secondAttribute="centerY" id="kav-Wo-ejI"/>
                     <constraint firstItem="O04-18-dJF" firstAttribute="leading" secondItem="xSF-g2-459" secondAttribute="leading" id="s13-9O-Suu"/>
                     <constraint firstItem="mfs-XF-U3a" firstAttribute="leading" secondItem="fxd-nJ-RB5" secondAttribute="trailing" constant="10" id="uFx-6p-hs4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="branchCountLabel" destination="fxd-nJ-RB5" id="aEY-Zn-j4Y"/>
-                <outlet property="branchImageView" destination="O04-18-dJF" id="wmT-h6-YSV"/>
                 <outlet property="descriptionLabel" destination="LdT-gw-dzg" id="2AW-Hc-yop"/>
+                <outlet property="forkImageView" destination="O04-18-dJF" id="wmT-h6-YSV"/>
+                <outlet property="forksCountLabel" destination="fxd-nJ-RB5" id="aEY-Zn-j4Y"/>
                 <outlet property="nameLabel" destination="xSF-g2-459" id="tHd-6e-w38"/>
                 <outlet property="stargazerImageView" destination="mfs-XF-U3a" id="0Uq-DD-mJr"/>
                 <outlet property="stargazersCountLabel" destination="e62-sR-8Ld" id="Pr9-sJ-3Gq"/>
                 <outlet property="userAvatarImageView" destination="QDb-PP-buZ" id="sph-7F-gyW"/>
-                <outlet property="userFullNameLabel" destination="Lv7-Zt-QeH" id="bjj-DX-ga9"/>
                 <outlet property="usernameLabel" destination="Q22-vA-fVH" id="X3b-l9-EBJ"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="95"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="branch_icon" width="320" height="512"/>
         <image name="default_avatar_icon" width="277" height="277"/>
+        <image name="fork_icon" width="128" height="128"/>
         <image name="star_icon" width="128" height="128"/>
     </resources>
 </document>

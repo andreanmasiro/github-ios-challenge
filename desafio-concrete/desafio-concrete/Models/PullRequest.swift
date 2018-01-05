@@ -15,17 +15,11 @@ struct PullRequest: Codable {
   let description: String
   let open: Bool
   let author: User
+}
+
+extension PullRequest: Equatable {
   
-  init(id: Int,
-       title: String,
-       description: String,
-       open: Bool,
-       author: User) {
-    
-    self.id = id
-    self.title = title
-    self.description = description
-    self.open = open
-    self.author = author
+  static func ==(lhs: PullRequest, rhs: PullRequest) -> Bool {
+    return lhs.id == rhs.id
   }
 }

@@ -7,15 +7,11 @@
 //
 
 import UIKit
-import RxDataSources
+import RxSwift
 
 class PullRequestListTableViewDelegate: NSObject, UITableViewDelegate {
   
-  unowned var dataSource: PullRequestsDataSource
-  
-  init(dataSource: PullRequestsDataSource) {
-    self.dataSource = dataSource
-  }
+  var headerModels = Variable<[PullRequestHeaderModel]>([])
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return PullRequestTableViewCell.cellHeight
@@ -27,10 +23,9 @@ class PullRequestListTableViewDelegate: NSObject, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     
-    let sectionHeaderModel = dataSource.sectionModels[0].model
+    let sectionHeaderModel = headerModels.value[section]
     
-    guard case .pullRequestHeader = sectionHeaderModel,
-      let header = tableView.dequeueReusableCellWithDefaultIdentifier(
+    guard let header = tableView.dequeueReusableCellWithDefaultIdentifier(
           PullRequestHeaderTableViewCell.self
       ) else {
       return nil
