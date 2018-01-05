@@ -1,5 +1,5 @@
 //
-//  PullRequestListCellModel.swift
+//  PullRequestHeaderModel.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 05/01/18.

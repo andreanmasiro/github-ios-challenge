@@ -22,8 +22,6 @@ class RepositoryListViewController: UIViewController {
   override func viewDidLoad() {
     
     registerNibs()
-    bindUI()
-    
     super.viewDidLoad()
   }
   
@@ -31,9 +29,7 @@ class RepositoryListViewController: UIViewController {
     tableView.registerNib(RepositoryTableViewCell.self)
   }
   
-  func bindUI() {
-    
-    let viewModel = RepositoryListViewModel()
+  func bindUI(viewModel: RepositoryListViewModel) {
     
     viewModel.sectionedRepositories
       .drive(tableView.rx.items(dataSource: dataSource))
@@ -67,15 +63,7 @@ class RepositoryListViewController: UIViewController {
         cell.configure(model: model)
         
         return cell
-    }
+      }
     )
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    if segue.identifier == Segue.RepositoryListViewController.pullRequestList {
-      
-      
-    }
   }
 }

@@ -15,10 +15,15 @@ typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 
 struct RepositoryListViewModel {
   
-  var sectionedRepositories: Driver<[RepositoriesSection]> {
+  private let service: RepositoryServiceType
+  private let repositories = Variable<[Repository]>([])
+  
+  var sectionedRepositories: Driver<[RepositoriesSection]>
+  
+  init(service: RepositoryServiceType) {
+    self.service = service
     
-    let section = RepositoriesSection(model: "", items: [])
-    
-    return Driver.just([section])
+    sectionedRepositories = repositories.asDriver()
+      .map { [RepositoriesSection(model: "", items: $0)] }
   }
 }

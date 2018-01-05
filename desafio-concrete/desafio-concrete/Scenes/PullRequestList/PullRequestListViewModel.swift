@@ -14,16 +14,31 @@ import RxCocoa
 typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
+
+  private let pullRequests = Variable<[PullRequest]>([])
+  private let service: PullRequestServiceType
   
-  let repository: Variable<Repository>
+  let sectionedPullRequests: Driver<[PullRequestsSection]>
+  let repositoryName: Driver<String>
+  let headerModels: Driver<[PullRequestHeaderModel]>
   
-  init(repository: Repository) {
-    self.repository = Variable(repository)
-  }
-  var sectionedPullRequests: Driver<[PullRequestsSection]> {
+  init(service: PullRequestServiceType, repositoryName: String) {
     
-    let section = PullRequestsSection(model: "", items: [])
+    self.service = service
     
-    return Driver.just([section])
+    self.repositoryName = Driver.just(repositoryName)
+    
+    self.sectionedPullRequests = pullRequests.asDriver()
+      .map { [PullRequestsSection(model: "", items: $0)] }
+    
+    self.headerModels = pullRequests.asDriver()
+      .map {
+        
+        let openCount = $0.filter { $0.open }.count
+        let closedCount = $0.count - openCount
+        
+        return [PullRequestHeaderModel(openCount: openCount,
+                                      closedCount: closedCount)]
+      }
   }
 }

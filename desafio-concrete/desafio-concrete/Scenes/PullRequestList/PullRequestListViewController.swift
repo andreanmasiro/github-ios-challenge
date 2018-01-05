@@ -22,28 +22,27 @@ class PullRequestListViewController: UIViewController {
   override func viewDidLoad() {
     
     registerNibs()
-    bindUI()
     super.viewDidLoad()
   }
   
-  func bindUI() {
+  func bindUI(viewModel: PullRequestListViewModel) {
     
-//    let viewModel = PullRequestListViewModel(repository: )
+    let dataSource = self.dataSource
+
+    viewModel.headerModels
+      .drive(tableViewDelegate.headerModels)
+      .disposed(by: bag)
     
-//    let dataSource = self.dataSource
-//
-//    tableViewDelegate.headerModels = viewModel.headerModels sort of
-//    tableView.rx.setDelegate(tableViewDelegate)
-//      .disposed(by: bag)
-//    
-//    viewModel.sectionedPullRequests
-//      .drive(tableView.rx.items(dataSource: dataSource))
-//      .disposed(by: bag)
-//    
-//    viewModel.repository.asDriver()
-//      .map { $0.name }
-//      .drive(navigationItem.rx.title)
-//      .disposed(by: bag)
+    tableView.rx.setDelegate(tableViewDelegate)
+      .disposed(by: bag)
+    
+    viewModel.sectionedPullRequests
+      .drive(tableView.rx.items(dataSource: dataSource))
+      .disposed(by: bag)
+    
+    viewModel.repositoryName
+      .drive(navigationItem.rx.title)
+      .disposed(by: bag)
   }
   
   func registerNibs() {
