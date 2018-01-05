@@ -16,14 +16,12 @@ typealias RepositoriesDataSource = RxTableViewSectionedAnimatedDataSource<Reposi
 class RepositoryListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  var dataSource: RepositoriesDataSource!
   let bag = DisposeBag()
   let tableViewDelegate = RepositoryTableViewDelegate()
   
   override func viewDidLoad() {
     
     registerNibs()
-    configDataSource()
     bindUI()
     
     super.viewDidLoad()
@@ -45,9 +43,9 @@ class RepositoryListViewController: UIViewController {
       .disposed(by: bag)
   }
   
-  func configDataSource() {
+  var dataSource: RepositoriesDataSource {
     
-    dataSource = RepositoriesDataSource(
+    return RepositoriesDataSource(
       configureCell: {
         _, tableView, indexPath, model -> UITableViewCell in
         
@@ -62,7 +60,7 @@ class RepositoryListViewController: UIViewController {
         cell.configure(model: model)
         
         return cell
-      }
+    }
     )
   }
 }

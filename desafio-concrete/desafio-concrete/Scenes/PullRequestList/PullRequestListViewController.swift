@@ -16,18 +16,12 @@ typealias PullRequestsDataSource = RxTableViewSectionedAnimatedDataSource<PullRe
 class PullRequestListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  var dataSource: PullRequestsDataSource! {
-    didSet {
-      tableViewDelegate = PullRequestListTableViewDelegate(dataSource: dataSource)
-    }
-  }
   let bag = DisposeBag()
   var tableViewDelegate: PullRequestListTableViewDelegate!
   
   override func viewDidLoad() {
     
     registerNibs()
-    configDataSource()
     bindUI()
     super.viewDidLoad()
   }
@@ -36,6 +30,9 @@ class PullRequestListViewController: UIViewController {
     
     let viewModel = PullRequestListViewModel(repository: Repository.fake(owner: User.fake))
     
+    let dataSource = self.dataSource
+    
+    configTableViewDelegate(dataSource: dataSource)
     tableView.rx.setDelegate(tableViewDelegate)
       .disposed(by: bag)
     
@@ -55,9 +52,11 @@ class PullRequestListViewController: UIViewController {
     tableView.registerNib(PullRequestTableViewCell.self)
   }
   
-  func configDataSource() {
+  
+// MARK: Table view sources
+  var dataSource: PullRequestsDataSource {
     
-    dataSource = PullRequestsDataSource(
+    return PullRequestsDataSource(
       configureCell: {
         (_, tableView, indexPath, model) -> UITableViewCell in
         
@@ -78,4 +77,7 @@ class PullRequestListViewController: UIViewController {
     )
   }
   
+  func configTableViewDelegate(dataSource: PullRequestsDataSource) {
+    tableViewDelegate = PullRequestListTableViewDelegate(dataSource: dataSource)
+  }
 }
