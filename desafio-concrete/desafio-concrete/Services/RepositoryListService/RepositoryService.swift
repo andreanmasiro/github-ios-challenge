@@ -9,27 +9,38 @@
 import RxSwift
 import Alamofire
 import RxAlamofire
+import RxCocoa
 
 enum RepositoryServiceError: Error {
   case invalidURLPath(String)
 }
 
 struct RepositoryService: RepositoryServiceType {
-
+  
   private let apiPath: String
+  private let gatheringRepositories = Variable<[Repository]>([])
+  private let bag = DisposeBag()
+  
+  let repositories: BehaviorSubject<[Repository]>
   
   init(apiPath: String) {
     self.apiPath = apiPath
+    
+    repositories = BehaviorSubject<[Repository]>(value: gatheringRepositories.value)
+    
+    gatheringRepositories.asObservable()
+      .debug()
+      .bind(to: repositories)
+      .disposed(by: bag)
   }
   
-  func getRepositoryList(page: Int) -> Observable<[Repository]> {
+  func loadRepositoryList(page: Int) {
     
     guard let url = URL(string: apiPath + "&page=\(page)") else {
-      return Observable.error(RepositoryServiceError.invalidURLPath(apiPath))
+      return
     }
-//    let params = ["page": page]
     
-    return RxAlamofire
+    RxAlamofire
       .requestData(.get, url)
       .map { response, json -> [Repository] in
         
@@ -37,5 +48,10 @@ struct RepositoryService: RepositoryServiceType {
         let list = try decoder.decode(RepositoryListHelper.self, from: json)
         return list.items
       }
+      .do(onNext: { newRepos in
+        self.gatheringRepositories.value.append(contentsOf: newRepos)
+      })
+      .subscribe()
+      .disposed(by: bag)
   }
 }

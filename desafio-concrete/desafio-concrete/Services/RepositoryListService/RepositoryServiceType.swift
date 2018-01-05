@@ -10,5 +10,7 @@ import RxSwift
 
 protocol RepositoryServiceType {
   
-  func getRepositoryList(page: Int) -> Observable<[Repository]>
+  var repositories: BehaviorSubject<[Repository]> { get }
+  
+  func loadRepositoryList(page: Int)
 }

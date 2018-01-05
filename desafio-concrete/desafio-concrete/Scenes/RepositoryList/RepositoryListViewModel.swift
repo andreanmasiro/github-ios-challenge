@@ -16,11 +16,12 @@ typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 struct RepositoryListViewModel {
   
   private let coordinator: SceneCoordinator
+  private let lastPageLoaded = Variable<Int>(1)
+  
   private let service: RepositoryServiceType
   private let repositories = Variable<[Repository]>([])
-  private let bag = DisposeBag()
   
-  var sectionedRepositories: Driver<[RepositoriesSection]>
+  let sectionedRepositories: Driver<[RepositoriesSection]>
   
   init(coordinator: SceneCoordinator, service: RepositoryServiceType) {
     self.coordinator = coordinator
@@ -29,7 +30,22 @@ struct RepositoryListViewModel {
     sectionedRepositories = repositories.asDriver()
       .map { [RepositoriesSection(model: "", items: $0)] }
     
-    _ = service.getRepositoryList(page: 1)
+    bindOutput()
+  }
+  
+  private func bindOutput() {
+    
+    _ = self.service.repositories
       .bind(to: repositories)
+    
+    _ = lastPageLoaded.asObservable()
+      .debug()
+      .subscribe(onNext: {
+        self.service.loadRepositoryList(page: $0)
+      })
+  }
+  
+  func loadNextPage() {
+    lastPageLoaded.value += 1
   }
 }
