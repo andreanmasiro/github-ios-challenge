@@ -12,8 +12,6 @@ import RxSwift
 import RxCocoa
 import Action
 
-typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
-
 struct PullRequestListViewModel {
   
   private let coordinator: SceneCoordinatorType

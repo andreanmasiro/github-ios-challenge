@@ -9,6 +9,7 @@
 import RxDataSources
 import UIKit
 
+typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 typealias RepositoriesDataSource = RxTableViewSectionedAnimatedDataSource<RepositoriesSection>
 
 struct RepositoryCellFactory {

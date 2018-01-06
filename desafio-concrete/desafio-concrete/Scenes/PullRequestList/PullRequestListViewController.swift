@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-typealias PullRequestsDataSource = RxTableViewSectionedAnimatedDataSource<PullRequestsSection>
-
 class PullRequestListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
@@ -83,23 +81,7 @@ class PullRequestListViewController: UIViewController {
   
   var dataSource: PullRequestsDataSource {
     
-    return PullRequestsDataSource(
-      configureCell: {
-        (_, tableView, indexPath, model) -> UITableViewCell in
-        
-        guard let cell = tableView
-          .dequeueReusableCellWithDefaultIdentifier(
-            PullRequestTableViewCell.self,
-            for: indexPath
-          ) else {
-            return UITableViewCell()
-        }
-        
-        cell.config(model: model)
-        
-        return cell
-      }
-    )
+    return PullRequestCellFactory.dataSource
   }
 }
 

@@ -12,8 +12,6 @@ import RxSwift
 import RxCocoa
 import Action
 
-typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
-
 struct RepositoryListViewModel {
   
   private let coordinator: SceneCoordinatorType

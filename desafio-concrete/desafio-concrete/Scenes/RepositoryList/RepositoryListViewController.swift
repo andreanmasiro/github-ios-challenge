@@ -17,8 +17,6 @@ class RepositoryListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
   
-  let tableViewDelegate = RepositoryTableViewDelegate()
-  
   let bag = DisposeBag()
   
   var loading = false
@@ -48,9 +46,6 @@ class RepositoryListViewController: UIViewController {
     
     viewModel.sectionedRepositories
       .drive(tableView.rx.items(dataSource: dataSource))
-      .disposed(by: bag)
-    
-    tableView.rx.setDelegate(tableViewDelegate)
       .disposed(by: bag)
     
     tableView.rx.itemSelected
