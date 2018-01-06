@@ -26,6 +26,10 @@
 		4C28140D2001420800906625 /* JSONDecoder+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28140C2001420800906625 /* JSONDecoder+Models.swift */; };
 		4C28140F2001430500906625 /* PullRequest_nullBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140E2001430500906625 /* PullRequest_nullBody.json */; };
 		4C281411200146B700906625 /* AutoheightableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281410200146B700906625 /* AutoheightableView.swift */; };
+		4C28141B2001521000906625 /* RepositoryListPage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28141A2001521000906625 /* RepositoryListPage.json */; };
+		4C28141F200152C800906625 /* RepositoryListPage_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28141E200152C800906625 /* RepositoryListPage_invalid.json */; };
+		4C2814212001531700906625 /* PullRequestListPage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2814202001531700906625 /* PullRequestListPage.json */; };
+		4C281423200153A900906625 /* PullRequestListPage_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C281422200153A900906625 /* PullRequestListPage_invalid.json */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -99,6 +103,10 @@
 		4C28140C2001420800906625 /* JSONDecoder+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Models.swift"; sourceTree = "<group>"; };
 		4C28140E2001430500906625 /* PullRequest_nullBody.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest_nullBody.json; sourceTree = "<group>"; };
 		4C281410200146B700906625 /* AutoheightableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoheightableView.swift; sourceTree = "<group>"; };
+		4C28141A2001521000906625 /* RepositoryListPage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoryListPage.json; sourceTree = "<group>"; };
+		4C28141E200152C800906625 /* RepositoryListPage_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoryListPage_invalid.json; sourceTree = "<group>"; };
+		4C2814202001531700906625 /* PullRequestListPage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequestListPage.json; sourceTree = "<group>"; };
+		4C281422200153A900906625 /* PullRequestListPage_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequestListPage_invalid.json; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -227,6 +235,15 @@
 		4C2813F3200138FF00906625 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				4C281419200151FA00906625 /* Lists */,
+				4C281418200151EE00906625 /* Models */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		4C281418200151EE00906625 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				4C2813F42001390F00906625 /* User.json */,
 				4C2813F620013BBF00906625 /* User_invalid.json */,
 				4C2813FA20013D5100906625 /* Repository.json */,
@@ -237,7 +254,18 @@
 				4C28140A2001416000906625 /* PullRequest_invalid.json */,
 				4C28140E2001430500906625 /* PullRequest_nullBody.json */,
 			);
-			path = JSON;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C281419200151FA00906625 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				4C28141A2001521000906625 /* RepositoryListPage.json */,
+				4C28141E200152C800906625 /* RepositoryListPage_invalid.json */,
+				4C2814202001531700906625 /* PullRequestListPage.json */,
+				4C281422200153A900906625 /* PullRequestListPage_invalid.json */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		4C66339D200006B60045A1A2 /* Services */ = {
@@ -564,12 +592,16 @@
 			files = (
 				4C28140F2001430500906625 /* PullRequest_nullBody.json in Resources */,
 				4C281409200140D600906625 /* PullRequest.json in Resources */,
+				4C281423200153A900906625 /* PullRequestListPage_invalid.json in Resources */,
 				4C2813F720013BBF00906625 /* User_invalid.json in Resources */,
+				4C2814212001531700906625 /* PullRequestListPage.json in Resources */,
 				4C2813FD20013D9100906625 /* Repository_invalid.json in Resources */,
 				4C28140520013EB700906625 /* Repository_invalidPullsURL.json in Resources */,
 				4C28140B2001416000906625 /* PullRequest_invalid.json in Resources */,
 				4C28140120013E2600906625 /* Repository_nullDescription.json in Resources */,
+				4C28141B2001521000906625 /* RepositoryListPage.json in Resources */,
 				4C2813FB20013D5100906625 /* Repository.json in Resources */,
+				4C28141F200152C800906625 /* RepositoryListPage_invalid.json in Resources */,
 				4C2813F52001390F00906625 /* User.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
