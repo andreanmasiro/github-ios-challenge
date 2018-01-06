@@ -31,6 +31,8 @@
 		4C2814212001531700906625 /* PullRequestListPage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2814202001531700906625 /* PullRequestListPage.json */; };
 		4C281423200153A900906625 /* PullRequestListPage_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C281422200153A900906625 /* PullRequestListPage_invalid.json */; };
 		4C281426200156B000906625 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281425200156B000906625 /* SceneCoordinatorType.swift */; };
+		4C281428200157DA00906625 /* RepositoryListContainerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281427200157DA00906625 /* RepositoryListContainerSpec.swift */; };
+		4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28142920015A3400906625 /* RepositoryServiceSpec.swift */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -109,6 +111,8 @@
 		4C2814202001531700906625 /* PullRequestListPage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequestListPage.json; sourceTree = "<group>"; };
 		4C281422200153A900906625 /* PullRequestListPage_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequestListPage_invalid.json; sourceTree = "<group>"; };
 		4C281425200156B000906625 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
+		4C281427200157DA00906625 /* RepositoryListContainerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListContainerSpec.swift; sourceTree = "<group>"; };
+		4C28142920015A3400906625 /* RepositoryServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceSpec.swift; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				4C2813F12001373200906625 /* UserSpec.swift */,
 				4C2813F820013CF500906625 /* RepositorySpec.swift */,
 				4C2814062001407600906625 /* PullRequestSpec.swift */,
+				4C281427200157DA00906625 /* RepositoryListContainerSpec.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 		4C2814242001562300906625 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4C28142920015A3400906625 /* RepositoryServiceSpec.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -291,7 +297,6 @@
 			children = (
 				4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */,
 				4C6633A3200008E00045A1A2 /* RepositoryService.swift */,
-				4C6633A520000B190045A1A2 /* RepositoryListContainer.swift */,
 			);
 			path = RepositoryListService;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFA86D91FFED83B00F39F99 /* Repository.swift */,
+				4C6633A520000B190045A1A2 /* RepositoryListContainer.swift */,
 				4CFA86DB1FFED89100F39F99 /* User.swift */,
 				4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */,
 				4C6633A7200011480045A1A2 /* Repository+Identifiable.swift */,
@@ -711,20 +717,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-desafio-concreteTests/Pods-desafio-concreteTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
-				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -802,8 +806,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */,
 				4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */,
 				4C2814072001407600906625 /* PullRequestSpec.swift in Sources */,
+				4C281428200157DA00906625 /* RepositoryListContainerSpec.swift in Sources */,
 				4C2813F22001373200906625 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

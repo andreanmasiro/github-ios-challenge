@@ -5,7 +5,7 @@ def testing_pods
   pod 'Quick', '~> 1.2.0'
   pod 'Nimble', '~> 7.0.2'
   pod 'RxBlocking', '~> 4.0.0'
-  pod 'Mockingjay', '~> 2.0.0'
+  pod 'OHHTTPStubs/Swift'
 end
 
 target 'desafio-concrete' do
