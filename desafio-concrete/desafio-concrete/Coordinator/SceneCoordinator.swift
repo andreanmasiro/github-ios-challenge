@@ -20,7 +20,7 @@ enum SceneCoordinatorError: Error {
   case dismissRoot
 }
 
-class SceneCoordinator {
+class SceneCoordinator: SceneCoordinatorType {
   
   private let window: UIWindow
   private var currentViewController: UIViewController?

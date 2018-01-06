@@ -16,7 +16,7 @@ typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
   
-  private let coordinator: SceneCoordinator
+  private let coordinator: SceneCoordinatorType
   private let service: PullRequestServiceType
   
   private let lastPageLoaded = Variable<Int>(0)
@@ -32,7 +32,7 @@ struct PullRequestListViewModel {
   let repositoryName: Driver<String>
   let headerModel: Driver<PullRequestHeaderModel>
   
-  init(coordinator: SceneCoordinator, service: PullRequestServiceType, repositoryName: String) {
+  init(coordinator: SceneCoordinatorType, service: PullRequestServiceType, repositoryName: String) {
     
     self.coordinator = coordinator
     self.service = service

@@ -16,7 +16,7 @@ typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 
 struct RepositoryListViewModel {
   
-  private let coordinator: SceneCoordinator
+  private let coordinator: SceneCoordinatorType
   private let service: RepositoryServiceType
   
   private let lastPageLoaded = Variable<Int>(0)
@@ -29,7 +29,7 @@ struct RepositoryListViewModel {
   let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
   
-  init(coordinator: SceneCoordinator, service: RepositoryServiceType) {
+  init(coordinator: SceneCoordinatorType, service: RepositoryServiceType) {
     self.coordinator = coordinator
     self.service = service
     

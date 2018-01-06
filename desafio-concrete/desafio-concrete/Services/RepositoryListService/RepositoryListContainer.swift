@@ -1,5 +1,5 @@
 //
-//  RepositoryListHelper.swift
+//  RepositoryListContainer.swift
 //  desafio-concrete
 //
 //  Created by André Marques da Silva Rodrigues on 05/01/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RepositoryListHelper: Codable {
+struct RepositoryListContainer: Codable {
   
   let items: [Repository]
 }
