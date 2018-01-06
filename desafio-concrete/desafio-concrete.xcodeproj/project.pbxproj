@@ -232,13 +232,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		4C2813F3200138FF00906625 /* JSON */ = {
+		4C2813F3200138FF00906625 /* TestFixtures */ = {
 			isa = PBXGroup;
 			children = (
 				4C281419200151FA00906625 /* Lists */,
 				4C281418200151EE00906625 /* Models */,
 			);
-			path = JSON;
+			path = TestFixtures;
 			sourceTree = "<group>";
 		};
 		4C281418200151EE00906625 /* Models */ = {
@@ -382,7 +382,7 @@
 		4CFA86B11FFEBC2200F39F99 /* desafio-concreteTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C2813F3200138FF00906625 /* JSON */,
+				4C2813F3200138FF00906625 /* TestFixtures */,
 				4C2813EF2001370300906625 /* Models */,
 				4CFA86B41FFEBC2200F39F99 /* Info.plist */,
 			);
@@ -700,16 +700,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-desafio-concreteTests/Pods-desafio-concreteTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
