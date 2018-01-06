@@ -15,6 +15,7 @@ extension Scene {
     switch self {
     case .repositoryList: return StoryboardIdentifier.repositoryListNav
     case .pullRequestList: return StoryboardIdentifier.pullRequestList
+    case .pullRequest: return StoryboardIdentifier.pullRequest
     }
   }
   
@@ -22,10 +23,12 @@ extension Scene {
     
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
+    let storyboardVC = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier)
+    
     switch self {
     case .repositoryList(let viewModel):
       
-      guard let nc = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as? UINavigationController,
+      guard let nc = storyboardVC as? UINavigationController,
         let vc = nc.topViewController as? RepositoryListViewController else {
         return UIViewController()
       }
@@ -37,12 +40,22 @@ extension Scene {
       
     case .pullRequestList(let viewModel):
       
-      guard let vc = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as? PullRequestListViewController else {
+      guard let vc = storyboardVC as? PullRequestListViewController else {
         return UIViewController()
       }
       
       vc.loadViewIfNeeded()
       vc.bindUI(viewModel: viewModel)
+      
+      return vc
+      
+    case .pullRequest(let url):
+      guard let vc = storyboardVC as? PullRequestViewController else {
+        return UIViewController()
+      }
+      
+      vc.loadViewIfNeeded()
+      vc.load(contentsOfURL: url)
       
       return vc
     }

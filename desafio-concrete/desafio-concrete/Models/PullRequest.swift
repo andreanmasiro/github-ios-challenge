@@ -15,6 +15,7 @@ struct PullRequest: Codable {
   let body: String
   let closedAt: Date?
   let author: User
+  let htmlURL: URL
   
   enum CodingKeys: String, CodingKey {
     
@@ -23,6 +24,7 @@ struct PullRequest: Codable {
     case body
     case closedAt = "closed_at"
     case author = "user"
+    case htmlURL = "html_url"
   }
   
   public init(from decoder: Decoder) throws {
@@ -34,6 +36,7 @@ struct PullRequest: Codable {
     self.body = try container.decode(String?.self, forKey: .body) ?? ""
     self.closedAt = try container.decode(Date?.self, forKey: .closedAt)
     self.author = try container.decode(User.self, forKey: .author)
+    self.htmlURL = try container.decode(URL.self, forKey: .htmlURL)
   }
 }
 

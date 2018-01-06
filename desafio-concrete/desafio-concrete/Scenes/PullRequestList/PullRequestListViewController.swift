@@ -65,6 +65,12 @@ class PullRequestListViewController: UIViewController {
     viewModel.loading.asDriver()
       .drive(loadIndicator.rx.isAnimating)
       .disposed(by: bag)
+    
+    tableView.rx.modelSelected(PullRequest.self).asDriver()
+      .drive(onNext: {
+        viewModel.showPullRequestAction.execute($0)
+      })
+      .disposed(by: bag)
   }
   
   var dataSource: PullRequestsDataSource {

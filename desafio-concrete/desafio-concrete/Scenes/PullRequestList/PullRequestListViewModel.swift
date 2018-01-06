@@ -10,6 +10,7 @@ import Foundation
 import RxDataSources
 import RxSwift
 import RxCocoa
+import Action
 
 typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
@@ -61,5 +62,13 @@ struct PullRequestListViewModel {
       })
       .bind(to: pullRequests)
       .disposed(by: bag)
+  }
+  
+  var showPullRequestAction: Action<PullRequest, Void> {
+    return Action {
+      
+      self.coordinator.transition(.push(true), to: .pullRequest($0.htmlURL))
+      return Observable.empty()
+    }
   }
 }

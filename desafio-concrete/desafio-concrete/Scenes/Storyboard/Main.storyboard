@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,7 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opp-SP-hUp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opp-SP-hUp">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="tnu-MT-BQ0">
@@ -87,6 +88,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ank-qm-uXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-446" y="603"/>
+        </scene>
+        <!--Pull Request View Controller-->
+        <scene sceneID="eqG-X4-W9u">
+            <objects>
+                <viewController storyboardIdentifier="pullRequest" id="U1D-Xi-Tw0" customClass="PullRequestViewController" customModule="desafio_concrete" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ueb-mB-nnG"/>
+                        <viewControllerLayoutGuide type="bottom" id="BCS-4G-IlU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HHm-yI-hdx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoQ-mT-d46">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nlc-cN-YRM">
+                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="796-Dz-Q6Q"/>
+                                    <constraint firstAttribute="width" secondItem="nlc-cN-YRM" secondAttribute="height" multiplier="1:1" id="dQN-1w-Oxq"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nlc-cN-YRM" firstAttribute="centerX" secondItem="HHm-yI-hdx" secondAttribute="centerX" id="7K8-Cx-mT8"/>
+                            <constraint firstItem="BCS-4G-IlU" firstAttribute="top" secondItem="uoQ-mT-d46" secondAttribute="bottom" id="Ezg-rf-mYM"/>
+                            <constraint firstItem="uoQ-mT-d46" firstAttribute="leading" secondItem="HHm-yI-hdx" secondAttribute="leading" id="GcO-f8-KaZ"/>
+                            <constraint firstItem="nlc-cN-YRM" firstAttribute="centerY" secondItem="HHm-yI-hdx" secondAttribute="centerY" id="iJ4-tS-Z99"/>
+                            <constraint firstAttribute="trailing" secondItem="uoQ-mT-d46" secondAttribute="trailing" id="iRn-0x-EwK"/>
+                            <constraint firstItem="uoQ-mT-d46" firstAttribute="top" secondItem="HHm-yI-hdx" secondAttribute="top" id="srJ-fa-5s3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadIndicator" destination="nlc-cN-YRM" id="X5C-WK-qwd"/>
+                        <outlet property="webView" destination="uoQ-mT-d46" id="aNm-aQ-hFn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7c5-TV-zDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-445.60000000000002" y="1321.8890554722639"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yew-VQ-Pd5">

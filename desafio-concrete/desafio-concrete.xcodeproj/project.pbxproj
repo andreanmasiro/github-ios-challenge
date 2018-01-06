@@ -23,6 +23,8 @@
 		4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BE200021750045A1A2 /* SceneTransition.swift */; };
 		4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C120004BEC0045A1A2 /* PullRequestService.swift */; };
 		4C6633C4200053570045A1A2 /* PageReloadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */; };
+		4C71B02C20006D5200F583CB /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02B20006D5200F583CB /* PullRequestViewController.swift */; };
+		4C71B02E2000710F00F583CB /* WKWebView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
 		4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */; };
 		4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */; };
@@ -80,6 +82,8 @@
 		4C6633BE200021750045A1A2 /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		4C6633C120004BEC0045A1A2 /* PullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestService.swift; sourceTree = "<group>"; };
 		4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReloadableViewController.swift; sourceTree = "<group>"; };
+		4C71B02B20006D5200F583CB /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
+		4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Rx.swift"; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +204,14 @@
 			path = PullRequestListService;
 			sourceTree = "<group>";
 		};
+		4C71B02A20006D3D00F583CB /* PullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				4C71B02B20006D5200F583CB /* PullRequestViewController.swift */,
+			);
+			path = PullRequest;
+			sourceTree = "<group>";
+		};
 		4C98FDE01FFFD15F009B9ACF /* RepositoryCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +311,7 @@
 				4CFA86C31FFEC22F00F39F99 /* Storyboard */,
 				4CFA86BF1FFEC1EA00F39F99 /* RepositoryList */,
 				4C98FDEC1FFFD4F1009B9ACF /* PullRequestList */,
+				4C71B02A20006D3D00F583CB /* PullRequest */,
 				4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */,
 			);
 			path = Scenes;
@@ -347,6 +360,7 @@
 				4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */,
 				4C98FE031FFFFA00009B9ACF /* Segue.swift */,
 				4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */,
+				4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -614,6 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C71B02E2000710F00F583CB /* WKWebView+Rx.swift in Sources */,
 				4C6633C4200053570045A1A2 /* PageReloadableViewController.swift in Sources */,
 				4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */,
 				4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */,
@@ -624,6 +639,7 @@
 				4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */,
 				4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */,
 				4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */,
+				4C71B02C20006D5200F583CB /* PullRequestViewController.swift in Sources */,
 				4CFA86D11FFECC0F00F39F99 /* UIColor+Colors.swift in Sources */,
 				4CFA86E51FFEFD9A00F39F99 /* ReusableView.swift in Sources */,
 				4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */,

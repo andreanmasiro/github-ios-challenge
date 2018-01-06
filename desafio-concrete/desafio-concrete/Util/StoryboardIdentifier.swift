@@ -12,4 +12,5 @@ struct StoryboardIdentifier {
   
   static var repositoryListNav = "repositoryListNav"
   static var pullRequestList = "pullRequestList"
+  static var pullRequest = "pullRequest"
 }
