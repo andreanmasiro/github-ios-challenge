@@ -15,32 +15,32 @@ class RepositorySpec: QuickSpec {
   
   override func spec() {
     
-    describe("repository") {
+    describe("RepositorySpec") {
       
       let bundle = Bundle(for: RepositorySpec.self)
       let decoder = JSONDecoder.modelDecoder
       
-      it("should initialize correctly from JSON") {
+      context("when decoding from JSON") {
         
-        let path = bundle.path(forResource: "Repository", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
+        it("should succeed initializing from valid JSON") {
+          
+          let path = bundle.path(forResource: "Repository", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(Repository.self, from: jsonData) }
+            .notTo(throwError())
+        }
         
-        expect { try decoder.decode(Repository.self, from: jsonData) }
-          .notTo(throwError())
-      }
-      
-      it("should not initialize from invalid JSON") {
+        it("should fail initializing from invalid JSON") {
+          
+          let path = bundle.path(forResource: "Repository_invalid", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(Repository.self, from: jsonData) }
+            .to(throwError())
+        }
         
-        let path = bundle.path(forResource: "Repository_invalid", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
-        
-        expect { try decoder.decode(Repository.self, from: jsonData) }
-          .to(throwError())
-      }
-      
-      context("null description JSON") {
-        
-        it("should initialize correctly with empty description") {
+        it("should succeed initializing from JSON with empty description") {
           
           let path = bundle.path(forResource: "Repository_nullDescription", ofType: "json")!
           let jsonData = NSData(contentsOfFile: path)! as Data
@@ -48,11 +48,8 @@ class RepositorySpec: QuickSpec {
           expect { try decoder.decode(Repository.self, from: jsonData) }
             .notTo(throwError())
         }
-      }
-      
-      context("invalid pulls URL JSON") {
         
-        it("should throw RepositoryDecodingError.invalidPullsURL") {
+        it("should fail when initializing from JSON with null pull requests URL") {
           
           let path = bundle.path(forResource: "Repository_invalidPullsURL", ofType: "json")!
           let jsonData = NSData(contentsOfFile: path)! as Data

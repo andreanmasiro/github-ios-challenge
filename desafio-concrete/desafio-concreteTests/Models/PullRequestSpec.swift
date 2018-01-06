@@ -15,31 +15,32 @@ class PullRequestSpec: QuickSpec {
 
   override func spec() {
     
-    describe("pull request") {
+    describe("PullRequestSpec") {
       
       let bundle = Bundle(for: PullRequestSpec.self)
       let decoder = JSONDecoder.modelDecoder
-      it("should initialize correctly from JSON") {
-        
-        let path = bundle.path(forResource: "PullRequest", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
-        
-        expect { try decoder.decode(PullRequest.self, from: jsonData) }
-          .notTo(throwError())
-      }
       
-      it("should not initialize from invalid JSON") {
+      context("when decoding from JSON") {
         
-        let path = bundle.path(forResource: "PullRequest_invalid", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
+        it("should suceed initializing from valid JSON") {
+          
+          let path = bundle.path(forResource: "PullRequest", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(PullRequest.self, from: jsonData) }
+            .notTo(throwError())
+        }
         
-        expect { try decoder.decode(PullRequest.self, from: jsonData) }
-          .to(throwError())
-      }
-      
-      context("null body JSON") {
+        it("should fail initializing from invalid JSON") {
+          
+          let path = bundle.path(forResource: "PullRequest_invalid", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(PullRequest.self, from: jsonData) }
+            .to(throwError())
+        }
         
-        it("should initialize correctly with empty body") {
+        it("should suceed initializing from JSON with empty body") {
           
           let path = bundle.path(forResource: "PullRequest_nullBody", ofType: "json")!
           let jsonData = NSData(contentsOfFile: path)! as Data
