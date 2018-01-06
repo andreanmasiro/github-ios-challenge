@@ -14,6 +14,7 @@ import RxCocoa
 struct PullRequestService: PullRequestServiceType {
   
   private let apiURL: URL
+  private let perPage = 30
   private let bag = DisposeBag()
   
   let finishedLoading = PublishSubject<Void>()
@@ -24,8 +25,10 @@ struct PullRequestService: PullRequestServiceType {
   
   func pullRequests(page: Int) -> Observable<[PullRequest]> {
     
+    let params = APIParams.params(page: page, perPage: perPage)
+    
     return RxAlamofire
-      .requestData(.get, apiURL, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
+      .requestData(.get, apiURL, parameters: params, encoding: URLEncoding.queryString, headers: nil)
       .map { response, json -> [PullRequest] in
         
         let decoder = JSONDecoder()
@@ -33,7 +36,8 @@ struct PullRequestService: PullRequestServiceType {
         return list
       }
       .do(onNext: {
-        if $0.isEmpty {
+        if $0.count < self.perPage {
+          self.finishedLoading.onNext(())
           self.finishedLoading.onCompleted()
         }
       })

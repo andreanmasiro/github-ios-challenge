@@ -13,11 +13,14 @@ import RxCocoa
 
 enum RepositoryServiceError: Error {
   case invalidURLPath(String)
+  case rateLimitExceeded(refreshTime: TimeInterval)
+  case unknown
 }
 
 struct RepositoryService: RepositoryServiceType {
   
   private let apiPath: String
+  private let perPage = 30
   private let bag = DisposeBag()
   
   let finishedLoading = PublishSubject<Void>()
@@ -26,22 +29,58 @@ struct RepositoryService: RepositoryServiceType {
     self.apiPath = apiPath
   }
   
+  private func retryHandler(errorObservable: Observable<Error>) -> Observable<Void> {
+    return errorObservable.flatMap { error -> Observable<Void> in
+      
+      guard case let RepositoryServiceError
+        .rateLimitExceeded(refreshTime) = error else {
+          return Observable.error(error)
+      }
+      let nowTimeStamp = Date().timeIntervalSince1970
+      let dueStamp = refreshTime - nowTimeStamp
+      print("will retry in", dueStamp)
+      return Observable<Int>
+        .timer(max(0, dueStamp),
+               period: nil,
+               scheduler: MainScheduler.instance)
+        .map { _ in }
+    }
+  }
+  
   func repositories(page: Int) -> Observable<[Repository]> {
     
     guard let url = URL(string: apiPath) else {
       return .empty()
     }
     
+    let params = APIParams.params(page: page, perPage: perPage)
+    
     return RxAlamofire
-      .requestData(.get, url, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
+      .requestData(.get, url, parameters: params, encoding: URLEncoding.queryString, headers: nil)
       .map { response, json -> [Repository] in
         
-        let decoder = JSONDecoder()
-        let list = try decoder.decode(RepositoryListHelper.self, from: json)
-        return list.items
+        switch response.statusCode {
+        case 200..<300:
+          
+          let decoder = JSONDecoder()
+          let list = try decoder.decode(RepositoryListHelper.self, from: json)
+          return list.items
+          
+        case 403:
+          
+          guard let refreshTimeString = response.allHeaderFields["X-RateLimit-Reset"] as? String,
+            let refreshTime = TimeInterval(refreshTimeString) else {
+            throw RepositoryServiceError.unknown
+          }
+          throw RepositoryServiceError
+            .rateLimitExceeded(refreshTime: refreshTime)
+          
+        default: throw RepositoryServiceError.unknown
+        }
       }
+      .retryWhen(retryHandler)
       .do(onNext: { newRepos in
-        if newRepos.isEmpty {
+        if newRepos.count < self.perPage {
           self.finishedLoading.onNext(())
           self.finishedLoading.onCompleted()
         }
