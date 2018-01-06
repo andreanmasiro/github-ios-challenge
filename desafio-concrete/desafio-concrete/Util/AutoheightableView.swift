@@ -6,7 +6,7 @@
 //  Copyright © 2018 Vergil. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AutoheightableView: class {
   static var cellHeight: CGFloat { get }

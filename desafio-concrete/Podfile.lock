@@ -26,10 +26,10 @@ DEPENDENCIES:
   - Action (~> 3.4.0)
   - Alamofire (~> 4.5.1)
   - Kingfisher (~> 4.0)
-  - Nimble
-  - Quick
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
   - RxAlamofire (~> 4.0.0)
-  - RxBlocking
+  - RxBlocking (~> 4.0.0)
   - RxCocoa (~> 4.0)
   - RxDataSources (~> 3.0.2)
   - RxSwift (~> 4.0)
@@ -47,6 +47,6 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
 
-PODFILE CHECKSUM: 05aa2e3617291e5dfbe2d6babbee36fcae706bf8
+PODFILE CHECKSUM: f4e894c014653a2d2a205b250c8922ef57d3fb05
 
 COCOAPODS: 1.3.1
