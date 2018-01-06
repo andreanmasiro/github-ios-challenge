@@ -11,8 +11,6 @@ import Foundation
 extension NSObject {
   
   static var className: String {
-    
-    let string = NSStringFromClass(self)
-    return String(string.split(separator: ".").last ?? "")
+    return String(describing: self)
   }
 }
