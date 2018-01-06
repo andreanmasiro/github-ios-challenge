@@ -8,9 +8,70 @@
 
 import Quick
 import Nimble
+import OHHTTPStubs
+import RxBlocking
+import RxSwift
 
 @testable import desafio_concrete
 
 class RepositoryServiceSpec: QuickSpec {
-
+  
+  override func spec() {
+    
+    describe("RepositoryServiceSpec") {
+      
+      context("when fetching repositories") {
+        
+        let host = "fakeapilink.com"
+        let fakeApiPath = "https://\(host)/"
+        let bundle = Bundle(for: RepositoryServiceSpec.self)
+        
+        let service = RepositoryService(apiPath: fakeApiPath)
+        
+        var disposeBag = DisposeBag()
+        
+        afterEach {
+          disposeBag = DisposeBag()
+        }
+        
+        it("should parse the repositories correctly from a not-empty page") {
+          
+          stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+            
+            let fixturePath = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
+            return fixture(filePath: fixturePath, status: 200, headers: nil)
+          })
+          
+          var repos: [Repository]?
+          
+          service.repositories(page: 1)
+            .subscribe(onNext: {
+              repos = $0
+            })
+            .disposed(by: disposeBag)
+          
+          expect(repos).toEventuallyNot(beEmpty())
+        }
+        
+        it("should parse empty repositories correctly from an empty page") {
+          
+          stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+            
+            let fixturePath = bundle.path(forResource: "RepositoryListPage_empty", ofType: "json")!
+            return fixture(filePath: fixturePath, status: 200, headers: nil)
+          })
+          
+          var repos: [Repository]?
+          
+          service.repositories(page: 1)
+            .subscribe(onNext: {
+              repos = $0
+            })
+            .disposed(by: disposeBag)
+          
+          expect(repos).toEventually(beEmpty())
+        }
+      }
+    }
+  }
 }
