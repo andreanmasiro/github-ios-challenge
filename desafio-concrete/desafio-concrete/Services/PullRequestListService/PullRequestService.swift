@@ -32,6 +32,7 @@ struct PullRequestService: PullRequestServiceType {
       .map { response, json -> [PullRequest] in
         
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         let list = try decoder.decode([PullRequest].self, from: json)
         return list
       }

@@ -40,10 +40,16 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FtJ-So-DSm">
-                        <rect key="frame" x="63" y="81.5" width="47.5" height="12"/>
+                        <rect key="frame" x="63" y="72" width="56" height="31.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-rg-dJF">
-                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="12"/>
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18/07/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTs-Us-kUm">
+                                <rect key="frame" x="0.0" y="19.5" width="56" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,6 +75,7 @@
             <connections>
                 <outlet property="authorAvatarImageView" destination="Qbb-dl-fcY" id="56j-wl-aAZ"/>
                 <outlet property="authorUsernameLabel" destination="e5F-rg-dJF" id="aAT-Ns-5Un"/>
+                <outlet property="createdAtLabel" destination="UTs-Us-kUm" id="9Vh-HX-hl3"/>
                 <outlet property="descriptionLabel" destination="gC8-xc-Ptu" id="K7b-h3-oco"/>
                 <outlet property="titleLabel" destination="qWj-fB-4zM" id="jlF-mS-ESf"/>
             </connections>

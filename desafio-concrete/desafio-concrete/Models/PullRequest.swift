@@ -13,6 +13,7 @@ struct PullRequest: Codable {
   let id: Int
   let title: String
   let body: String
+  let createdAt: Date
   let closedAt: Date?
   let author: User
   let htmlURL: URL
@@ -22,6 +23,7 @@ struct PullRequest: Codable {
     case id
     case title
     case body
+    case createdAt = "created_at"
     case closedAt = "closed_at"
     case author = "user"
     case htmlURL = "html_url"
@@ -34,6 +36,7 @@ struct PullRequest: Codable {
     self.id = try container.decode(Int.self, forKey: .id)
     self.title = try container.decode(String.self, forKey: .title)
     self.body = try container.decode(String?.self, forKey: .body) ?? ""
+    self.createdAt = try container.decode(Date.self, forKey: .createdAt)
     self.closedAt = try container.decode(Date?.self, forKey: .closedAt)
     self.author = try container.decode(User.self, forKey: .author)
     self.htmlURL = try container.decode(URL.self, forKey: .htmlURL)

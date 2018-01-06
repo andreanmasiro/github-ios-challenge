@@ -19,6 +19,7 @@ class PullRequestTableViewCell: UITableViewCell {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var authorUsernameLabel: UILabel!
   @IBOutlet weak var authorAvatarImageView: UIImageView!
+  @IBOutlet weak var createdAtLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -42,6 +43,7 @@ class PullRequestTableViewCell: UITableViewCell {
     titleLabel.text = model.title
     descriptionLabel.text = model.body
     authorUsernameLabel.text = model.author.username
+    createdAtLabel.text = model.createdAt.humanReadableDescription
 
     authorAvatarImageView.kf.setImage(with: model.author.avatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))
   }

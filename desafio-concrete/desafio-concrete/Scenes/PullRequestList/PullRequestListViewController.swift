@@ -17,8 +17,7 @@ class PullRequestListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-  
-  let tableViewDelegate = PullRequestListTableViewDelegate()
+  @IBOutlet weak var headerView: PullRequestHeaderView!
   
   var loading = false
   var loadNextPage: (() -> ())?
@@ -34,8 +33,6 @@ class PullRequestListViewController: UIViewController {
   }
   
   func registerNibs() {
-    
-    tableView.registerNib(PullRequestHeaderTableViewCell.self)
     tableView.registerNib(PullRequestTableViewCell.self)
   }
   
@@ -49,11 +46,10 @@ class PullRequestListViewController: UIViewController {
     
     let dataSource = self.dataSource
 
-    viewModel.headerModels
-      .drive(tableViewDelegate.headerModels)
-      .disposed(by: bag)
-    
-    tableView.rx.setDelegate(tableViewDelegate)
+    viewModel.headerModel
+      .drive(onNext: {
+        self.headerView.config(model: $0)
+      })
       .disposed(by: bag)
     
     viewModel.sectionedPullRequests
@@ -66,6 +62,12 @@ class PullRequestListViewController: UIViewController {
     
     viewModel.loading.asDriver()
       .drive(loadIndicator.rx.isAnimating)
+      .disposed(by: bag)
+    
+    tableView.rx.itemSelected.asDriver()
+      .drive(onNext: {
+        self.tableView.deselectRow(at: $0, animated: true)
+      })
       .disposed(by: bag)
     
     tableView.rx.modelSelected(PullRequest.self).asDriver()

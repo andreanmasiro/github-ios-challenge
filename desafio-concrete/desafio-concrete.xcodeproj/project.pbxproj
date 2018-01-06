@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0BC8E832CD6C6C13DA6900E8 /* Pods_desafio_concreteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E17CA76746DF846F7BDF8FD /* Pods_desafio_concreteTests.framework */; };
 		4C2813E420010A5F00906625 /* APIParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813E320010A5F00906625 /* APIParams.swift */; };
+		4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813E820011C2400906625 /* Date+HumanReadable.swift */; };
+		4C2813EC20011D9300906625 /* PullRequestHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813EB20011D9300906625 /* PullRequestHeaderView.swift */; };
+		4C2813EE20011DAD00906625 /* PullRequestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -28,12 +31,9 @@
 		4C71B02E2000710F00F583CB /* WKWebView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
 		4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */; };
-		4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */; };
-		4C98FDEB1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE91FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.xib */; };
 		4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDED1FFFD6E3009B9ACF /* PullRequestListViewController.swift */; };
 		4C98FDF01FFFD85E009B9ACF /* PullRequestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDEF1FFFD85E009B9ACF /* PullRequestListViewModel.swift */; };
 		4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */; };
-		4C98FDF61FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF51FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift */; };
 		4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FE031FFFFA00009B9ACF /* Segue.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
@@ -69,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		4C2813E320010A5F00906625 /* APIParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParams.swift; sourceTree = "<group>"; };
+		4C2813E820011C2400906625 /* Date+HumanReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+HumanReadable.swift"; sourceTree = "<group>"; };
+		4C2813EB20011D9300906625 /* PullRequestHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderView.swift; sourceTree = "<group>"; };
+		4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestHeaderView.xib; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -88,12 +91,9 @@
 		4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Rx.swift"; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
-		4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		4C98FDE91FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4C98FDED1FFFD6E3009B9ACF /* PullRequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListViewController.swift; sourceTree = "<group>"; };
 		4C98FDEF1FFFD85E009B9ACF /* PullRequestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListViewModel.swift; sourceTree = "<group>"; };
 		4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
-		4C98FDF51FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListTableViewDelegate.swift; sourceTree = "<group>"; };
 		4C98FE031FFFFA00009B9ACF /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +175,15 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		4C2813EA20011D7A00906625 /* PullRequestHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4C2813EB20011D9300906625 /* PullRequestHeaderView.swift */,
+				4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */,
+			);
+			path = PullRequestHeaderView;
+			sourceTree = "<group>";
+		};
 		4C66339D200006B60045A1A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,21 +249,11 @@
 			path = PullRequestCell;
 			sourceTree = "<group>";
 		};
-		4C98FDE71FFFD3AF009B9ACF /* PullRequestHeaderCell */ = {
-			isa = PBXGroup;
-			children = (
-				4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */,
-				4C98FDE91FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.xib */,
-			);
-			path = PullRequestHeaderCell;
-			sourceTree = "<group>";
-		};
 		4C98FDEC1FFFD4F1009B9ACF /* PullRequestList */ = {
 			isa = PBXGroup;
 			children = (
 				4C98FDED1FFFD6E3009B9ACF /* PullRequestListViewController.swift */,
 				4C98FDEF1FFFD85E009B9ACF /* PullRequestListViewModel.swift */,
-				4C98FDF51FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift */,
 				4C6633AB20001A2E0045A1A2 /* PullRequestHeaderModel.swift */,
 			);
 			path = PullRequestList;
@@ -356,7 +355,7 @@
 		4CFA86C71FFEC34000F39F99 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4C98FDE71FFFD3AF009B9ACF /* PullRequestHeaderCell */,
+				4C2813EA20011D7A00906625 /* PullRequestHeaderView */,
 				4C98FDE11FFFD165009B9ACF /* PullRequestCell */,
 				4C98FDE01FFFD15F009B9ACF /* RepositoryCell */,
 			);
@@ -384,6 +383,7 @@
 				4CFA86D41FFED09F00F39F99 /* UITableView+Helper.swift */,
 				4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */,
 				4CFA86EC1FFF02CB00F39F99 /* NSObject+ClassName.swift */,
+				4C2813E820011C2400906625 /* Date+HumanReadable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,10 +490,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFA86C51FFEC23B00F39F99 /* Main.storyboard in Resources */,
-				4C98FDEB1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.xib in Resources */,
 				4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */,
 				4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */,
 				4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */,
+				4C2813EE20011DAD00906625 /* PullRequestHeaderView.xib in Resources */,
 				4CFA86CB1FFEC3A100F39F99 /* RepositoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +646,7 @@
 				4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */,
 				4C6633B120001D520045A1A2 /* Scene.swift in Sources */,
 				4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */,
+				4C2813EC20011D9300906625 /* PullRequestHeaderView.swift in Sources */,
 				4CFA86D71FFED6D400F39F99 /* RepositoryListViewModel.swift in Sources */,
 				4C6633AC20001A2E0045A1A2 /* PullRequestHeaderModel.swift in Sources */,
 				4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */,
@@ -659,7 +660,7 @@
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
 				4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */,
 				4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */,
-				4C98FDF61FFFDAFA009B9ACF /* PullRequestListTableViewDelegate.swift in Sources */,
+				4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
 				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Helper.swift in Sources */,
 				4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */,
@@ -675,7 +676,6 @@
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
 				4CFA86E91FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift in Sources */,
 				4CFA86DA1FFED83B00F39F99 /* Repository.swift in Sources */,
-				4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */,
 				4C98FDF01FFFD85E009B9ACF /* PullRequestListViewModel.swift in Sources */,
 				4C6633A8200011480045A1A2 /* Repository+Identifiable.swift in Sources */,
 			);

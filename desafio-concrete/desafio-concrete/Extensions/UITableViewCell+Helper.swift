@@ -25,7 +25,7 @@ extension ReusableView where Self: UITableViewCell {
   }
 }
 
-extension NibLoadableView where Self: UITableViewCell {
+extension NibLoadableView where Self: UIView {
   
   static var defaultNibName: String {
     return className

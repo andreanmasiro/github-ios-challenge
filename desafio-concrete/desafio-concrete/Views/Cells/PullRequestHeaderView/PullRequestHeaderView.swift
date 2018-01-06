@@ -1,24 +1,24 @@
 //
-//  PullRequestHeaderTableViewCell.swift
+//  PullRequestHeaderView.swift
 //  desafio-concrete
 //
-//  Created by André Marques da Silva Rodrigues on 05/01/18.
+//  Created by André Marques da Silva Rodrigues on 06/01/18.
 //  Copyright © 2018 Vergil. All rights reserved.
 //
 
 import UIKit
 
-class PullRequestHeaderTableViewCell: UITableViewCell {
-  
-  static var cellHeight: CGFloat {
-    return 35.0
-  }
-  
+class PullRequestHeaderView: UIView, NibLoadableView {
+
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var statusLabel: UILabel!
   
   override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
+    
+    if Bundle.main.loadNibNamed(PullRequestHeaderView.defaultNibName, owner: self, options: nil) != nil {
+      view.frame = bounds
+      addSubview(view)
+    }
   }
   
   func config(model: PullRequestHeaderModel) {
