@@ -73,6 +73,36 @@ class RepositoryServiceSpec: QuickSpec {
             
             expect(repos).toEventually(beEmpty())
           }
+          
+          it("should retry when fetching repositories errors due to rate limit") {
+            
+            var fixturePath = bundle.path(forResource: "RepositoryListRateLimitError", ofType: "json")!
+            var status = Int32(403)
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              defer {
+                fixturePath = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
+                status = 200
+              }
+              
+              let fixturePath = fixturePath
+              let status = status
+              
+              let twoSecondsFromNow = Date().timeIntervalSince1970 + 2
+              return fixture(filePath: fixturePath,
+                             status: status,
+                             headers: [APIKeys.rateLimitResetHeaderKey: String(twoSecondsFromNow)])
+            })
+            
+            var repos: [Repository]?
+            service.repositories(page: 1)
+              .subscribe(onNext: {
+                repos = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(repos).toEventuallyNot(beEmpty(), timeout: 3)
+          }
         }
         
         context("with invalid api path") {
