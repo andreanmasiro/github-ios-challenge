@@ -39,6 +39,10 @@ class RepositoryListViewController: UIViewController {
   }
   
   func setUpTableView() {
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = RepositoryTableViewCell.cellHeight
+    
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomMargin, right: 0)
   }
   
