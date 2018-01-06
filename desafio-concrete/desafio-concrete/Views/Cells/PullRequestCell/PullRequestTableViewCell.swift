@@ -40,7 +40,7 @@ class PullRequestTableViewCell: UITableViewCell {
   func config(model: PullRequest) {
     
     titleLabel.text = model.title
-    descriptionLabel.text = model.description
+    descriptionLabel.text = model.body
     authorUsernameLabel.text = model.author.username
 
     authorAvatarImageView.kf.setImage(with: model.author.avatarURL, placeholder: #imageLiteral(resourceName: "default_avatar_icon"))

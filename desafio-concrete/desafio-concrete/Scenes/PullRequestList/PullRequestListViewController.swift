@@ -16,8 +16,19 @@ typealias PullRequestsDataSource = RxTableViewSectionedAnimatedDataSource<PullRe
 class PullRequestListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  let bag = DisposeBag()
+  @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+  
   let tableViewDelegate = PullRequestListTableViewDelegate()
+  
+  let bottomMargin = CGFloat(10)
+  var reloadBottomOffsetThreshold: CGFloat {
+    return bottomMargin + loadIndicator.bounds.height
+  }
+  
+  var loading = false
+  var loadNextPage: (() -> ())?
+  
+  let bag = DisposeBag()
   
   override func viewDidLoad() {
     
@@ -43,6 +54,9 @@ class PullRequestListViewController: UIViewController {
     viewModel.repositoryName
       .drive(navigationItem.rx.title)
       .disposed(by: bag)
+    
+    loadNextPage = viewModel.loadNextPage
+    setUpReloadable()
   }
   
   func registerNibs() {
@@ -50,7 +64,6 @@ class PullRequestListViewController: UIViewController {
     tableView.registerNib(PullRequestHeaderTableViewCell.self)
     tableView.registerNib(PullRequestTableViewCell.self)
   }
-  
   
 // MARK: Table view sources
   var dataSource: PullRequestsDataSource {
@@ -72,5 +85,12 @@ class PullRequestListViewController: UIViewController {
         return cell
       }
     )
+  }
+}
+
+extension PullRequestListViewController: PageReloadableViewController {
+
+  var scrollView: UIScrollView {
+    return tableView
   }
 }

@@ -12,9 +12,29 @@ struct PullRequest: Codable {
   
   let id: Int
   let title: String
-  let description: String
-  let open: Bool
+  let body: String
+  let closedAt: Date?
   let author: User
+  
+  enum CodingKeys: String, CodingKey {
+    
+    case id
+    case title
+    case body
+    case closedAt = "closed_at"
+    case author = "user"
+  }
+  
+  public init(from decoder: Decoder) throws {
+    
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    
+    self.id = try container.decode(Int.self, forKey: .id)
+    self.title = try container.decode(String.self, forKey: .title)
+    self.body = try container.decode(String?.self, forKey: .body) ?? ""
+    self.closedAt = try container.decode(Date?.self, forKey: .closedAt)
+    self.author = try container.decode(User.self, forKey: .author)
+  }
 }
 
 extension PullRequest: Equatable {

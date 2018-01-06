@@ -43,7 +43,7 @@ struct PullRequestListViewModel {
     self.headerModels = pullRequests.asDriver()
       .map {
         
-        let openCount = $0.filter { $0.open }.count
+        let openCount = $0.filter { $0.closedAt == nil }.count
         let closedCount = $0.count - openCount
         
         return [PullRequestHeaderModel(openCount: openCount,

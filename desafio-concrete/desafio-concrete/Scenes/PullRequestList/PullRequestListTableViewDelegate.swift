@@ -12,6 +12,7 @@ import RxSwift
 class PullRequestListTableViewDelegate: NSObject, UITableViewDelegate {
   
   var headerModels = Variable<[PullRequestHeaderModel]>([])
+  private let bag = DisposeBag()
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return PullRequestTableViewCell.cellHeight
@@ -23,15 +24,17 @@ class PullRequestListTableViewDelegate: NSObject, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     
-    let sectionHeaderModel = headerModels.value[section]
-    
     guard let header = tableView.dequeueReusableCellWithDefaultIdentifier(
           PullRequestHeaderTableViewCell.self
       ) else {
       return nil
     }
     
-    header.config(model: sectionHeaderModel)
+    headerModels.asDriver()
+      .drive(onNext: {
+        header.config(model: $0[section])
+      })
+      .disposed(by: bag)
     
     return header
   }
