@@ -10,16 +10,6 @@ import UIKit.UIColor
 
 extension UIColor {
   
-  static func with(rgb: Int, alpha: CGFloat = 1.0) -> UIColor {
-    
-    let (r, g, b) = (
-      CGFloat((rgb >> 16) & 0xFF)/255,
-      CGFloat((rgb >> 8) & 0xFF)/255,
-      CGFloat(rgb & 0xFF)/255
-    )
-    return UIColor(red: r, green: g, blue: b, alpha: alpha)
-  }
-  
-  static let golden = UIColor.with(rgb: 0xDF9305)
-  static let oilBlue = UIColor.with(rgb: 0x638EDC)
+  static let golden  = #colorLiteral(red: 0.8745098039, green: 0.5764705882, blue: 0.01960784314, alpha: 1)
+  static let oilBlue = #colorLiteral(red: 0.3882352941, green: 0.5568627451, blue: 0.862745098, alpha: 1)
 }
