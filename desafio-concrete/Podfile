@@ -1,6 +1,12 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+def testing_pods
+  pod 'Quick', '~> 1.2.0'
+  pod 'Nimble', '~> 7.0.2'
+  pod 'RxBlocking', '~> 4.0.0'
+end
+
 target 'desafio-concrete' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
@@ -16,7 +22,7 @@ target 'desafio-concrete' do
   target 'desafio-concreteTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'RxBlocking'
+    testing_pods
   end
   
 end
