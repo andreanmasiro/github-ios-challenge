@@ -19,6 +19,7 @@ struct PullRequestListViewModel {
   private let coordinator: SceneCoordinator
   private let service: PullRequestServiceType
   
+  private let lastPageLoaded = Variable<Int>(0)
   private let pullRequests = Variable<[PullRequest]>([])
   
   private let bag = DisposeBag()
@@ -40,14 +41,7 @@ struct PullRequestListViewModel {
       .map { [PullRequestsSection(model: "", items: $0)] }
     
     self.headerModels = pullRequests.asDriver()
-      .map {
-        
-        let openCount = $0.filter { $0.closedAt == nil }.count
-        let closedCount = $0.count - openCount
-        
-        return [PullRequestHeaderModel(openCount: openCount,
-                                      closedCount: closedCount)]
-      }
+      .map { [PullRequestHeaderModel(pullRequests: $0)] }
     
     finishedLoading = service.finishedLoading.ignoreElements()
     bindOutput()
@@ -55,12 +49,12 @@ struct PullRequestListViewModel {
   
   private func bindOutput() {
     
-    self.loading.value = true
-    service.pullRequests
-      .do(onNext: { _ in
-        self.loading.value = false
+    loading.value = true
+    lastPageLoaded.asObservable().skip(1)
+      .flatMap { self.service.pullRequests(page: $0) }
+      .subscribe(onNext: {
+        self.pullRequests.value.append(contentsOf: $0)
       })
-      .bind(to: pullRequests)
       .disposed(by: bag)
   }
   
@@ -70,5 +64,9 @@ struct PullRequestListViewModel {
       self.coordinator.transition(.push(true), to: .pullRequest($0.htmlURL))
       return Observable.empty()
     }
+  }
+  
+  func loadNextPage() {
+    lastPageLoaded.value += 1
   }
 }

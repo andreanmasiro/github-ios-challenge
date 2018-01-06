@@ -20,6 +20,8 @@ class PullRequestListViewController: UIViewController {
   
   let tableViewDelegate = PullRequestListTableViewDelegate()
   
+  var loading = false
+  var loadNextPage: (() -> ())?
   var finishedLoading: Completable?
   
   let bag = DisposeBag()
@@ -71,6 +73,10 @@ class PullRequestListViewController: UIViewController {
         viewModel.showPullRequestAction.execute($0)
       })
       .disposed(by: bag)
+    
+    loadNextPage = viewModel.loadNextPage
+    finishedLoading = viewModel.finishedLoading
+    setUpReloadable()
   }
   
   var dataSource: PullRequestsDataSource {
@@ -92,5 +98,20 @@ class PullRequestListViewController: UIViewController {
         return cell
       }
     )
+  }
+}
+
+extension PullRequestListViewController: PageReloadableViewController {
+  
+  var scrollView: UIScrollView {
+    return tableView
+  }
+  
+  var bottomMargin: CGFloat {
+    return 10
+  }
+  
+  var reloadBottomOffsetThreshold: CGFloat {
+    return bottomMargin + loadIndicator.bounds.height
   }
 }

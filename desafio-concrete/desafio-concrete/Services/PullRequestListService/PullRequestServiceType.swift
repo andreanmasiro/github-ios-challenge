@@ -11,5 +11,6 @@ import RxSwift
 protocol PullRequestServiceType {
   
   var finishedLoading: PublishSubject<Void> { get }
-  var pullRequests: Observable<[PullRequest]> { get }
+  
+  func pullRequests(page: Int) -> Observable<[PullRequest]>
 }

@@ -22,18 +22,20 @@ struct PullRequestService: PullRequestServiceType {
     self.apiURL = apiURL
   }
   
-  var pullRequests: Observable<[PullRequest]> {
+  func pullRequests(page: Int) -> Observable<[PullRequest]> {
     
     return RxAlamofire
-      .requestData(.get, apiURL)
+      .requestData(.get, apiURL, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
       .map { response, json -> [PullRequest] in
         
         let decoder = JSONDecoder()
         let list = try decoder.decode([PullRequest].self, from: json)
         return list
       }
-      .do(onNext: { _ in
-        self.finishedLoading.onCompleted()
+      .do(onNext: {
+        if $0.isEmpty {
+          self.finishedLoading.onCompleted()
+        }
       })
   }
 }

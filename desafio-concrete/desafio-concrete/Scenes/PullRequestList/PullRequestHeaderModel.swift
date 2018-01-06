@@ -12,4 +12,10 @@ struct PullRequestHeaderModel {
   
   let openCount: Int
   let closedCount: Int
+  
+  init(pullRequests: [PullRequest]) {
+    
+    self.openCount = pullRequests.filter { $0.closedAt == nil }.count
+    self.closedCount = pullRequests.count - self.openCount
+  }
 }
