@@ -35,12 +35,12 @@ struct RepositoryService: RepositoryServiceType {
   
   func loadRepositoryList(page: Int) {
     
-    guard let url = URL(string: apiPath + "&page=\(page)") else {
+    guard let url = URL(string: apiPath) else {
       return
     }
     
     RxAlamofire
-      .requestData(.get, url)
+      .requestData(.get, url, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
       .map { response, json -> [Repository] in
         
         let decoder = JSONDecoder()

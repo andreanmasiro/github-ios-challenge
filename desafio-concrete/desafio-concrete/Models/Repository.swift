@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum RepositoryDecodingError: Error {
+  case invalidPullsURL(String)
+}
+
 struct Repository: Codable {
   
   let id: Int
@@ -16,6 +20,7 @@ struct Repository: Codable {
   let forksCount: Int
   let stargazersCount: Int
   let owner: User
+  let pullsURL: URL
   
   public init(from decoder: Decoder) throws {
     
@@ -27,6 +32,13 @@ struct Repository: Codable {
     self.forksCount = try container.decode(Int.self, forKey: .forksCount)
     self.stargazersCount = try container.decode(Int.self, forKey: .stargazersCount)
     self.owner = try container.decode(User.self, forKey: .owner)
+    let pullsPath = try container.decode(String.self, forKey: .pullsURL).replacingOccurrences(of: "{/number}", with: "")
+    
+    guard let pullsURL = URL(string: pullsPath) else {
+      throw RepositoryDecodingError.invalidPullsURL(pullsPath)
+    }
+    
+    self.pullsURL = pullsURL
   }
   
   enum CodingKeys: String, CodingKey {
@@ -36,6 +48,7 @@ struct Repository: Codable {
     case forksCount = "forks_count"
     case stargazersCount = "stargazers_count"
     case owner
+    case pullsURL = "pulls_url"
   }
 }
 

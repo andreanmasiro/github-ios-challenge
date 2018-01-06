@@ -10,6 +10,7 @@ import UIKit
 import RxDataSources
 import RxSwift
 import RxCocoa
+import Action
 
 typealias RepositoriesDataSource = RxTableViewSectionedAnimatedDataSource<RepositoriesSection>
 
@@ -23,6 +24,8 @@ class RepositoryListViewController: UIViewController {
   lazy var reloadBottomOffsetThreshold = {
     return $0 + $1
   }(bottomMargin, loadIndicator.bounds.height)
+  
+  var showPullRequestsAction: Action<Repository, Void>?
   
   override func viewDidLoad() {
     
@@ -51,6 +54,13 @@ class RepositoryListViewController: UIViewController {
     tableView.rx.itemSelected
       .subscribe(onNext: { indexPath in
         self.tableView.deselectRow(at: indexPath, animated: true)
+      })
+      .disposed(by: bag)
+    
+    tableView.rx.modelSelected(Repository.self)
+      .asDriver()
+      .drive(onNext: {
+        viewModel.showPullRequestsAction.execute($0)
       })
       .disposed(by: bag)
     

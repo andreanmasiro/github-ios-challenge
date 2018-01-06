@@ -34,18 +34,18 @@ class SceneCoordinator {
     
     let vc = scene.viewController
     
-    defer {
-      currentViewController = vc
-    }
-    
     switch transition {
       
     case .root:
+      
       window.rootViewController = vc
       window.makeKeyAndVisible()
+      
+      currentViewController = vc
       return .empty()
       
     case .push(let animated):
+      
       guard let nc = currentViewController as? UINavigationController else {
         return .error(currentViewController == nil ?
             SceneCoordinatorError.noRootViewController :
@@ -60,6 +60,7 @@ class SceneCoordinator {
         return .error(SceneCoordinatorError.noRootViewController)
       }
       
+      currentViewController = vc
       return present(source: currentVC, viewController: vc, animated: animated)
     }
   }

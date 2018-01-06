@@ -10,6 +10,7 @@ import Foundation
 import RxDataSources
 import RxSwift
 import RxCocoa
+import Action
 
 typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 
@@ -30,9 +31,8 @@ struct RepositoryListViewModel {
     self.coordinator = coordinator
     self.service = service
     
-    sectionedRepositories = repositories.asDriver()
+    self.sectionedRepositories = repositories.asDriver()
       .map { [RepositoriesSection(model: "", items: $0)] }
-    
     bindOutput()
   }
   
@@ -54,7 +54,22 @@ struct RepositoryListViewModel {
       .disposed(by: bag)
   }
   
+  var showPullRequestsAction: Action<Repository, Void> {
+    return Action {
+      
+      let service = PullRequestService(apiURL: $0.pullsURL)
+      let viewModel = PullRequestListViewModel(coordinator: self.coordinator, service: service, repositoryName: $0.name)
+      
+      self.coordinator.transition(.push(true),
+                                  to: .pullRequestList(viewModel))
+      
+      return Observable.empty()
+    }
+  }
+  
   func loadNextPage() {
     lastPageLoaded.value += 1
   }
+  
+  
 }
