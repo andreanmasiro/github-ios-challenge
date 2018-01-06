@@ -17,10 +17,10 @@ class RepositorySpec: QuickSpec {
     
     describe("RepositorySpec") {
       
-      let bundle = Bundle(for: RepositorySpec.self)
-      let decoder = JSONDecoder.modelDecoder
-      
       context("when decoding from JSON") {
+        
+        let bundle = Bundle(for: RepositorySpec.self)
+        let decoder = JSONDecoder.modelDecoder
         
         it("should succeed initializing from valid JSON") {
           

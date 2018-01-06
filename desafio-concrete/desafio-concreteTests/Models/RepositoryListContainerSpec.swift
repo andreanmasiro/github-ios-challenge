@@ -15,27 +15,30 @@ class RepositoryListContainerSpec: QuickSpec {
 
   override func spec() {
     
-    describe("repositoryListContainer") {
+    describe("RepositoryListContainerSpec") {
       
-      let bundle = Bundle(for: RepositoryListContainerSpec.self)
-      let decoder = JSONDecoder.modelDecoder
+      context("when decoding from JSON") {
       
-      it("should initialize correctly from JSON") {
+        let bundle = Bundle(for: RepositoryListContainerSpec.self)
+        let decoder = JSONDecoder.modelDecoder
         
-        let path = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
+        it("should succeed initializing from valid JSON") {
+          
+          let path = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(RepositoryListContainer.self, from: jsonData) }
+            .notTo(throwError())
+        }
         
-        expect { try decoder.decode(RepositoryListContainer.self, from: jsonData) }
-          .notTo(throwError())
-      }
-      
-      it("should not initialize from invalid JSON") {
-        
-        let path = bundle.path(forResource: "RepositoryListPage_invalid", ofType: "json")!
-        let jsonData = NSData(contentsOfFile: path)! as Data
-        
-        expect { try decoder.decode(RepositoryListContainer.self, from: jsonData) }
-          .to(throwError())
+        it("should fail initializing from invalid JSON") {
+          
+          let path = bundle.path(forResource: "RepositoryListPage_invalid", ofType: "json")!
+          let jsonData = NSData(contentsOfFile: path)! as Data
+          
+          expect { try decoder.decode(RepositoryListContainer.self, from: jsonData) }
+            .to(throwError())
+        }
       }
     }
   }

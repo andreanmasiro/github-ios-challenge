@@ -17,10 +17,10 @@ class PullRequestSpec: QuickSpec {
     
     describe("PullRequestSpec") {
       
-      let bundle = Bundle(for: PullRequestSpec.self)
-      let decoder = JSONDecoder.modelDecoder
-      
       context("when decoding from JSON") {
+        
+        let bundle = Bundle(for: PullRequestSpec.self)
+        let decoder = JSONDecoder.modelDecoder
         
         it("should suceed initializing from valid JSON") {
           
