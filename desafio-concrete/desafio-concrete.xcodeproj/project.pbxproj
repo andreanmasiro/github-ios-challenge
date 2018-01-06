@@ -12,6 +12,19 @@
 		4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813E820011C2400906625 /* Date+HumanReadable.swift */; };
 		4C2813EC20011D9300906625 /* PullRequestHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813EB20011D9300906625 /* PullRequestHeaderView.swift */; };
 		4C2813EE20011DAD00906625 /* PullRequestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */; };
+		4C2813F22001373200906625 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813F12001373200906625 /* UserSpec.swift */; };
+		4C2813F52001390F00906625 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813F42001390F00906625 /* User.json */; };
+		4C2813F720013BBF00906625 /* User_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813F620013BBF00906625 /* User_invalid.json */; };
+		4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2813F820013CF500906625 /* RepositorySpec.swift */; };
+		4C2813FB20013D5100906625 /* Repository.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813FA20013D5100906625 /* Repository.json */; };
+		4C2813FD20013D9100906625 /* Repository_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C2813FC20013D9100906625 /* Repository_invalid.json */; };
+		4C28140120013E2600906625 /* Repository_nullDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140020013E2600906625 /* Repository_nullDescription.json */; };
+		4C28140520013EB700906625 /* Repository_invalidPullsURL.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140420013EB700906625 /* Repository_invalidPullsURL.json */; };
+		4C2814072001407600906625 /* PullRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2814062001407600906625 /* PullRequestSpec.swift */; };
+		4C281409200140D600906625 /* PullRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C281408200140D600906625 /* PullRequest.json */; };
+		4C28140B2001416000906625 /* PullRequest_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140A2001416000906625 /* PullRequest_invalid.json */; };
+		4C28140D2001420800906625 /* JSONDecoder+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28140C2001420800906625 /* JSONDecoder+Models.swift */; };
+		4C28140F2001430500906625 /* PullRequest_nullBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140E2001430500906625 /* PullRequest_nullBody.json */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -38,7 +51,6 @@
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
-		4CFA86B31FFEBC2200F39F99 /* desafio_concreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86B21FFEBC2200F39F99 /* desafio_concreteTests.swift */; };
 		4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86C11FFEC20800F39F99 /* RepositoryListViewController.swift */; };
 		4CFA86C51FFEC23B00F39F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86C41FFEC23B00F39F99 /* Main.storyboard */; };
 		4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */; };
@@ -72,6 +84,19 @@
 		4C2813E820011C2400906625 /* Date+HumanReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+HumanReadable.swift"; sourceTree = "<group>"; };
 		4C2813EB20011D9300906625 /* PullRequestHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderView.swift; sourceTree = "<group>"; };
 		4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestHeaderView.xib; sourceTree = "<group>"; };
+		4C2813F12001373200906625 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
+		4C2813F42001390F00906625 /* User.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
+		4C2813F620013BBF00906625 /* User_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User_invalid.json; sourceTree = "<group>"; };
+		4C2813F820013CF500906625 /* RepositorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySpec.swift; sourceTree = "<group>"; };
+		4C2813FA20013D5100906625 /* Repository.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repository.json; sourceTree = "<group>"; };
+		4C2813FC20013D9100906625 /* Repository_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repository_invalid.json; sourceTree = "<group>"; };
+		4C28140020013E2600906625 /* Repository_nullDescription.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repository_nullDescription.json; sourceTree = "<group>"; };
+		4C28140420013EB700906625 /* Repository_invalidPullsURL.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repository_invalidPullsURL.json; sourceTree = "<group>"; };
+		4C2814062001407600906625 /* PullRequestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestSpec.swift; sourceTree = "<group>"; };
+		4C281408200140D600906625 /* PullRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest.json; sourceTree = "<group>"; };
+		4C28140A2001416000906625 /* PullRequest_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest_invalid.json; sourceTree = "<group>"; };
+		4C28140C2001420800906625 /* JSONDecoder+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Models.swift"; sourceTree = "<group>"; };
+		4C28140E2001430500906625 /* PullRequest_nullBody.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest_nullBody.json; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -101,7 +126,6 @@
 		4CFA86A71FFEBC2200F39F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFA86A91FFEBC2200F39F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFA86AE1FFEBC2200F39F99 /* desafio-concreteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-concreteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFA86B21FFEBC2200F39F99 /* desafio_concreteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_concreteTests.swift; sourceTree = "<group>"; };
 		4CFA86B41FFEBC2200F39F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFA86C11FFEC20800F39F99 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		4CFA86C41FFEC23B00F39F99 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -182,6 +206,32 @@
 				4C2813ED20011DAD00906625 /* PullRequestHeaderView.xib */,
 			);
 			path = PullRequestHeaderView;
+			sourceTree = "<group>";
+		};
+		4C2813EF2001370300906625 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C2813F12001373200906625 /* UserSpec.swift */,
+				4C2813F820013CF500906625 /* RepositorySpec.swift */,
+				4C2814062001407600906625 /* PullRequestSpec.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C2813F3200138FF00906625 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4C2813F42001390F00906625 /* User.json */,
+				4C2813F620013BBF00906625 /* User_invalid.json */,
+				4C2813FA20013D5100906625 /* Repository.json */,
+				4C2813FC20013D9100906625 /* Repository_invalid.json */,
+				4C28140020013E2600906625 /* Repository_nullDescription.json */,
+				4C28140420013EB700906625 /* Repository_invalidPullsURL.json */,
+				4C281408200140D600906625 /* PullRequest.json */,
+				4C28140A2001416000906625 /* PullRequest_invalid.json */,
+				4C28140E2001430500906625 /* PullRequest_nullBody.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		4C66339D200006B60045A1A2 /* Services */ = {
@@ -298,7 +348,8 @@
 		4CFA86B11FFEBC2200F39F99 /* desafio-concreteTests */ = {
 			isa = PBXGroup;
 			children = (
-				4CFA86B21FFEBC2200F39F99 /* desafio_concreteTests.swift */,
+				4C2813F3200138FF00906625 /* JSON */,
+				4C2813EF2001370300906625 /* Models */,
 				4CFA86B41FFEBC2200F39F99 /* Info.plist */,
 			);
 			path = "desafio-concreteTests";
@@ -384,6 +435,7 @@
 				4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */,
 				4CFA86EC1FFF02CB00F39F99 /* NSObject+ClassName.swift */,
 				4C2813E820011C2400906625 /* Date+HumanReadable.swift */,
+				4C28140C2001420800906625 /* JSONDecoder+Models.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -460,6 +512,7 @@
 					};
 					4CFA86AD1FFEBC2200F39F99 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4CFA86991FFEBC2200F39F99;
 					};
@@ -502,6 +555,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C28140F2001430500906625 /* PullRequest_nullBody.json in Resources */,
+				4C281409200140D600906625 /* PullRequest.json in Resources */,
+				4C2813F720013BBF00906625 /* User_invalid.json in Resources */,
+				4C2813FD20013D9100906625 /* Repository_invalid.json in Resources */,
+				4C28140520013EB700906625 /* Repository_invalidPullsURL.json in Resources */,
+				4C28140B2001416000906625 /* PullRequest_invalid.json in Resources */,
+				4C28140120013E2600906625 /* Repository_nullDescription.json in Resources */,
+				4C2813FB20013D5100906625 /* Repository.json in Resources */,
+				4C2813F52001390F00906625 /* User.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +717,7 @@
 				4CFA86E51FFEFD9A00F39F99 /* ReusableView.swift in Sources */,
 				4CFA86C21FFEC20800F39F99 /* RepositoryListViewController.swift in Sources */,
 				4C6633B720001E800045A1A2 /* StoryboardIdentifier.swift in Sources */,
+				4C28140D2001420800906625 /* JSONDecoder+Models.swift in Sources */,
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
 				4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */,
 				4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */,
@@ -683,7 +746,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFA86B31FFEBC2200F39F99 /* desafio_concreteTests.swift in Sources */,
+				4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */,
+				4C2814072001407600906625 /* PullRequestSpec.swift in Sources */,
+				4C2813F22001373200906625 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,11 +922,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concreteTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concreteTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-concrete.app/desafio-concrete";
@@ -874,7 +942,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BEVC4JDNZX;
 				INFOPLIST_FILE = "desafio-concreteTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vergil.desafio-concreteTests";

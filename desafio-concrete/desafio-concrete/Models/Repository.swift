@@ -9,7 +9,7 @@
 import Foundation
 
 enum RepositoryDecodingError: Error {
-  case invalidPullsURL(String)
+  case invalidPullsURL
 }
 
 struct Repository: Codable {
@@ -35,7 +35,7 @@ struct Repository: Codable {
     let pullsPath = try container.decode(String.self, forKey: .pullsURL).replacingOccurrences(of: "{/number}", with: "")
     
     guard let pullsURL = URL(string: pullsPath) else {
-      throw RepositoryDecodingError.invalidPullsURL(pullsPath)
+      throw RepositoryDecodingError.invalidPullsURL
     }
     
     self.pullsURL = pullsURL
