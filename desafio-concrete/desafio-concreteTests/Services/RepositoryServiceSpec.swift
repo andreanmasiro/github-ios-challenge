@@ -22,54 +22,76 @@ class RepositoryServiceSpec: QuickSpec {
       
       context("when fetching repositories") {
         
-        let host = "fakeapilink.com"
-        let fakeApiPath = "https://\(host)/"
         let bundle = Bundle(for: RepositoryServiceSpec.self)
         
-        let service = RepositoryService(apiPath: fakeApiPath)
+        var disposeBag: DisposeBag!
         
-        var disposeBag = DisposeBag()
-        
-        afterEach {
+        beforeEach {
           disposeBag = DisposeBag()
         }
         
-        it("should parse the repositories correctly from a not-empty page") {
+        context("with valid api path") {
+        
+          let host = "fakeapilink.com"
+          let fakeApiPath = "https://\(host)/"
+          let service = RepositoryService(apiPath: fakeApiPath)
           
-          stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+          it("should parse the repositories correctly from a not-empty page") {
             
-            let fixturePath = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
-            return fixture(filePath: fixturePath, status: 200, headers: nil)
-          })
-          
-          var repos: [Repository]?
-          
-          service.repositories(page: 1)
-            .subscribe(onNext: {
-              repos = $0
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              let fixturePath = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
+              return fixture(filePath: fixturePath, status: 200, headers: nil)
             })
-            .disposed(by: disposeBag)
+            
+            var repos: [Repository]?
+            
+            service.repositories(page: 1)
+              .subscribe(onNext: {
+                repos = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(repos).toEventuallyNot(beEmpty())
+          }
           
-          expect(repos).toEventuallyNot(beEmpty())
+          it("should parse empty repositories correctly from an empty page") {
+            
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              let fixturePath = bundle.path(forResource: "RepositoryListPage_empty", ofType: "json")!
+              return fixture(filePath: fixturePath, status: 200, headers: nil)
+            })
+            
+            var repos: [Repository]?
+            
+            service.repositories(page: 1)
+              .subscribe(onNext: {
+                repos = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(repos).toEventually(beEmpty())
+          }
         }
         
-        it("should parse empty repositories correctly from an empty page") {
+        context("with invalid api path") {
           
-          stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+          it("should fail fetching repositories due to invalid API path") {
+           
+            let invalidApiPath = ""
+            let service = RepositoryService(apiPath: invalidApiPath)
             
-            let fixturePath = bundle.path(forResource: "RepositoryListPage_empty", ofType: "json")!
-            return fixture(filePath: fixturePath, status: 200, headers: nil)
-          })
-          
-          var repos: [Repository]?
-          
-          service.repositories(page: 1)
-            .subscribe(onNext: {
-              repos = $0
-            })
-            .disposed(by: disposeBag)
-          
-          expect(repos).toEventually(beEmpty())
+            var error: Error?
+            
+            service.repositories(page: 1)
+              .subscribe(onError: {
+                error = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(error).toEventually(matchError(RepositoryServiceError.invalidAPIPath))
+          }
         }
       }
     }

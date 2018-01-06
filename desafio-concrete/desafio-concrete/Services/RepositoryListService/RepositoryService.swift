@@ -12,7 +12,7 @@ import RxAlamofire
 import RxCocoa
 
 enum RepositoryServiceError: Error {
-  case invalidURLPath(String)
+  case invalidAPIPath
   case rateLimitExceeded(refreshTime: TimeInterval)
   case unknown
 }
@@ -22,7 +22,7 @@ struct RepositoryService: RepositoryServiceType {
   private let apiPath: String
   private let perPage = 30
   private let bag = DisposeBag()
-  
+
   let finishedLoading = PublishSubject<Void>()
   
   init(apiPath: String) {
@@ -50,7 +50,7 @@ struct RepositoryService: RepositoryServiceType {
   func repositories(page: Int) -> Observable<[Repository]> {
     
     guard let url = URL(string: apiPath) else {
-      return .empty()
+      return .error(RepositoryServiceError.invalidAPIPath)
     }
     
     let params = APIParams.params(page: page, perPage: perPage)
@@ -68,7 +68,7 @@ struct RepositoryService: RepositoryServiceType {
           
         case 403:
           
-          guard let refreshTimeString = response.allHeaderFields["X-RateLimit-Reset"] as? String,
+          guard let refreshTimeString = response.allHeaderFields[APIKeys.rateLimitResetHeaderKey] as? String,
             let refreshTime = TimeInterval(refreshTimeString) else {
             throw RepositoryServiceError.unknown
           }
