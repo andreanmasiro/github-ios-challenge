@@ -22,6 +22,7 @@
 		4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */; };
 		4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BE200021750045A1A2 /* SceneTransition.swift */; };
 		4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C120004BEC0045A1A2 /* PullRequestService.swift */; };
+		4C6633C4200053570045A1A2 /* PageReloadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
 		4C98FDE51FFFD17A009B9ACF /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */; };
 		4C98FDEA1FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */; };
@@ -78,6 +79,7 @@
 		4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		4C6633BE200021750045A1A2 /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		4C6633C120004BEC0045A1A2 /* PullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestService.swift; sourceTree = "<group>"; };
+		4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReloadableViewController.swift; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4C98FDE31FFFD17A009B9ACF /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		4C98FDE81FFFD3BF009B9ACF /* PullRequestHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				4CFA86C31FFEC22F00F39F99 /* Storyboard */,
 				4CFA86BF1FFEC1EA00F39F99 /* RepositoryList */,
 				4C98FDEC1FFFD4F1009B9ACF /* PullRequestList */,
+				4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6633C4200053570045A1A2 /* PageReloadableViewController.swift in Sources */,
 				4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */,
 				4C6633AA2000118D0045A1A2 /* PullRequest+Identifiable.swift in Sources */,
 				4C6633B120001D520045A1A2 /* Scene.swift in Sources */,

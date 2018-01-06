@@ -15,10 +15,17 @@ typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
 
+  
   private let coordinator: SceneCoordinator
-  private let pullRequests = Variable<[PullRequest]>([])
   private let service: PullRequestServiceType
   
+  private let lastPageLoaded = Variable<Int>(0)
+  
+  private let pullRequests = Variable<[PullRequest]>([])
+  
+  private let bag = DisposeBag()
+  
+  let loading = Variable<Bool>(false)
   let sectionedPullRequests: Driver<[PullRequestsSection]>
   let repositoryName: Driver<String>
   let headerModels: Driver<[PullRequestHeaderModel]>
@@ -42,5 +49,28 @@ struct PullRequestListViewModel {
         return [PullRequestHeaderModel(openCount: openCount,
                                       closedCount: closedCount)]
       }
+    bindOutput()
+  }
+  
+  private func bindOutput() {
+    
+    service.pullRequests
+      .do(onNext: { _ in
+        self.loading.value = false
+      })
+      .bind(to: pullRequests)
+      .disposed(by: bag)
+    
+    lastPageLoaded.asObservable()
+      .skip(1)
+      .subscribe(onNext: {
+        self.loading.value = true
+        self.service.loadPullRequestList(page: $0)
+      })
+      .disposed(by: bag)
+  }
+  
+  func loadNextPage() {
+    lastPageLoaded.value += 1
   }
 }

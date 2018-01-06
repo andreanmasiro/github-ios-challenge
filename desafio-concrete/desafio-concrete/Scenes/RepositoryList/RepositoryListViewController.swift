@@ -18,14 +18,18 @@ class RepositoryListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-  let bag = DisposeBag()
-  let tableViewDelegate = RepositoryTableViewDelegate()
-  let bottomMargin = CGFloat(10)
-  lazy var reloadBottomOffsetThreshold = {
-    return $0 + $1
-  }(bottomMargin, loadIndicator.bounds.height)
   
-  var showPullRequestsAction: Action<Repository, Void>?
+  let tableViewDelegate = RepositoryTableViewDelegate()
+  
+  let bottomMargin = CGFloat(10)
+  var reloadBottomOffsetThreshold: CGFloat {
+    return bottomMargin + loadIndicator.bounds.height
+  }
+  
+  let bag = DisposeBag()
+  
+  var loading = false
+  var loadNextPage: (() -> ())?
   
   override func viewDidLoad() {
     
@@ -64,15 +68,14 @@ class RepositoryListViewController: UIViewController {
       })
       .disposed(by: bag)
     
-    tableView.rx.contentOffset
-      .map { $0.y > self.tableView.contentSize.height - self.tableView.bounds.height - self.reloadBottomOffsetThreshold }
-      .distinctUntilChanged()
-      .filter { $0 && !viewModel.loading.value }
-      .debug()
-      .subscribe(onNext: { _ in
-        viewModel.loadNextPage()
+    viewModel.loading.asDriver()
+      .drive(onNext: {
+        self.loading = $0
       })
       .disposed(by: bag)
+    
+    loadNextPage = viewModel.loadNextPage
+    setUpReloadable()
   }
   
   var dataSource: RepositoriesDataSource {
@@ -94,5 +97,12 @@ class RepositoryListViewController: UIViewController {
         return cell
       }
     )
+  }
+}
+
+extension RepositoryListViewController: PageReloadableViewController {
+  
+  var scrollView: UIScrollView {
+    return tableView
   }
 }

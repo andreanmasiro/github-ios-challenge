@@ -17,9 +17,10 @@ typealias RepositoriesSection = AnimatableSectionModel<String, Repository>
 struct RepositoryListViewModel {
   
   private let coordinator: SceneCoordinator
+  private let service: RepositoryServiceType
+  
   private let lastPageLoaded = Variable<Int>(0)
   
-  private let service: RepositoryServiceType
   private let repositories = Variable<[Repository]>([])
   
   private let bag = DisposeBag()
@@ -70,6 +71,4 @@ struct RepositoryListViewModel {
   func loadNextPage() {
     lastPageLoaded.value += 1
   }
-  
-  
 }
