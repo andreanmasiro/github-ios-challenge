@@ -75,7 +75,7 @@ class PullRequestListViewController: UIViewController {
       .disposed(by: bag)
     
     loadNextPage = viewModel.loadNextPage
-    finishedLoading = viewModel.finishedLoading
+    finishedLoading = viewModel.finishedLoading.ignoreElements()
     setUpReloadable()
   }
   

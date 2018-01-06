@@ -18,29 +18,21 @@ enum RepositoryServiceError: Error {
 struct RepositoryService: RepositoryServiceType {
   
   private let apiPath: String
-  private let gatheringRepositories = Variable<[Repository]>([])
   private let bag = DisposeBag()
   
-  let repositories: BehaviorSubject<[Repository]>
   let finishedLoading = PublishSubject<Void>()
   
   init(apiPath: String) {
     self.apiPath = apiPath
-    
-    repositories = BehaviorSubject<[Repository]>(value: gatheringRepositories.value)
-    
-    gatheringRepositories.asObservable()
-      .bind(to: repositories)
-      .disposed(by: bag)
   }
   
-  func loadRepositoryList(page: Int) {
+  func repositories(page: Int) -> Observable<[Repository]> {
     
     guard let url = URL(string: apiPath) else {
-      return
+      return .empty()
     }
     
-    RxAlamofire
+    return RxAlamofire
       .requestData(.get, url, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
       .map { response, json -> [Repository] in
         
@@ -50,11 +42,9 @@ struct RepositoryService: RepositoryServiceType {
       }
       .do(onNext: { newRepos in
         if newRepos.isEmpty {
+          self.finishedLoading.onNext(())
           self.finishedLoading.onCompleted()
         }
-        self.gatheringRepositories.value.append(contentsOf: newRepos)
       })
-      .subscribe()
-      .disposed(by: bag)
   }
 }

@@ -26,7 +26,7 @@ struct RepositoryListViewModel {
   private let bag = DisposeBag()
   
   let sectionedRepositories: Driver<[RepositoriesSection]>
-  let finishedLoading: Completable
+  let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
   
   init(coordinator: SceneCoordinator, service: RepositoryServiceType) {
@@ -36,24 +36,25 @@ struct RepositoryListViewModel {
     self.sectionedRepositories = repositories.asDriver()
       .map { [RepositoriesSection(model: "", items: $0)] }
     
-    finishedLoading = service.finishedLoading.ignoreElements()
+    service.finishedLoading
+      .bind(to: finishedLoading)
+      .disposed(by: bag)
     bindOutput()
   }
   
   private func bindOutput() {
     
-    service.repositories
+    lastPageLoaded.asObservable().skip(1)
+      .takeUntil(finishedLoading)
+      .do(onNext: { _ in
+        self.loading.value = true
+      })
+      .flatMap { self.service.repositories(page: $0) }
       .do(onNext: { _ in
         self.loading.value = false
       })
-      .bind(to: repositories)
-      .disposed(by: bag)
-    
-    lastPageLoaded.asObservable()
-      .skip(1)
       .subscribe(onNext: {
-        self.loading.value = true
-        self.service.loadRepositoryList(page: $0)
+        self.repositories.value.append(contentsOf: $0)
       })
       .disposed(by: bag)
   }

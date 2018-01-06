@@ -24,9 +24,11 @@ struct PullRequestListViewModel {
   
   private let bag = DisposeBag()
   
-  let finishedLoading: Completable
+  let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
+  
   let sectionedPullRequests: Driver<[PullRequestsSection]>
+  
   let repositoryName: Driver<String>
   let headerModels: Driver<[PullRequestHeaderModel]>
   
@@ -43,7 +45,10 @@ struct PullRequestListViewModel {
     self.headerModels = pullRequests.asDriver()
       .map { [PullRequestHeaderModel(pullRequests: $0)] }
     
-    finishedLoading = service.finishedLoading.ignoreElements()
+    service.finishedLoading
+      .bind(to: finishedLoading)
+      .disposed(by: bag)
+    
     bindOutput()
   }
   
@@ -51,7 +56,14 @@ struct PullRequestListViewModel {
     
     loading.value = true
     lastPageLoaded.asObservable().skip(1)
+      .takeUntil(finishedLoading)
+      .do(onNext: { _ in
+        self.loading.value = true
+      })
       .flatMap { self.service.pullRequests(page: $0) }
+      .do(onNext: { _ in
+        self.loading.value = false
+      })
       .subscribe(onNext: {
         self.pullRequests.value.append(contentsOf: $0)
       })

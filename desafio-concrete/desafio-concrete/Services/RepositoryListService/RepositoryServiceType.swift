@@ -10,8 +10,7 @@ import RxSwift
 
 protocol RepositoryServiceType {
   
-  var repositories: BehaviorSubject<[Repository]> { get }
   var finishedLoading: PublishSubject<Void> { get }
   
-  func loadRepositoryList(page: Int)
+  func repositories(page: Int) -> Observable<[Repository]>
 }
