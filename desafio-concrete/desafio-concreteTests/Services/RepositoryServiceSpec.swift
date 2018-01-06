@@ -74,7 +74,7 @@ class RepositoryServiceSpec: QuickSpec {
             expect(repos).toEventually(beEmpty())
           }
           
-          it("should retry when fetching repositories errors due to rate limit") {
+          it("should retry when fetching repositories errors out due to rate limit") {
             
             var fixturePath = bundle.path(forResource: "RepositoryListRateLimitError", ofType: "json")!
             var status = Int32(403)
@@ -102,6 +102,25 @@ class RepositoryServiceSpec: QuickSpec {
               .disposed(by: disposeBag)
             
             expect(repos).toEventuallyNot(beEmpty(), timeout: 3)
+          }
+          
+          it("should fail fetching repositories due to invalid JSON") {
+            
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              let fixturePath = bundle.path(forResource: "RepositoryListPage_invalid", ofType: "json")!
+              return fixture(filePath: fixturePath, status: 200, headers: nil)
+            })
+            
+            var error: Error?
+            
+            service.repositories(page: 1)
+              .subscribe(onError: {
+                error = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(error).toEventuallyNot(beNil())
           }
         }
         
