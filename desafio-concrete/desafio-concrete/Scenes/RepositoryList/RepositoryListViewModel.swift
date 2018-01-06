@@ -26,6 +26,7 @@ struct RepositoryListViewModel {
   private let bag = DisposeBag()
   
   let sectionedRepositories: Driver<[RepositoriesSection]>
+  let finishedLoading: Completable
   let loading = Variable<Bool>(false)
   
   init(coordinator: SceneCoordinator, service: RepositoryServiceType) {
@@ -34,6 +35,8 @@ struct RepositoryListViewModel {
     
     self.sectionedRepositories = repositories.asDriver()
       .map { [RepositoriesSection(model: "", items: $0)] }
+    
+    finishedLoading = service.finishedLoading.ignoreElements()
     bindOutput()
   }
   

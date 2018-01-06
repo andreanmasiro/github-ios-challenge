@@ -12,10 +12,12 @@ import RxCocoa
 
 protocol PageReloadableViewController {
   
+  var loadIndicator: UIActivityIndicatorView! { get }
   var scrollView: UIScrollView { get }
   var reloadBottomOffsetThreshold: CGFloat { get }
   var loading: Bool { get }
   var bag: DisposeBag { get }
+  var finishedLoading: Completable? { get }
   
   var loadNextPage: (() -> ())? { get }
 }
@@ -23,25 +25,27 @@ protocol PageReloadableViewController {
 extension PageReloadableViewController where Self: UIViewController {
   
   func setUpReloadable() {
+    
+    finishedLoading?
+      .subscribe(onCompleted: {
+        self.loadIndicator.stopAnimating()
+        self.fixBottomInset()
+      })
+      .disposed(by: bag)
+    
     scrollView.rx.contentOffset
       .map { $0.y > self.scrollView.contentSize.height - self.scrollView.bounds.height - self.reloadBottomOffsetThreshold }
       .distinctUntilChanged()
       .filter { $0 && !self.loading }
-      .debug()
       .subscribe(onNext: { _ in
         self.loadNextPage?()
       })
       .disposed(by: bag)
   }
+  
+  private func fixBottomInset() {
+    UIView.animate(withDuration: 0.3) {
+      self.scrollView.contentInset.bottom = -self.loadIndicator.bounds.height
+    }
+  }
 }
-
-//tableView.rx.contentOffset
-//  .map { $0.y > self.tableView.contentSize.height - self.tableView.bounds.height - self.reloadBottomOffsetThreshold }
-//  .distinctUntilChanged()
-//  .filter { $0 && !viewModel.loading.value }
-//  .debug()
-//  .subscribe(onNext: { _ in
-//    viewModel.loadNextPage()
-//  })
-//  .disposed(by: bag)
-

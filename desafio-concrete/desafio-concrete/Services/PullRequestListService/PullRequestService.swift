@@ -18,6 +18,7 @@ struct PullRequestService: PullRequestServiceType {
   private let bag = DisposeBag()
   
   let pullRequests: BehaviorSubject<[PullRequest]>
+  let finishedLoading = PublishSubject<Void>()
   
   init(apiURL: URL) {
     self.apiURL = apiURL
@@ -40,6 +41,9 @@ struct PullRequestService: PullRequestServiceType {
         return list
       }
       .do(onNext: { newPulls in
+        if newPulls.isEmpty {
+          self.finishedLoading.onCompleted()
+        }
         self.gatheringPullRequests.value.append(contentsOf: newPulls)
       })
       .subscribe()

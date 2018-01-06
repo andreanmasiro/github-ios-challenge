@@ -22,6 +22,7 @@ struct RepositoryService: RepositoryServiceType {
   private let bag = DisposeBag()
   
   let repositories: BehaviorSubject<[Repository]>
+  let finishedLoading = PublishSubject<Void>()
   
   init(apiPath: String) {
     self.apiPath = apiPath
@@ -48,6 +49,9 @@ struct RepositoryService: RepositoryServiceType {
         return list.items
       }
       .do(onNext: { newRepos in
+        if newRepos.isEmpty {
+          self.finishedLoading.onCompleted()
+        }
         self.gatheringRepositories.value.append(contentsOf: newRepos)
       })
       .subscribe()

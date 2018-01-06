@@ -25,6 +25,7 @@ struct PullRequestListViewModel {
   
   private let bag = DisposeBag()
   
+  let finishedLoading: Completable
   let loading = Variable<Bool>(false)
   let sectionedPullRequests: Driver<[PullRequestsSection]>
   let repositoryName: Driver<String>
@@ -49,6 +50,8 @@ struct PullRequestListViewModel {
         return [PullRequestHeaderModel(openCount: openCount,
                                       closedCount: closedCount)]
       }
+    
+    finishedLoading = service.finishedLoading.ignoreElements()
     bindOutput()
   }
   

@@ -21,15 +21,11 @@ class RepositoryListViewController: UIViewController {
   
   let tableViewDelegate = RepositoryTableViewDelegate()
   
-  let bottomMargin = CGFloat(10)
-  var reloadBottomOffsetThreshold: CGFloat {
-    return bottomMargin + loadIndicator.bounds.height
-  }
-  
   let bag = DisposeBag()
   
   var loading = false
   var loadNextPage: (() -> ())?
+  var finishedLoading: Completable?
   
   override func viewDidLoad() {
     
@@ -68,13 +64,19 @@ class RepositoryListViewController: UIViewController {
       })
       .disposed(by: bag)
     
-    viewModel.loading.asDriver()
+    let loadingDriver = viewModel.loading.asDriver()
+    loadingDriver
       .drive(onNext: {
         self.loading = $0
       })
       .disposed(by: bag)
     
+    loadingDriver
+      .drive(loadIndicator.rx.isAnimating)
+      .disposed(by: bag)
+    
     loadNextPage = viewModel.loadNextPage
+    finishedLoading = viewModel.finishedLoading
     setUpReloadable()
   }
   
@@ -104,5 +106,13 @@ extension RepositoryListViewController: PageReloadableViewController {
   
   var scrollView: UIScrollView {
     return tableView
+  }
+  
+  var bottomMargin: CGFloat {
+    return 10
+  }
+  
+  var reloadBottomOffsetThreshold: CGFloat {
+    return bottomMargin + loadIndicator.bounds.height
   }
 }

@@ -20,20 +20,27 @@ class PullRequestListViewController: UIViewController {
   
   let tableViewDelegate = PullRequestListTableViewDelegate()
   
-  let bottomMargin = CGFloat(10)
-  var reloadBottomOffsetThreshold: CGFloat {
-    return bottomMargin + loadIndicator.bounds.height
-  }
-  
   var loading = false
   var loadNextPage: (() -> ())?
+  var finishedLoading: Completable?
   
   let bag = DisposeBag()
   
   override func viewDidLoad() {
     
     registerNibs()
+    setUpTableView()
     super.viewDidLoad()
+  }
+  
+  func registerNibs() {
+    
+    tableView.registerNib(PullRequestHeaderTableViewCell.self)
+    tableView.registerNib(PullRequestTableViewCell.self)
+  }
+  
+  func setUpTableView() {
+    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomMargin, right: 0)
   }
   
   func bindUI(viewModel: PullRequestListViewModel) {
@@ -55,17 +62,22 @@ class PullRequestListViewController: UIViewController {
       .drive(navigationItem.rx.title)
       .disposed(by: bag)
     
+    let loadingDriver = viewModel.loading.asDriver()
+    loadingDriver
+      .drive(onNext: {
+        self.loading = $0
+      })
+      .disposed(by: bag)
+    
+    loadingDriver
+      .drive(loadIndicator.rx.isAnimating)
+      .disposed(by: bag)
+    
     loadNextPage = viewModel.loadNextPage
+    finishedLoading = viewModel.finishedLoading
     setUpReloadable()
   }
   
-  func registerNibs() {
-    
-    tableView.registerNib(PullRequestHeaderTableViewCell.self)
-    tableView.registerNib(PullRequestTableViewCell.self)
-  }
-  
-// MARK: Table view sources
   var dataSource: PullRequestsDataSource {
     
     return PullRequestsDataSource(
@@ -92,5 +104,13 @@ extension PullRequestListViewController: PageReloadableViewController {
 
   var scrollView: UIScrollView {
     return tableView
+  }
+  
+  var bottomMargin: CGFloat {
+    return 10
+  }
+  
+  var reloadBottomOffsetThreshold: CGFloat {
+    return bottomMargin + loadIndicator.bounds.height
   }
 }
