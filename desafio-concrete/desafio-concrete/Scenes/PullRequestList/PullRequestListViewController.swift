@@ -20,8 +20,6 @@ class PullRequestListViewController: UIViewController {
   
   let tableViewDelegate = PullRequestListTableViewDelegate()
   
-  var loading = false
-  var loadNextPage: (() -> ())?
   var finishedLoading: Completable?
   
   let bag = DisposeBag()
@@ -40,7 +38,9 @@ class PullRequestListViewController: UIViewController {
   }
   
   func setUpTableView() {
-    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomMargin, right: 0)
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = PullRequestTableViewCell.cellHeight
   }
   
   func bindUI(viewModel: PullRequestListViewModel) {
@@ -62,20 +62,9 @@ class PullRequestListViewController: UIViewController {
       .drive(navigationItem.rx.title)
       .disposed(by: bag)
     
-    let loadingDriver = viewModel.loading.asDriver()
-    loadingDriver
-      .drive(onNext: {
-        self.loading = $0
-      })
-      .disposed(by: bag)
-    
-    loadingDriver
+    viewModel.loading.asDriver()
       .drive(loadIndicator.rx.isAnimating)
       .disposed(by: bag)
-    
-    loadNextPage = viewModel.loadNextPage
-    finishedLoading = viewModel.finishedLoading
-    setUpReloadable()
   }
   
   var dataSource: PullRequestsDataSource {
@@ -97,20 +86,5 @@ class PullRequestListViewController: UIViewController {
         return cell
       }
     )
-  }
-}
-
-extension PullRequestListViewController: PageReloadableViewController {
-
-  var scrollView: UIScrollView {
-    return tableView
-  }
-  
-  var bottomMargin: CGFloat {
-    return 10
-  }
-  
-  var reloadBottomOffsetThreshold: CGFloat {
-    return bottomMargin + loadIndicator.bounds.height
   }
 }

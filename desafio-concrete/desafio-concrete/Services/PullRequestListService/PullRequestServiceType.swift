@@ -10,8 +10,6 @@ import RxSwift
 
 protocol PullRequestServiceType {
   
-  var pullRequests: BehaviorSubject<[PullRequest]> { get }
   var finishedLoading: PublishSubject<Void> { get }
-  
-  func loadPullRequestList(page: Int)
+  var pullRequests: Observable<[PullRequest]> { get }
 }

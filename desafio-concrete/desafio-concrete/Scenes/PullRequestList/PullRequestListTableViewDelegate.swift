@@ -15,7 +15,7 @@ class PullRequestListTableViewDelegate: NSObject, UITableViewDelegate {
   private let bag = DisposeBag()
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return PullRequestTableViewCell.cellHeight
+    return UITableViewAutomaticDimension
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

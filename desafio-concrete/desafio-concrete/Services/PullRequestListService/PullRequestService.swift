@@ -14,39 +14,26 @@ import RxCocoa
 struct PullRequestService: PullRequestServiceType {
   
   private let apiURL: URL
-  private let gatheringPullRequests = Variable<[PullRequest]>([])
   private let bag = DisposeBag()
   
-  let pullRequests: BehaviorSubject<[PullRequest]>
   let finishedLoading = PublishSubject<Void>()
   
   init(apiURL: URL) {
     self.apiURL = apiURL
-    
-    pullRequests = BehaviorSubject<[PullRequest]>(value: gatheringPullRequests.value)
-    
-    gatheringPullRequests.asObservable()
-      .bind(to: pullRequests)
-      .disposed(by: bag)
   }
   
-  func loadPullRequestList(page: Int) {
+  var pullRequests: Observable<[PullRequest]> {
     
-    RxAlamofire
-      .requestData(.get, apiURL, parameters: ["page": page], encoding: URLEncoding.queryString, headers: nil)
+    return RxAlamofire
+      .requestData(.get, apiURL)
       .map { response, json -> [PullRequest] in
         
         let decoder = JSONDecoder()
         let list = try decoder.decode([PullRequest].self, from: json)
         return list
       }
-      .do(onNext: { newPulls in
-        if newPulls.isEmpty {
-          self.finishedLoading.onCompleted()
-        }
-        self.gatheringPullRequests.value.append(contentsOf: newPulls)
+      .do(onNext: { _ in
+        self.finishedLoading.onCompleted()
       })
-      .subscribe()
-      .disposed(by: bag)
   }
 }

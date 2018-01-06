@@ -14,12 +14,9 @@ import RxCocoa
 typealias PullRequestsSection = AnimatableSectionModel<String, PullRequest>
 
 struct PullRequestListViewModel {
-
   
   private let coordinator: SceneCoordinator
   private let service: PullRequestServiceType
-  
-  private let lastPageLoaded = Variable<Int>(0)
   
   private let pullRequests = Variable<[PullRequest]>([])
   
@@ -57,23 +54,12 @@ struct PullRequestListViewModel {
   
   private func bindOutput() {
     
+    self.loading.value = true
     service.pullRequests
       .do(onNext: { _ in
         self.loading.value = false
       })
       .bind(to: pullRequests)
       .disposed(by: bag)
-    
-    lastPageLoaded.asObservable()
-      .skip(1)
-      .subscribe(onNext: {
-        self.loading.value = true
-        self.service.loadPullRequestList(page: $0)
-      })
-      .disposed(by: bag)
-  }
-  
-  func loadNextPage() {
-    lastPageLoaded.value += 1
   }
 }
