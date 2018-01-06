@@ -38,6 +38,7 @@
 		4C2814302001777A00906625 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28142F2001777A00906625 /* APIKeys.swift */; };
 		4C281432200188B700906625 /* PullRequestServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281431200188B700906625 /* PullRequestServiceSpec.swift */; };
 		4C28143420018C5100906625 /* PullRequestListPage_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28143320018C5100906625 /* PullRequestListPage_empty.json */; };
+		4C281436200190AA00906625 /* RepositoryCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281435200190AA00906625 /* RepositoryCellFactory.swift */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -123,6 +124,7 @@
 		4C28142F2001777A00906625 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		4C281431200188B700906625 /* PullRequestServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceSpec.swift; sourceTree = "<group>"; };
 		4C28143320018C5100906625 /* PullRequestListPage_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequestListPage_empty.json; sourceTree = "<group>"; };
+		4C281435200190AA00906625 /* RepositoryCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellFactory.swift; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				4CFA86C11FFEC20800F39F99 /* RepositoryListViewController.swift */,
 				4CFA86D61FFED6D400F39F99 /* RepositoryListViewModel.swift */,
 				4CFA86E81FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift */,
+				4C281435200190AA00906625 /* RepositoryCellFactory.swift */,
 			);
 			path = RepositoryList;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */,
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
 				4CFA86E91FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift in Sources */,
+				4C281436200190AA00906625 /* RepositoryCellFactory.swift in Sources */,
 				4C281411200146B700906625 /* AutoheightableView.swift in Sources */,
 				4C2814302001777A00906625 /* APIKeys.swift in Sources */,
 				4CFA86DA1FFED83B00F39F99 /* Repository.swift in Sources */,
