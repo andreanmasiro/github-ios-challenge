@@ -13,13 +13,14 @@ extension Reactive where Base: WKWebView {
   
   var isLoading: Observable<Bool> {
     return Observable.create { observer -> Disposable in
-      var kvo: NSKeyValueObservation? = self.base.observe(\.loading, options: .new) { _, change in
+      var observationSet = Set<NSKeyValueObservation>()
+      observationSet.insert(self.base.observe(\.loading, options: .new) { _, change in
         guard let value = change.newValue else { return }
         observer.onNext(value)
-      }
+      })
       
       return Disposables.create {
-        kvo = nil
+        observationSet.removeAll()
       }
     }
     
