@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol UITableViewCellHelper: class {
-  static var cellHeight: CGFloat { get }
-}
-
-extension UITableViewCellHelper where Self: UITableViewCell {
+extension AutoheightableView where Self: UITableViewCell {
   static var cellHeight: CGFloat {
     return 44.0
   }
@@ -32,4 +28,4 @@ extension NibLoadableView where Self: UIView {
   }
 }
 
-extension UITableViewCell: ReusableView, NibLoadableView, UITableViewCellHelper { }
+extension UITableViewCell: ReusableView, NibLoadableView, AutoheightableView { }

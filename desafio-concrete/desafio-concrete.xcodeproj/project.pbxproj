@@ -25,6 +25,7 @@
 		4C28140B2001416000906625 /* PullRequest_invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140A2001416000906625 /* PullRequest_invalid.json */; };
 		4C28140D2001420800906625 /* JSONDecoder+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28140C2001420800906625 /* JSONDecoder+Models.swift */; };
 		4C28140F2001430500906625 /* PullRequest_nullBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C28140E2001430500906625 /* PullRequest_nullBody.json */; };
+		4C281411200146B700906625 /* AutoheightableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C281410200146B700906625 /* AutoheightableView.swift */; };
 		4C66339F200007E10045A1A2 /* RepositoryServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */; };
 		4C6633A12000083B0045A1A2 /* PullRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */; };
 		4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633A3200008E00045A1A2 /* RepositoryService.swift */; };
@@ -56,8 +57,8 @@
 		4CFA86CA1FFEC3A100F39F99 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */; };
 		4CFA86CB1FFEC3A100F39F99 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86C91FFEC3A100F39F99 /* RepositoryTableViewCell.xib */; };
 		4CFA86D11FFECC0F00F39F99 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D01FFECC0F00F39F99 /* UIColor+Colors.swift */; };
-		4CFA86D31FFECEED00F39F99 /* UITableViewCell+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D21FFECEED00F39F99 /* UITableViewCell+Helper.swift */; };
-		4CFA86D51FFED09F00F39F99 /* UITableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D41FFED09F00F39F99 /* UITableView+Helper.swift */; };
+		4CFA86D31FFECEED00F39F99 /* UITableViewCell+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D21FFECEED00F39F99 /* UITableViewCell+Defaults.swift */; };
+		4CFA86D51FFED09F00F39F99 /* UITableView+NibUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D41FFED09F00F39F99 /* UITableView+NibUtils.swift */; };
 		4CFA86D71FFED6D400F39F99 /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D61FFED6D400F39F99 /* RepositoryListViewModel.swift */; };
 		4CFA86DA1FFED83B00F39F99 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86D91FFED83B00F39F99 /* Repository.swift */; };
 		4CFA86DC1FFED89100F39F99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA86DB1FFED89100F39F99 /* User.swift */; };
@@ -97,6 +98,7 @@
 		4C28140A2001416000906625 /* PullRequest_invalid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest_invalid.json; sourceTree = "<group>"; };
 		4C28140C2001420800906625 /* JSONDecoder+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Models.swift"; sourceTree = "<group>"; };
 		4C28140E2001430500906625 /* PullRequest_nullBody.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PullRequest_nullBody.json; sourceTree = "<group>"; };
+		4C281410200146B700906625 /* AutoheightableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoheightableView.swift; sourceTree = "<group>"; };
 		4C66339E200007E10045A1A2 /* RepositoryServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceType.swift; sourceTree = "<group>"; };
 		4C6633A02000083B0045A1A2 /* PullRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestServiceType.swift; sourceTree = "<group>"; };
 		4C6633A3200008E00045A1A2 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -132,8 +134,8 @@
 		4CFA86C81FFEC3A100F39F99 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		4CFA86C91FFEC3A100F39F99 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		4CFA86D01FFECC0F00F39F99 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
-		4CFA86D21FFECEED00F39F99 /* UITableViewCell+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Helper.swift"; sourceTree = "<group>"; };
-		4CFA86D41FFED09F00F39F99 /* UITableView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helper.swift"; sourceTree = "<group>"; };
+		4CFA86D21FFECEED00F39F99 /* UITableViewCell+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Defaults.swift"; sourceTree = "<group>"; };
+		4CFA86D41FFED09F00F39F99 /* UITableView+NibUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+NibUtils.swift"; sourceTree = "<group>"; };
 		4CFA86D61FFED6D400F39F99 /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
 		4CFA86D91FFED83B00F39F99 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4CFA86DB1FFED89100F39F99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			children = (
 				4CFA86E41FFEFD9A00F39F99 /* ReusableView.swift */,
 				4CFA86E61FFEFDC300F39F99 /* NibLoadableView.swift */,
+				4C281410200146B700906625 /* AutoheightableView.swift */,
 				4C98FE031FFFFA00009B9ACF /* Segue.swift */,
 				4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */,
 				4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */,
@@ -430,8 +433,8 @@
 			isa = PBXGroup;
 			children = (
 				4CFA86D01FFECC0F00F39F99 /* UIColor+Colors.swift */,
-				4CFA86D21FFECEED00F39F99 /* UITableViewCell+Helper.swift */,
-				4CFA86D41FFED09F00F39F99 /* UITableView+Helper.swift */,
+				4CFA86D21FFECEED00F39F99 /* UITableViewCell+Defaults.swift */,
+				4CFA86D41FFED09F00F39F99 /* UITableView+NibUtils.swift */,
 				4CFA86EA1FFF005700F39F99 /* UIView+CornerRadius.swift */,
 				4CFA86EC1FFF02CB00F39F99 /* NSObject+ClassName.swift */,
 				4C2813E820011C2400906625 /* Date+HumanReadable.swift */,
@@ -723,10 +726,10 @@
 				4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */,
 				4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
-				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Helper.swift in Sources */,
+				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Defaults.swift in Sources */,
 				4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */,
 				4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */,
-				4CFA86D51FFED09F00F39F99 /* UITableView+Helper.swift in Sources */,
+				4CFA86D51FFED09F00F39F99 /* UITableView+NibUtils.swift in Sources */,
 				4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */,
 				4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */,
 				4C6633A620000B190045A1A2 /* RepositoryListHelper.swift in Sources */,
@@ -736,6 +739,7 @@
 				4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */,
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
 				4CFA86E91FFEFEF200F39F99 /* RepositoryListTableViewDelegate.swift in Sources */,
+				4C281411200146B700906625 /* AutoheightableView.swift in Sources */,
 				4CFA86DA1FFED83B00F39F99 /* Repository.swift in Sources */,
 				4C98FDF01FFFD85E009B9ACF /* PullRequestListViewModel.swift in Sources */,
 				4C6633A8200011480045A1A2 /* Repository+Identifiable.swift in Sources */,
