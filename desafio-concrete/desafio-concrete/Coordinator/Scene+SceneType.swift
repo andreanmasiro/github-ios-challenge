@@ -23,41 +23,41 @@ extension Scene: SceneType {
     
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
-    let storyboardVC = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier)
+    let storyboardViewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier)
     
     switch self {
     case .repositoryList(let viewModel):
       
-      guard let nc = storyboardVC as? UINavigationController,
-        let vc = nc.topViewController as? RepositoryListViewController else {
+      guard let navigationController = storyboardViewController as? UINavigationController,
+        let viewController = navigationController.topViewController as? RepositoryListViewController else {
         return UIViewController()
       }
       
-      vc.loadViewIfNeeded()
-      vc.bindUI(viewModel: viewModel)
+      viewController.loadViewIfNeeded()
+      viewController.bindUI(viewModel: viewModel)
       
-      return nc
+      return navigationController
       
     case .pullRequestList(let viewModel):
       
-      guard let vc = storyboardVC as? PullRequestListViewController else {
+      guard let viewController = storyboardViewController as? PullRequestListViewController else {
         return UIViewController()
       }
       
-      vc.loadViewIfNeeded()
-      vc.bindUI(viewModel: viewModel)
+      viewController.loadViewIfNeeded()
+      viewController.bindUI(viewModel: viewModel)
       
-      return vc
+      return viewController
       
     case .pullRequest(let url):
-      guard let vc = storyboardVC as? PullRequestViewController else {
+      guard let viewController = storyboardViewController as? PullRequestViewController else {
         return UIViewController()
       }
       
-      vc.loadViewIfNeeded()
-      vc.load(contentsOfURL: url)
+      viewController.loadViewIfNeeded()
+      viewController.load(contentsOfURL: url)
       
-      return vc
+      return viewController
     }
   }
 }

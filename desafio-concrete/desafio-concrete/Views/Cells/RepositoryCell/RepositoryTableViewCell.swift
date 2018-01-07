@@ -26,6 +26,11 @@ class RepositoryTableViewCell: UITableViewCell {
   @IBOutlet weak var forkImageView: UIImageView!
   @IBOutlet weak var stargazerImageView: UIImageView!
   
+  static var cellFromDefaultNib: RepositoryTableViewCell? {
+    
+    return Bundle.main.loadNibNamed(defaultNibName, owner: nil, options: nil)?.first as? RepositoryTableViewCell
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
