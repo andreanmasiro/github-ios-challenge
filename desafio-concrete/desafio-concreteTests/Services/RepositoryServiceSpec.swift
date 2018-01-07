@@ -31,7 +31,7 @@ class RepositoryServiceSpec: QuickSpec {
         }
         
         context("with valid api path") {
-        
+          
           let host = "fakeapilink.com"
           let fakeApiPath = "https://\(host)/"
           let service = RepositoryService(apiPath: fakeApiPath)
@@ -104,6 +104,44 @@ class RepositoryServiceSpec: QuickSpec {
             expect(repos).toEventuallyNot(beEmpty(), timeout: 3)
           }
           
+          it("should fail fetching repositories due to 403 code and no rate limit error") {
+            
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              return fixture(filePath: bundle.path(forResource: "RepositoryListRateLimitError", ofType: "json")!,
+                             status: 403,
+                             headers: nil)
+            })
+            
+            var error: Error?
+            service.repositories(page: 1)
+              .subscribe(onError: {
+                error = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(error).toEventually(matchError(RepositoryServiceError.unknown))
+          }
+          
+          it("should fail fetching repositories due to fail code other than 403") {
+            
+            stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
+              
+              return fixture(filePath: bundle.path(forResource: "RepositoryListRateLimitError", ofType: "json")!,
+                             status: 404,
+                             headers: nil)
+            })
+            
+            var error: Error?
+            service.repositories(page: 1)
+              .subscribe(onError: {
+                error = $0
+              })
+              .disposed(by: disposeBag)
+            
+            expect(error).toEventually(matchError(RepositoryServiceError.unknown))
+          }
+          
           it("should fail fetching repositories due to invalid JSON") {
             
             stub(condition: isHost(host), response: { (request) -> OHHTTPStubsResponse in
@@ -127,7 +165,7 @@ class RepositoryServiceSpec: QuickSpec {
         context("with invalid api path") {
           
           it("should fail fetching repositories due to invalid API path") {
-           
+            
             let invalidApiPath = ""
             let service = RepositoryService(apiPath: invalidApiPath)
             
