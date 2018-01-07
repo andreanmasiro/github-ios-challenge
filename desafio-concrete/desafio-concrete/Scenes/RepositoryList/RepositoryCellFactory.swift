@@ -28,7 +28,7 @@ struct RepositoryCellFactory {
             return UITableViewCell()
         }
         
-        cell.configure(model: model)
+        cell.config(model: model)
         
         return cell
       }

@@ -26,11 +26,6 @@ class RepositoryTableViewCell: UITableViewCell {
   @IBOutlet weak var forkImageView: UIImageView!
   @IBOutlet weak var stargazerImageView: UIImageView!
   
-  static var cellFromDefaultNib: RepositoryTableViewCell? {
-    
-    return Bundle.main.loadNibNamed(defaultNibName, owner: nil, options: nil)?.first as? RepositoryTableViewCell
-  }
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     setUpColors()
@@ -53,7 +48,7 @@ class RepositoryTableViewCell: UITableViewCell {
     usernameLabel.textColor = UIColor.oilBlue
   }
   
-  func configure(model: Repository) {
+  func config(model: Repository) {
     
       nameLabel.text = model.name
       descriptionLabel.text = model.description

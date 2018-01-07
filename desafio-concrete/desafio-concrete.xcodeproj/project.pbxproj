@@ -77,6 +77,7 @@
 		4CCEC48B2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48A2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift */; };
 		4CCEC48E2002D25C001B4C02 /* RepositoryTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48D2002D25C001B4C02 /* RepositoryTableViewCellSpec.swift */; };
 		4CCEC4902002D281001B4C02 /* Models+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48F2002D281001B4C02 /* Models+Fake.swift */; };
+		4CCEC4982002E7C8001B4C02 /* PullRequestTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4972002E7C7001B4C02 /* PullRequestTableViewCellSpec.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -177,6 +178,7 @@
 		4CCEC48A2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListViewControllerSpec.swift; sourceTree = "<group>"; };
 		4CCEC48D2002D25C001B4C02 /* RepositoryTableViewCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4CCEC48F2002D281001B4C02 /* Models+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Fake.swift"; sourceTree = "<group>"; };
+		4CCEC4972002E7C7001B4C02 /* PullRequestTableViewCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				4CCEC48D2002D25C001B4C02 /* RepositoryTableViewCellSpec.swift */,
+				4CCEC4972002E7C7001B4C02 /* PullRequestTableViewCellSpec.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				4CCEC4882002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift in Sources */,
 				4CCE6A262001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift in Sources */,
 				4CCEC4902002D281001B4C02 /* Models+Fake.swift in Sources */,
+				4CCEC4982002E7C8001B4C02 /* PullRequestTableViewCellSpec.swift in Sources */,
 				4CCEC47E200295CD001B4C02 /* SceneSpec.swift in Sources */,
 				4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */,
 				4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */,

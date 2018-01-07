@@ -20,7 +20,7 @@ class RepositoryTableViewCellSpec: QuickSpec {
     
     describe("RepositoryTableViewCellSpec") {
       
-      let cell = RepositoryTableViewCell.cellFromDefaultNib!
+      let cell = RepositoryTableViewCell.viewFromDefaultNib!
       
       context("after config") {
         
@@ -28,7 +28,7 @@ class RepositoryTableViewCellSpec: QuickSpec {
 
           let repository = Repository.fake
           
-          cell.configure(model: repository)
+          cell.config(model: repository)
 
           expect(cell.nameLabel.text) == repository.name
           expect(cell.descriptionLabel.text) == repository.description

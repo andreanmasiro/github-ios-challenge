@@ -26,6 +26,10 @@ extension NibLoadableView where Self: UIView {
   static var defaultNibName: String {
     return className
   }
+  
+  static var viewFromDefaultNib: Self? {
+    return Bundle.main.loadNibNamed(defaultNibName, owner: nil, options: nil)?.first as? Self
+  }
 }
 
 extension UITableViewCell: ReusableView, NibLoadableView, AutoheightableView { }
