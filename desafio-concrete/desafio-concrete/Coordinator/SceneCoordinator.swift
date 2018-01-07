@@ -32,49 +32,53 @@ class SceneCoordinator: SceneCoordinatorType {
   @discardableResult
   func transition(_ transition: SceneTransition, to scene: Scene) -> Completable {
     
-    let vc = scene.viewController
+    let viewController = scene.viewController
     
     switch transition {
       
     case .root:
       
-      window.rootViewController = vc
+      window.rootViewController = viewController
       window.makeKeyAndVisible()
       
-      currentViewController = vc
+      currentViewController = viewController
       return .empty()
       
     case .push(let animated):
       
-      guard let nc = currentViewController as? UINavigationController else {
+      guard let navigationController = currentViewController as? UINavigationController else {
         return .error(currentViewController == nil ?
             SceneCoordinatorError.noRootViewController :
             SceneCoordinatorError.pushFromNonNavigationController)
       }
       
-      return push(source: nc, viewController: vc, animated: animated)
+      return push(source: navigationController,
+                  viewController: viewController,
+                  animated: animated)
       
     case .modal(let animated):
       
-      guard let currentVC = currentViewController else {
+      guard let currentViewController = currentViewController else {
         return .error(SceneCoordinatorError.noRootViewController)
       }
       
-      currentViewController = vc
-      return present(source: currentVC, viewController: vc, animated: animated)
+      self.currentViewController = viewController
+      return present(source: currentViewController,
+                     viewController: viewController,
+                     animated: animated)
     }
   }
   
   @discardableResult
   func pop(animated: Bool) -> Completable {
     
-    if let nc = currentViewController as? UINavigationController {
+    if let navigationController = currentViewController as? UINavigationController {
       
-      return pop(source: nc, animated: animated)
-    
-    } else if let presenter = currentViewController?.presentingViewController {
-      currentViewController = presenter
-      return dismiss(viewController: presenter, animated: animated)
+      return pop(source: navigationController, animated: animated)
+    } else if let presentingViewController = currentViewController?.presentingViewController {
+      
+      currentViewController = presentingViewController
+      return dismiss(viewController: presentingViewController, animated: animated)
     } else {
       
       return .error(SceneCoordinatorError.dismissRoot)

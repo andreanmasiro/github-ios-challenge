@@ -63,8 +63,8 @@ struct RepositoryService: RepositoryServiceType {
         case 200..<300:
           
           let decoder = JSONDecoder()
-          let list = try decoder.decode(RepositoryListContainer.self, from: json)
-          return list.items
+          let listContainer = try decoder.decode(RepositoryListContainer.self, from: json)
+          return listContainer.items
           
         case 403:
           
