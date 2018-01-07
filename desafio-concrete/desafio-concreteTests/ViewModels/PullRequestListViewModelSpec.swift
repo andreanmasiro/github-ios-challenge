@@ -1,5 +1,5 @@
 //
-//  RepositoryListViewModelSpec.swift
+//  PullRequestListViewModelSpec.swift
 //  desafio-concreteTests
 //
 //  Created by André Marques da Silva Rodrigues on 06/01/18.
@@ -15,26 +15,30 @@ import Action
 
 @testable import desafio_concrete
 
-class RepositoryListViewModelSpec: QuickSpec {
-  
+class PullRequestListViewModelSpec: QuickSpec {
+
   override func spec() {
     
-    describe("RepositoryListViewModelSpec") {
+    describe("PullRequestListViewModelSpec") {
       
       let loadTime = TimeInterval(0.4)
       let fakeCoordinator = FakeSceneCoordinator()
-      let fakeService = FakeRepositoryService(bundle: Bundle(for: RepositoryListViewModelSpec.self), loadTime: loadTime)
+      let fakeService = FakePullRequestService(bundle: Bundle(for: PullRequestListViewModelSpec.self), loadTime: loadTime)
+      let repositoryName = "some name"
       
-      var viewModel: RepositoryListViewModel!
+      var viewModel: PullRequestListViewModel!
       
       var disposeBag: DisposeBag!
       
-      context("when requested to load next page") {
+      beforeEach {
+        
+        viewModel = PullRequestListViewModel(coordinator: fakeCoordinator,
+                                             service: fakeService,
+                                             repositoryName: repositoryName)
+        disposeBag = DisposeBag()
+      }
       
-        beforeEach {
-          viewModel = RepositoryListViewModel(coordinator: fakeCoordinator, service: fakeService)
-          disposeBag = DisposeBag()
-        }
+      context("when requested to load next page") {
         
         it("should start loading") {
           
@@ -49,19 +53,17 @@ class RepositoryListViewModelSpec: QuickSpec {
           expect(loading).toEventually(beTrue())
         }
         
-        it("should update sectioned repositories") {
+        it("should update sectioned pull requests") {
           
-          var repositories = [Repository]()
-          viewModel.sectionedRepositories
-            .filter { !$0[0].items.isEmpty }
+          var pullRequests: [PullRequest]?
+          viewModel.sectionedPullRequests
             .drive(onNext: {
-              print($0.count)
-              repositories.append(contentsOf: $0[0].items)
+              pullRequests = $0[0].items
             })
             .disposed(by: disposeBag)
           
           viewModel.loadNextPage()
-          expect(repositories).toEventuallyNot(beEmpty())
+          expect(pullRequests).toEventuallyNot(beEmpty())
         }
         
         it("should finish loading") {
@@ -89,44 +91,40 @@ class RepositoryListViewModelSpec: QuickSpec {
         }
       }
       
-      context("when show pull requests action run") {
-        
-        beforeEach {
-          viewModel = RepositoryListViewModel(coordinator: fakeCoordinator, service: fakeService)
-          disposeBag = DisposeBag()
-        }
+      context("when show pull request action run") {
         
         it("should call coordinator transition") {
           
-          var repos = [Repository]()
-          viewModel.sectionedRepositories
+          var pulls = [PullRequest]()
+          viewModel.sectionedPullRequests
             .drive(onNext: {
-              repos = $0[0].items
+              pulls = $0[0].items
             })
             .disposed(by: disposeBag)
           
           viewModel.loadNextPage()
           
-          expect(repos).toEventuallyNot(beEmpty())
+          expect(pulls).toEventuallyNot(beEmpty())
           
-          let repo = repos[0]
-          var calledPush: Bool?
+          let pull = pulls[0]
+          
+          var htmlURL: URL?
           fakeCoordinator.methodInvoked
             .subscribe(onNext: { (_, args) in
               guard case SceneTransition.push(_) = args[0],
-                case Scene.pullRequestList(_) = args[1] else {
+                case Scene.pullRequest(let url) = args[1] else {
                   
                   fail("wrong method invoked")
                   return
               }
               
-              calledPush = true
+              htmlURL = url
             })
             .disposed(by: disposeBag)
           
-          viewModel.showPullRequestsAction.execute(repo)
+          viewModel.showPullRequestAction.execute(pull)
           
-          expect(calledPush).toEventually(beTrue())
+          expect(htmlURL).toEventually(equal(pull.htmlURL))
         }
       }
     }
