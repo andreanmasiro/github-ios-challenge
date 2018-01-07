@@ -68,15 +68,15 @@ struct PullRequestListViewModel {
       .disposed(by: bag)
   }
   
+  func loadNextPage() {
+    lastPageLoaded.value += 1
+  }
+  
   var showPullRequestAction: Action<PullRequest, Void> {
     return Action {
       
-      self.coordinator.transition(.push(true), to: .pullRequest($0.htmlURL))
+      self.coordinator.transition(.push(animated: true), to: Scene.pullRequest($0.htmlURL))
       return Observable.empty()
     }
-  }
-  
-  func loadNextPage() {
-    lastPageLoaded.value += 1
   }
 }

@@ -57,20 +57,20 @@ struct RepositoryListViewModel {
       .disposed(by: bag)
   }
   
+  func loadNextPage() {
+    lastPageLoaded.value += 1
+  }
+  
   var showPullRequestsAction: Action<Repository, Void> {
     return Action {
       
       let service = PullRequestService(apiURL: $0.pullsURL)
       let viewModel = PullRequestListViewModel(coordinator: self.coordinator, service: service, repositoryName: $0.name)
       
-      self.coordinator.transition(.push(true),
-                                  to: .pullRequestList(viewModel))
+      self.coordinator.transition(.push(animated: true),
+                                  to: Scene.pullRequestList(viewModel))
       
       return Observable.empty()
     }
-  }
-  
-  func loadNextPage() {
-    lastPageLoaded.value += 1
   }
 }

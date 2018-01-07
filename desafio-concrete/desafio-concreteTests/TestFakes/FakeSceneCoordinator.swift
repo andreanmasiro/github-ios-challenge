@@ -14,7 +14,7 @@ struct FakeSceneCoordinator: SceneCoordinatorType {
   
   let methodInvoked = PublishSubject<(Selector, [Any])>()
   
-  func transition(_ transition: SceneTransition, to scene: Scene) -> Completable {
+  func transition(_ transition: SceneTransition, to scene: SceneType) -> Completable {
     methodInvoked.onNext((#function, [transition, scene]))
     return Completable.empty()
   }

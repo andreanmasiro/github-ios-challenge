@@ -30,7 +30,7 @@ class SceneCoordinator: SceneCoordinatorType {
   }
   
   @discardableResult
-  func transition(_ transition: SceneTransition, to scene: Scene) -> Completable {
+  func transition(_ transition: SceneTransition, to scene: SceneType) -> Completable {
     
     let viewController = scene.viewController
     
@@ -55,73 +55,14 @@ class SceneCoordinator: SceneCoordinatorType {
       return push(source: navigationController,
                   viewController: viewController,
                   animated: animated)
-      
-    case .modal(let animated):
-      
-      guard let currentViewController = currentViewController else {
-        return .error(SceneCoordinatorError.noRootViewController)
-      }
-      
-      self.currentViewController = viewController
-      return present(source: currentViewController,
-                     viewController: viewController,
-                     animated: animated)
-    }
-  }
-  
-  @discardableResult
-  func pop(animated: Bool) -> Completable {
-    
-    if let navigationController = currentViewController as? UINavigationController {
-      
-      return pop(source: navigationController, animated: animated)
-    } else if let presentingViewController = currentViewController?.presentingViewController {
-      
-      currentViewController = presentingViewController
-      return dismiss(viewController: presentingViewController, animated: animated)
-    } else {
-      
-      return .error(SceneCoordinatorError.dismissRoot)
     }
   }
   
   private func push(source: UINavigationController, viewController: UIViewController, animated: Bool) -> Completable {
     
-    source.pushViewController(viewController, animated: animated)
-    return source.rx.delegate
-      .sentMessage(#selector(UINavigationControllerDelegate
-        .navigationController(_:didShow:animated:)))
-      .ignoreElements()
-  }
-  
-  private func present(source: UIViewController, viewController: UIViewController, animated: Bool) -> Completable {
-    
     let subject = PublishSubject<Void>()
     
-    source.present(viewController, animated: animated) {
-      subject.onCompleted()
-    }
-    
-    return subject.ignoreElements()
-  }
-  
-  private func pop(source: UINavigationController, animated: Bool) -> Completable {
-    
-    let completable = source.rx.delegate
-      .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-      .ignoreElements()
-    
-    guard source.popViewController(animated: animated) != nil else {
-      return .error(SceneCoordinatorError.popFromRoot)
-    }
-    
-    return completable
-  }
-  
-  private func dismiss(viewController: UIViewController, animated: Bool) -> Completable {
-    
-    let subject = PublishSubject<Void>()
-    viewController.dismiss(animated: animated) {
+    source.pushViewController(viewController, animated: animated) {
       subject.onCompleted()
     }
     

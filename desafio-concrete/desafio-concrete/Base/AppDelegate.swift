@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let repositoryViewModel = RepositoryListViewModel(coordinator: coordinator, service: repositoryService)
       
       coordinator.transition(.root,
-                             to: .repositoryList(repositoryViewModel))
+                             to: Scene.repositoryList(repositoryViewModel))
       
       self.window = window
     #endif

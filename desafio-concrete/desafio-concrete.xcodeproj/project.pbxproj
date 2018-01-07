@@ -49,7 +49,7 @@
 		4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633AD20001C880045A1A2 /* APIPaths.swift */; };
 		4C6633B120001D520045A1A2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B020001D520045A1A2 /* Scene.swift */; };
 		4C6633B720001E800045A1A2 /* StoryboardIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */; };
-		4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */; };
+		4C6633B920001EF80045A1A2 /* Scene+SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633B820001EF80045A1A2 /* Scene+SceneType.swift */; };
 		4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */; };
 		4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BE200021750045A1A2 /* SceneTransition.swift */; };
 		4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C120004BEC0045A1A2 /* PullRequestService.swift */; };
@@ -68,6 +68,11 @@
 		4CCE6A2420019D1300ABA7F4 /* FakeSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */; };
 		4CCE6A262001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A252001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift */; };
 		4CCE6A282001B0A300ABA7F4 /* FakePullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A272001B0A300ABA7F4 /* FakePullRequestService.swift */; };
+		4CCEC47C20029218001B4C02 /* SceneCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC47B20029218001B4C02 /* SceneCoordinatorSpec.swift */; };
+		4CCEC47E200295CD001B4C02 /* SceneSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC47D200295CD001B4C02 /* SceneSpec.swift */; };
+		4CCEC481200299DF001B4C02 /* FakeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC480200299DF001B4C02 /* FakeScene.swift */; };
+		4CCEC48420029A8E001B4C02 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48320029A8E001B4C02 /* SceneType.swift */; };
+		4CCEC4862002A48B001B4C02 /* UINavigationController+PushCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -140,7 +145,7 @@
 		4C6633AD20001C880045A1A2 /* APIPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPaths.swift; sourceTree = "<group>"; };
 		4C6633B020001D520045A1A2 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		4C6633B620001E800045A1A2 /* StoryboardIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifier.swift; sourceTree = "<group>"; };
-		4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
+		4C6633B820001EF80045A1A2 /* Scene+SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+SceneType.swift"; sourceTree = "<group>"; };
 		4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		4C6633BE200021750045A1A2 /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		4C6633C120004BEC0045A1A2 /* PullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestService.swift; sourceTree = "<group>"; };
@@ -159,6 +164,11 @@
 		4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSceneCoordinator.swift; sourceTree = "<group>"; };
 		4CCE6A252001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListViewModelSpec.swift; sourceTree = "<group>"; };
 		4CCE6A272001B0A300ABA7F4 /* FakePullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePullRequestService.swift; sourceTree = "<group>"; };
+		4CCEC47B20029218001B4C02 /* SceneCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorSpec.swift; sourceTree = "<group>"; };
+		4CCEC47D200295CD001B4C02 /* SceneSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSpec.swift; sourceTree = "<group>"; };
+		4CCEC480200299DF001B4C02 /* FakeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeScene.swift; sourceTree = "<group>"; };
+		4CCEC48320029A8E001B4C02 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
+		4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PushCompletion.swift"; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -331,8 +341,9 @@
 		4C6633AF20001D3F0045A1A2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				4CCEC48320029A8E001B4C02 /* SceneType.swift */,
 				4C6633B020001D520045A1A2 /* Scene.swift */,
-				4C6633B820001EF80045A1A2 /* Scene+ViewController.swift */,
+				4C6633B820001EF80045A1A2 /* Scene+SceneType.swift */,
 				4C281425200156B000906625 /* SceneCoordinatorType.swift */,
 				4C6633BC200020AE0045A1A2 /* SceneCoordinator.swift */,
 				4C6633BE200021750045A1A2 /* SceneTransition.swift */,
@@ -401,8 +412,18 @@
 				4CCE6A272001B0A300ABA7F4 /* FakePullRequestService.swift */,
 				4CCE6A2120019A0F00ABA7F4 /* FakeRepositoryService.swift */,
 				4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */,
+				4CCEC480200299DF001B4C02 /* FakeScene.swift */,
 			);
 			path = TestFakes;
+			sourceTree = "<group>";
+		};
+		4CCEC47A20029208001B4C02 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4CCEC47B20029218001B4C02 /* SceneCoordinatorSpec.swift */,
+				4CCEC47D200295CD001B4C02 /* SceneSpec.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		4CFA86911FFEBC2200F39F99 = {
@@ -444,6 +465,7 @@
 		4CFA86B11FFEBC2200F39F99 /* desafio-concreteTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CCEC47A20029208001B4C02 /* Coordinator */,
 				4CCE6A1D200197F200ABA7F4 /* ViewModels */,
 				4C2814242001562300906625 /* Services */,
 				4C2813EF2001370300906625 /* Models */,
@@ -536,6 +558,7 @@
 				4CFA86EC1FFF02CB00F39F99 /* NSObject+ClassName.swift */,
 				4C2813E820011C2400906625 /* Date+HumanReadable.swift */,
 				4C28140C2001420800906625 /* JSONDecoder+Models.swift */,
+				4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -830,7 +853,7 @@
 				4C6633B720001E800045A1A2 /* StoryboardIdentifier.swift in Sources */,
 				4C28140D2001420800906625 /* JSONDecoder+Models.swift in Sources */,
 				4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */,
-				4C6633B920001EF80045A1A2 /* Scene+ViewController.swift in Sources */,
+				4C6633B920001EF80045A1A2 /* Scene+SceneType.swift in Sources */,
 				4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */,
 				4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
@@ -838,10 +861,12 @@
 				4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */,
 				4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */,
 				4CFA86D51FFED09F00F39F99 /* UITableView+NibUtils.swift in Sources */,
+				4CCEC4862002A48B001B4C02 /* UINavigationController+PushCompletion.swift in Sources */,
 				4CFA86EB1FFF005700F39F99 /* UIView+CornerRadius.swift in Sources */,
 				4C281426200156B000906625 /* SceneCoordinatorType.swift in Sources */,
 				4C6633BD200020AE0045A1A2 /* SceneCoordinator.swift in Sources */,
 				4C6633A620000B190045A1A2 /* RepositoryListContainer.swift in Sources */,
+				4CCEC48420029A8E001B4C02 /* SceneType.swift in Sources */,
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
 				4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */,
 				4CFA86DC1FFED89100F39F99 /* User.swift in Sources */,
@@ -861,15 +886,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CCE6A262001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift in Sources */,
+				4CCEC47E200295CD001B4C02 /* SceneSpec.swift in Sources */,
 				4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */,
 				4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */,
 				4CCE6A2420019D1300ABA7F4 /* FakeSceneCoordinator.swift in Sources */,
+				4CCEC481200299DF001B4C02 /* FakeScene.swift in Sources */,
 				4C2814072001407600906625 /* PullRequestSpec.swift in Sources */,
 				4C281432200188B700906625 /* PullRequestServiceSpec.swift in Sources */,
 				4C281428200157DA00906625 /* RepositoryListContainerSpec.swift in Sources */,
 				4CCE6A1F2001982700ABA7F4 /* RepositoryListViewModelSpec.swift in Sources */,
 				4CCE6A282001B0A300ABA7F4 /* FakePullRequestService.swift in Sources */,
 				4CCE6A2220019A0F00ABA7F4 /* FakeRepositoryService.swift in Sources */,
+				4CCEC47C20029218001B4C02 /* SceneCoordinatorSpec.swift in Sources */,
 				4C2813F22001373200906625 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension Scene {
+extension Scene: SceneType {
   
   var storyboardIdentifier: String {
     
