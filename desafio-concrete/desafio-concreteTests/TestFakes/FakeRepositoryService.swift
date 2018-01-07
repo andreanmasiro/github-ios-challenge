@@ -14,11 +14,8 @@ struct FakeRepositoryService: RepositoryServiceType {
   
   private let page1: [Repository]
   private let emptyPage = [Repository]()
-  private let loadTime: TimeInterval
   
-  init(bundle: Bundle, loadTime: TimeInterval) {
-    
-    self.loadTime = loadTime
+  init(bundle: Bundle) {
     
     let page1Path = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
     let jsonData = NSData.init(contentsOfFile: page1Path)! as Data
@@ -32,8 +29,7 @@ struct FakeRepositoryService: RepositoryServiceType {
   
   func repositories(page: Int) -> Observable<[Repository]> {
     
-    return Observable<Int>.timer(loadTime, scheduler: MainScheduler.instance)
-      .map { _ in (page == 1 ? self.page1 : self.emptyPage) }
+    return Observable.just((page == 1 ? self.page1 : self.emptyPage))
       .do(onNext: {
         if $0.isEmpty {
           self.finishedLoading.onNext(())

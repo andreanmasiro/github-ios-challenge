@@ -21,9 +21,8 @@ class PullRequestListViewModelSpec: QuickSpec {
     
     describe("PullRequestListViewModelSpec") {
       
-      let loadTime = TimeInterval(0.4)
       let fakeCoordinator = FakeSceneCoordinator()
-      let fakeService = FakePullRequestService(bundle: Bundle(for: PullRequestListViewModelSpec.self), loadTime: loadTime)
+      let fakeService = FakePullRequestService(bundle: Bundle(for: PullRequestListViewModelSpec.self))
       let repositoryName = "some name"
       
       var viewModel: PullRequestListViewModel!
@@ -32,9 +31,11 @@ class PullRequestListViewModelSpec: QuickSpec {
       
       beforeEach {
         
-        viewModel = PullRequestListViewModel(coordinator: fakeCoordinator,
-                                             service: fakeService,
-                                             repositoryName: repositoryName)
+        viewModel = PullRequestListViewModel(
+          coordinator: fakeCoordinator,
+          service: fakeService,
+          repositoryName: repositoryName
+        )
         disposeBag = DisposeBag()
       }
       
@@ -43,8 +44,10 @@ class PullRequestListViewModelSpec: QuickSpec {
         it("should start loading") {
           
           var loading: Bool?
-          viewModel.loading.asDriver()
-            .drive(onNext: {
+          viewModel.loading.asObservable()
+            .skip(1) //initial value
+            .take(1)
+            .subscribe(onNext: {
               loading = $0
             })
             .disposed(by: disposeBag)
@@ -70,7 +73,6 @@ class PullRequestListViewModelSpec: QuickSpec {
           
           var loading: Bool?
           viewModel.loading.asDriver()
-            .skip(1)
             .drive(onNext: {
               loading = $0
             })

@@ -12,14 +12,11 @@ import RxSwift
 
 struct FakePullRequestService: PullRequestServiceType {
   
-  private let loadTime: TimeInterval
   private let page1: [PullRequest]
   private let emptyPage = [PullRequest]()
   let finishedLoading = PublishSubject<Void>()
   
-  init(bundle: Bundle, loadTime: TimeInterval) {
-    
-    self.loadTime = loadTime
+  init(bundle: Bundle) {
     
     let page1Path = bundle.path(forResource: "PullRequestListPage", ofType: "json")!
     let jsonData = NSData.init(contentsOfFile: page1Path)! as Data
@@ -28,8 +25,7 @@ struct FakePullRequestService: PullRequestServiceType {
   }
   
   func pullRequests(page: Int) -> Observable<[PullRequest]> {
-    return Observable<Int>.timer(loadTime, scheduler: MainScheduler.instance)
-      .map { _ in (page == 1 ? self.page1 : self.emptyPage) }
+    return Observable.just((page == 1 ? self.page1 : self.emptyPage))
       .do(onNext: {
         if $0.isEmpty {
           self.finishedLoading.onNext(())

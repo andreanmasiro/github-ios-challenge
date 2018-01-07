@@ -24,7 +24,7 @@ class SceneSpec: QuickSpec {
         let bundle = Bundle(for: SceneSpec.self)
         context("repository list") {
           
-          let fakeService = FakeRepositoryService(bundle: bundle, loadTime: 0)
+          let fakeService = FakeRepositoryService(bundle: bundle)
           let viewModel = RepositoryListViewModel(coordinator: fakeCoordinator, service: fakeService)
           
           let scene = Scene.repositoryList(viewModel)
@@ -45,7 +45,7 @@ class SceneSpec: QuickSpec {
         
         context("pull request list") {
           
-          let fakeService = FakePullRequestService(bundle: bundle, loadTime: 0)
+          let fakeService = FakePullRequestService(bundle: bundle)
           let viewModel = PullRequestListViewModel(coordinator: fakeCoordinator, service: fakeService, repositoryName: "")
           
           let scene = Scene.pullRequestList(viewModel)

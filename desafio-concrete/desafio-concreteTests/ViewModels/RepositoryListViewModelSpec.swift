@@ -21,9 +21,8 @@ class RepositoryListViewModelSpec: QuickSpec {
     
     describe("RepositoryListViewModelSpec") {
       
-      let loadTime = TimeInterval(0.4)
       let fakeCoordinator = FakeSceneCoordinator()
-      let fakeService = FakeRepositoryService(bundle: Bundle(for: RepositoryListViewModelSpec.self), loadTime: loadTime)
+      let fakeService = FakeRepositoryService(bundle: Bundle(for: RepositoryListViewModelSpec.self))
       
       var viewModel: RepositoryListViewModel!
       
@@ -39,8 +38,10 @@ class RepositoryListViewModelSpec: QuickSpec {
         it("should start loading") {
           
           var loading: Bool?
-          viewModel.loading.asDriver()
-            .drive(onNext: {
+          viewModel.loading.asObservable()
+            .skip(1) //initial value
+            .take(1)
+            .subscribe(onNext: {
               loading = $0
             })
             .disposed(by: disposeBag)
@@ -68,7 +69,6 @@ class RepositoryListViewModelSpec: QuickSpec {
           
           var loading: Bool?
           viewModel.loading.asDriver()
-            .skip(1)
             .drive(onNext: {
               loading = $0
             })
