@@ -74,6 +74,7 @@
 		4CCEC48420029A8E001B4C02 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48320029A8E001B4C02 /* SceneType.swift */; };
 		4CCEC4862002A48B001B4C02 /* UINavigationController+PushCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */; };
 		4CCEC4882002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */; };
+		4CCEC48B2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48A2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -171,6 +172,7 @@
 		4CCEC48320029A8E001B4C02 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PushCompletion.swift"; sourceTree = "<group>"; };
 		4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewControllerSpec.swift; sourceTree = "<group>"; };
+		4CCEC48A2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListViewControllerSpec.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */,
+				4CCEC48A2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				4CCE6A282001B0A300ABA7F4 /* FakePullRequestService.swift in Sources */,
 				4CCE6A2220019A0F00ABA7F4 /* FakeRepositoryService.swift in Sources */,
 				4CCEC47C20029218001B4C02 /* SceneCoordinatorSpec.swift in Sources */,
+				4CCEC48B2002CFB6001B4C02 /* PullRequestListViewControllerSpec.swift in Sources */,
 				4C2813F22001373200906625 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
