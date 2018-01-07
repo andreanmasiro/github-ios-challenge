@@ -73,6 +73,7 @@
 		4CCEC481200299DF001B4C02 /* FakeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC480200299DF001B4C02 /* FakeScene.swift */; };
 		4CCEC48420029A8E001B4C02 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC48320029A8E001B4C02 /* SceneType.swift */; };
 		4CCEC4862002A48B001B4C02 /* UINavigationController+PushCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */; };
+		4CCEC4882002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -169,6 +170,7 @@
 		4CCEC480200299DF001B4C02 /* FakeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeScene.swift; sourceTree = "<group>"; };
 		4CCEC48320029A8E001B4C02 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PushCompletion.swift"; sourceTree = "<group>"; };
+		4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewControllerSpec.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -426,6 +428,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		4CCEC4892002BE1F001B4C02 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CCEC4872002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4CFA86911FFEBC2200F39F99 = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +475,7 @@
 		4CFA86B11FFEBC2200F39F99 /* desafio-concreteTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CCEC4892002BE1F001B4C02 /* ViewControllers */,
 				4CCEC47A20029208001B4C02 /* Coordinator */,
 				4CCE6A1D200197F200ABA7F4 /* ViewModels */,
 				4C2814242001562300906625 /* Services */,
@@ -885,6 +896,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCEC4882002BA4E001B4C02 /* RepositoryListViewControllerSpec.swift in Sources */,
 				4CCE6A262001B02F00ABA7F4 /* PullRequestListViewModelSpec.swift in Sources */,
 				4CCEC47E200295CD001B4C02 /* SceneSpec.swift in Sources */,
 				4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */,
