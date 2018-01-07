@@ -63,6 +63,9 @@
 		4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */; };
 		4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FE031FFFFA00009B9ACF /* Segue.swift */; };
 		4CCE6A1C2001921000ABA7F4 /* PullRequestCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A1B2001921000ABA7F4 /* PullRequestCellFactory.swift */; };
+		4CCE6A1F2001982700ABA7F4 /* RepositoryListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A1E2001982700ABA7F4 /* RepositoryListViewModelSpec.swift */; };
+		4CCE6A2220019A0F00ABA7F4 /* FakeRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A2120019A0F00ABA7F4 /* FakeRepositoryService.swift */; };
+		4CCE6A2420019D1300ABA7F4 /* FakeSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */; };
 		4CFA869E1FFEBC2200F39F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */; };
 		4CFA86A51FFEBC2200F39F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */; };
 		4CFA86A81FFEBC2200F39F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA86A61FFEBC2200F39F99 /* LaunchScreen.storyboard */; };
@@ -149,6 +152,9 @@
 		4C98FDF31FFFD8DF009B9ACF /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		4C98FE031FFFFA00009B9ACF /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		4CCE6A1B2001921000ABA7F4 /* PullRequestCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCellFactory.swift; sourceTree = "<group>"; };
+		4CCE6A1E2001982700ABA7F4 /* RepositoryListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModelSpec.swift; sourceTree = "<group>"; };
+		4CCE6A2120019A0F00ABA7F4 /* FakeRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRepositoryService.swift; sourceTree = "<group>"; };
+		4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSceneCoordinator.swift; sourceTree = "<group>"; };
 		4CFA869A1FFEBC2200F39F99 /* desafio-concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-concrete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFA869D1FFEBC2200F39F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFA86A41FFEBC2200F39F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +382,23 @@
 			path = PullRequestList;
 			sourceTree = "<group>";
 		};
+		4CCE6A1D200197F200ABA7F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4CCE6A1E2001982700ABA7F4 /* RepositoryListViewModelSpec.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4CCE6A20200199E800ABA7F4 /* TestFakes */ = {
+			isa = PBXGroup;
+			children = (
+				4CCE6A2120019A0F00ABA7F4 /* FakeRepositoryService.swift */,
+				4CCE6A2320019D1300ABA7F4 /* FakeSceneCoordinator.swift */,
+			);
+			path = TestFakes;
+			sourceTree = "<group>";
+		};
 		4CFA86911FFEBC2200F39F99 = {
 			isa = PBXGroup;
 			children = (
@@ -415,9 +438,11 @@
 		4CFA86B11FFEBC2200F39F99 /* desafio-concreteTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CCE6A1D200197F200ABA7F4 /* ViewModels */,
 				4C2814242001562300906625 /* Services */,
 				4C2813EF2001370300906625 /* Models */,
 				4C2813F3200138FF00906625 /* TestFixtures */,
+				4CCE6A20200199E800ABA7F4 /* TestFakes */,
 				4CFA86B41FFEBC2200F39F99 /* Info.plist */,
 			);
 			path = "desafio-concreteTests";
@@ -831,9 +856,12 @@
 			files = (
 				4C28142A20015A3400906625 /* RepositoryServiceSpec.swift in Sources */,
 				4C2813F920013CF500906625 /* RepositorySpec.swift in Sources */,
+				4CCE6A2420019D1300ABA7F4 /* FakeSceneCoordinator.swift in Sources */,
 				4C2814072001407600906625 /* PullRequestSpec.swift in Sources */,
 				4C281432200188B700906625 /* PullRequestServiceSpec.swift in Sources */,
 				4C281428200157DA00906625 /* RepositoryListContainerSpec.swift in Sources */,
+				4CCE6A1F2001982700ABA7F4 /* RepositoryListViewModelSpec.swift in Sources */,
+				4CCE6A2220019A0F00ABA7F4 /* FakeRepositoryService.swift in Sources */,
 				4C2813F22001373200906625 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
