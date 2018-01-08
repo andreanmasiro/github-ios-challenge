@@ -17,6 +17,7 @@ struct RepositoryListViewModel {
   private let coordinator: SceneCoordinatorType
   private let service: RepositoryServiceType
   
+  private let trial = PublishSubject<Void>()
   private let lastPageLoaded = Variable<Int>(0)
   
   private let repositories = Variable<[Repository]>([])
@@ -24,6 +25,7 @@ struct RepositoryListViewModel {
   private let bag = DisposeBag()
   
   let sectionedRepositories: Driver<[RepositoriesSection]>
+  let loadingErrorMessage: Observable<String>
   let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
   
@@ -37,12 +39,19 @@ struct RepositoryListViewModel {
     service.finishedLoading
       .bind(to: finishedLoading)
       .disposed(by: bag)
+    
+    loadingErrorMessage = service.loadingError
+      .debug()
+      .map {
+        $0.localizedDescription
+      }
+    
     bindOutput()
   }
   
   private func bindOutput() {
     
-    lastPageLoaded.asObservable().skip(1)
+    trial.withLatestFrom(lastPageLoaded.asObservable())
       .takeUntil(finishedLoading)
       .do(onNext: { _ in
         self.loading.value = true
@@ -62,6 +71,14 @@ struct RepositoryListViewModel {
   
   func loadNextPage() {
     lastPageLoaded.value += 1
+    trial.onNext(())
+  }
+  
+  var retryAction: CocoaAction {
+    return CocoaAction { _ in
+      self.trial.onNext(())
+      return .empty()
+    }
   }
   
   var showPullRequestsAction: Action<Repository, Void> {

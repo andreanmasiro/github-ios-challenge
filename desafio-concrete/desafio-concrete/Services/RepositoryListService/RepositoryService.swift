@@ -36,10 +36,13 @@ struct RepositoryService: RepositoryServiceType {
   private let bag = DisposeBag()
 
   let finishedLoading = PublishSubject<Void>()
-  let loadingError = PublishSubject<RepositoryServiceError>()
+  let loadingError: Observable<RepositoryServiceError>
+  private let loadingErrorSubject = PublishSubject<RepositoryServiceError>()
   
   init(apiPath: String) {
+    
     self.apiPath = apiPath
+    loadingError = loadingErrorSubject.asObservable()
   }
   
   private func retryHandler(errorObservable: Observable<Error>) -> Observable<Void> {
@@ -62,6 +65,7 @@ struct RepositoryService: RepositoryServiceType {
   
   func repositories(page: Int) -> Observable<[Repository]> {
     
+    loadingErrorSubject.onNext(RepositoryServiceError.timeout)
     guard let url = URL(string: apiPath) else {
       return .error(RepositoryServiceError.invalidAPIPath)
     }
@@ -100,9 +104,9 @@ struct RepositoryService: RepositoryServiceType {
           
           let error = error as NSError
           if error.code == -1001 {
-            self.loadingError.onNext(RepositoryServiceError.timeout)
+            self.loadingErrorSubject.onNext(RepositoryServiceError.timeout)
           } else {
-            self.loadingError.onNext(RepositoryServiceError.unknown)
+            self.loadingErrorSubject.onNext(RepositoryServiceError.unknown)
           }
           return .just([])
         }

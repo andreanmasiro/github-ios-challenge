@@ -72,6 +72,23 @@ class RepositoryListViewController: UIViewController {
       .drive(loadIndicator.rx.isAnimating)
       .disposed(by: bag)
     
+    viewModel.loadingErrorMessage
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { message in
+        
+        let alert = UIAlertController(title: "An error ocurred:", message: message, preferredStyle: .alert)
+        
+        var action = UIAlertAction(
+          title: "Retry",
+          style: .default,
+          handler:nil
+        )
+        action.rx.action = viewModel.retryAction
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
+      })
+    
     loadNextPage = viewModel.loadNextPage
     finishedLoading = viewModel.finishedLoading.ignoreElements()
     setUpReloadable()

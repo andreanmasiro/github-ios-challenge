@@ -53,6 +53,7 @@
 		4C6633BF200021750045A1A2 /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633BE200021750045A1A2 /* SceneTransition.swift */; };
 		4C6633C220004BEC0045A1A2 /* PullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C120004BEC0045A1A2 /* PullRequestService.swift */; };
 		4C6633C4200053570045A1A2 /* PageReloadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */; };
+		4C6D506F2003B792000B2222 /* UIAlertController+RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D506E2003B792000B2222 /* UIAlertController+RxViewController.swift */; };
 		4C71B02C20006D5200F583CB /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02B20006D5200F583CB /* PullRequestViewController.swift */; };
 		4C71B02E2000710F00F583CB /* WKWebView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
@@ -153,6 +154,7 @@
 		4C6633BE200021750045A1A2 /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		4C6633C120004BEC0045A1A2 /* PullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestService.swift; sourceTree = "<group>"; };
 		4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReloadableViewController.swift; sourceTree = "<group>"; };
+		4C6D506E2003B792000B2222 /* UIAlertController+RxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+RxViewController.swift"; sourceTree = "<group>"; };
 		4C71B02B20006D5200F583CB /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
 		4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Rx.swift"; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				4C2813E820011C2400906625 /* Date+HumanReadable.swift */,
 				4C28140C2001420800906625 /* JSONDecoder+Models.swift */,
 				4CCEC4852002A48B001B4C02 /* UINavigationController+PushCompletion.swift */,
+				4C6D506E2003B792000B2222 /* UIAlertController+RxViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				4C2813E920011C2400906625 /* Date+HumanReadable.swift in Sources */,
 				4C98FDEE1FFFD6E3009B9ACF /* PullRequestListViewController.swift in Sources */,
 				4CFA86D31FFECEED00F39F99 /* UITableViewCell+Defaults.swift in Sources */,
+				4C6D506F2003B792000B2222 /* UIAlertController+RxViewController.swift in Sources */,
 				4C6633AE20001C880045A1A2 /* APIPaths.swift in Sources */,
 				4C98FDF41FFFD8DF009B9ACF /* PullRequest.swift in Sources */,
 				4CFA86D51FFED09F00F39F99 /* UITableView+NibUtils.swift in Sources */,
