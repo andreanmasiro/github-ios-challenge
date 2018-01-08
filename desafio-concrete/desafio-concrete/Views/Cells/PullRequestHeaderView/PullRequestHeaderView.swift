@@ -14,26 +14,25 @@ class PullRequestHeaderView: UIView, NibLoadableView {
   @IBOutlet weak var statusLabel: UILabel!
   
   override func awakeFromNib() {
+    loadNib()
+    setUpColors()
+  }
+  
+  func loadNib() {
     
     if Bundle.main.loadNibNamed(PullRequestHeaderView.defaultNibName, owner: self, options: nil) != nil {
+    
       view.frame = bounds
       addSubview(view)
     }
   }
   
-  func config(model: PullRequestHeaderModel) {
+  func setUpColors() {
+    statusLabel.textColor = UIColor.golden
+  }
+  
+  func config(count: Int) {
     
-    let openText = "\(model.openCount) open "
-    let closedText = "/ \(model.closedCount) closed"
-    
-    let text = NSMutableAttributedString(string: openText + closedText)
-    
-    let goldenRange = NSRange.init(location: 0, length: openText.count)
-    let blackRange = NSRange.init(location: openText.count, length: closedText.count)
-    
-    text.addAttribute(.foregroundColor, value: UIColor.golden, range: goldenRange)
-    text.addAttribute(.foregroundColor, value: UIColor.black, range: blackRange)
-    
-    statusLabel.attributedText = text
+    statusLabel.text = "\(count) open"
   }
 }

@@ -44,13 +44,10 @@ class PullRequestListViewController: UIViewController {
     
     let dataSource = self.dataSource
 
-    viewModel.headerModel
-      .drive(onNext: {
-        self.headerView.config(model: $0)
-      })
-      .disposed(by: bag)
-    
     viewModel.sectionedPullRequests
+      .do(onNext: { (sections) in
+        self.headerView.config(count: sections[0].items.count)
+      })
       .drive(tableView.rx.items(dataSource: dataSource))
       .disposed(by: bag)
     

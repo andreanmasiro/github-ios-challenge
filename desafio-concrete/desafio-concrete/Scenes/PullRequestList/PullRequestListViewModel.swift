@@ -28,7 +28,6 @@ struct PullRequestListViewModel {
   let sectionedPullRequests: Driver<[PullRequestsSection]>
   
   let repositoryName: Driver<String>
-  let headerModel: Driver<PullRequestHeaderModel>
   
   init(coordinator: SceneCoordinatorType, service: PullRequestServiceType, repositoryName: String) {
     
@@ -39,9 +38,6 @@ struct PullRequestListViewModel {
     
     self.sectionedPullRequests = pullRequests.asDriver()
       .map { [PullRequestsSection(model: "", items: $0)] }
-    
-    self.headerModel = pullRequests.asDriver()
-      .map(PullRequestHeaderModel.init)
     
     service.finishedLoading
       .bind(to: finishedLoading)
@@ -62,9 +58,8 @@ struct PullRequestListViewModel {
       .do(onNext: { _ in
         self.loading.value = false
       })
-      .subscribe(onNext: {
-        self.pullRequests.value.append(contentsOf: $0)
-      })
+      .scan([PullRequest](), accumulator: +)
+      .bind(to: pullRequests)
       .disposed(by: bag)
   }
   

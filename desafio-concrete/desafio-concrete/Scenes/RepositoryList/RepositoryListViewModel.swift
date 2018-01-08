@@ -51,9 +51,8 @@ struct RepositoryListViewModel {
       .do(onNext: { _ in
         self.loading.value = false
       })
-      .subscribe(onNext: {
-        self.repositories.value.append(contentsOf: $0)
-      })
+      .scan([Repository](), accumulator: +)
+      .bind(to: repositories)
       .disposed(by: bag)
   }
   
