@@ -11,26 +11,6 @@ import Alamofire
 import RxAlamofire
 import RxCocoa
 
-enum RepositoryServiceError: Error {
-  
-  case invalidAPIPath
-  case rateLimitExceeded(refreshTime: TimeInterval)
-  case timeout
-  case noConnection
-  case unknown
-  
-  var localizedDescription: String {
-    
-    switch self {
-    case .invalidAPIPath: return "Invalid API Path."
-    case .rateLimitExceeded(let refreshTime): return "Rate limit exceeded. Try again in \(refreshTime) seconds."
-    case .timeout: return "The request timed out."
-    case .noConnection: return "The Internet connection appears to be offline."
-    case .unknown: return "Unknown error."
-    }
-  }
-}
-
 struct RepositoryService: RepositoryServiceType {
   
   private let apiPath: String
@@ -47,7 +27,7 @@ struct RepositoryService: RepositoryServiceType {
   private func retryHandler(errorObservable: Observable<Error>) -> Observable<Void> {
     return errorObservable.flatMap { error -> Observable<Void> in
       
-      guard case let RepositoryServiceError
+      guard case let ServiceError.Repository
         .rateLimitExceeded(refreshTime) = error else {
           return Observable.error(error)
       }
@@ -65,7 +45,7 @@ struct RepositoryService: RepositoryServiceType {
   func repositories(page: Int) -> Observable<[Repository]> {
     
     guard let url = URL(string: apiPath) else {
-      return .error(RepositoryServiceError.invalidAPIPath)
+      return .error(ServiceError.Repository.invalidAPIPath)
     }
     
     let params = APIParams.params(page: page, perPage: perPage)
@@ -85,12 +65,12 @@ struct RepositoryService: RepositoryServiceType {
           
           guard let refreshTimeString = response.allHeaderFields[APIKeys.rateLimitResetHeaderKey] as? String,
             let refreshTime = TimeInterval(refreshTimeString) else {
-            throw RepositoryServiceError.unknown
+            throw ServiceError.unknown
           }
-          throw RepositoryServiceError
+          throw ServiceError.Repository
             .rateLimitExceeded(refreshTime: refreshTime)
           
-        default: throw RepositoryServiceError.unknown
+        default: throw ServiceError.unknown
         }
       }
       .do(onNext: { newRepos in

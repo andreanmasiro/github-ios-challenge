@@ -30,7 +30,7 @@ struct RepositoryListViewModel {
   let loading = Variable<Bool>(false)
   
   let errorMessage: Observable<String>
-  private let errorSubject = PublishSubject<RepositoryServiceError>()
+  private let errorSubject = PublishSubject<ServiceError>()
   
   init(coordinator: SceneCoordinatorType, service: RepositoryServiceType) {
     self.coordinator = coordinator
@@ -51,8 +51,7 @@ struct RepositoryListViewModel {
   
   private func bindOutput() {
     
-    trial
-      .withLatestFrom(lastPageLoaded.asObservable())
+    trial.withLatestFrom(lastPageLoaded.asObservable())
       .takeUntil(finishedLoading)
       .do(onNext: { _ in
         self.loading.value = true
@@ -61,14 +60,8 @@ struct RepositoryListViewModel {
         self.service.repositories(page: $0)
           .catchError { error in
             
-            let error = error as NSError
-            if error.code == -1001 {
-              self.errorSubject.onNext(RepositoryServiceError.timeout)
-            } else if error.code == -1009 {
-              self.errorSubject.onNext(RepositoryServiceError.noConnection)
-            } else {
-              self.errorSubject.onNext(RepositoryServiceError.unknown)
-            }
+            let nserror = error as NSError
+            self.errorSubject.onNext(.withNSError(nserror))
             
             return Observable.empty()
         }
