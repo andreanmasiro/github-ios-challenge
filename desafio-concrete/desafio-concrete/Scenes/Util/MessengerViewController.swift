@@ -33,7 +33,7 @@ extension MessengerViewController where Self: UIViewController {
   
   func showErrorAlert(message: String, retryHandler: @escaping (UIAlertAction) -> ()) {
     
-    showAlert(title: "An error ocurred:",
+    showAlert(title: "An error ocurred ❌",
               message: message,
               actionData: [("Retry", retryHandler, .default)])
   }

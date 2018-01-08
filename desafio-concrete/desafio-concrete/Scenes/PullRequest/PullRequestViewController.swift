@@ -20,6 +20,7 @@ class PullRequestViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    webView.navigationDelegate = self
   }
   
   func load(contentsOfURL url: URL) {
@@ -30,5 +31,15 @@ class PullRequestViewController: UIViewController {
       .asDriver(onErrorJustReturn: false)
       .drive(loadIndicator.rx.isAnimating)
       .disposed(by: disposeBag)
+  }
+}
+
+extension PullRequestViewController: WKNavigationDelegate {
+  
+  func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+    
+    showErrorAlert(message: "Could not load the page.") { _ in
+      self.navigationController?.popViewController(animated: true)
+    }
   }
 }
