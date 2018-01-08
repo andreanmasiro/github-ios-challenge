@@ -76,19 +76,11 @@ class RepositoryListViewController: UIViewController {
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { message in
         
-        let alert = UIAlertController(title: "An error ocurred:", message: message, preferredStyle: .alert)
-        
-        var action = UIAlertAction(
-          title: "Retry",
-          style: .default,
-          handler: { _ in
-            viewModel.retryAction.execute(())
-          }
-        )
-        alert.addAction(action)
-        
-        self.present(alert, animated: true, completion: nil)
+        self.showErrorAlert(message: message, retryHandler: { _ in
+          viewModel.retry()
+        })
       })
+      .disposed(by: bag)
     
     loadNextPage = viewModel.loadNextPage
     finishedLoading = viewModel.finishedLoading.ignoreElements()

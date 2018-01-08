@@ -78,15 +78,11 @@ struct RepositoryListViewModel {
   
   func loadNextPage() {
     lastPageLoaded.value += 1
-    retryAction.execute(())
+    retry()
   }
   
-  var retryAction: CocoaAction {
-    return CocoaAction { _ in
-      self.trial.onNext(())
-      print("retry")
-      return .empty()
-    }
+  func retry() {
+    self.trial.onNext(())
   }
   
   var showPullRequestsAction: Action<Repository, Void> {

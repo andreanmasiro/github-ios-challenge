@@ -56,6 +56,7 @@
 		4C6D506F2003B792000B2222 /* UIAlertController+RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D506E2003B792000B2222 /* UIAlertController+RxViewController.swift */; };
 		4C6D5072200419C6000B2222 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D5071200419C6000B2222 /* ServiceError.swift */; };
 		4C6D5074200419D2000B2222 /* ServiceError+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D5073200419D2000B2222 /* ServiceError+Repository.swift */; };
+		4C6D507720041BB9000B2222 /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D507620041BB9000B2222 /* MessengerViewController.swift */; };
 		4C71B02C20006D5200F583CB /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02B20006D5200F583CB /* PullRequestViewController.swift */; };
 		4C71B02E2000710F00F583CB /* WKWebView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */; };
 		4C98FDE41FFFD17A009B9ACF /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */; };
@@ -159,6 +160,7 @@
 		4C6D506E2003B792000B2222 /* UIAlertController+RxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+RxViewController.swift"; sourceTree = "<group>"; };
 		4C6D5071200419C6000B2222 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		4C6D5073200419D2000B2222 /* ServiceError+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceError+Repository.swift"; sourceTree = "<group>"; };
+		4C6D507620041BB9000B2222 /* MessengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
 		4C71B02B20006D5200F583CB /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
 		4C71B02D2000710F00F583CB /* WKWebView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Rx.swift"; sourceTree = "<group>"; };
 		4C98FDE21FFFD17A009B9ACF /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -384,6 +386,15 @@
 			path = ServiceError;
 			sourceTree = "<group>";
 		};
+		4C6D507520041B87000B2222 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */,
+				4C6D507620041BB9000B2222 /* MessengerViewController.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		4C71B02A20006D3D00F583CB /* PullRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,11 +544,11 @@
 		4CFA86BE1FFEC1DF00F39F99 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4C6D507520041B87000B2222 /* Util */,
 				4CFA86C31FFEC22F00F39F99 /* Storyboard */,
 				4CFA86BF1FFEC1EA00F39F99 /* RepositoryList */,
 				4C98FDEC1FFFD4F1009B9ACF /* PullRequestList */,
 				4C71B02A20006D3D00F583CB /* PullRequest */,
-				4C6633C3200053570045A1A2 /* PageReloadableViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -915,6 +926,7 @@
 				4CCEC48420029A8E001B4C02 /* SceneType.swift in Sources */,
 				4CFA86E71FFEFDC300F39F99 /* NibLoadableView.swift in Sources */,
 				4C98FE041FFFFA00009B9ACF /* Segue.swift in Sources */,
+				4C6D507720041BB9000B2222 /* MessengerViewController.swift in Sources */,
 				4CFA86DC1FFED89100F39F99 /* User.swift in Sources */,
 				4C6633A4200008E00045A1A2 /* RepositoryService.swift in Sources */,
 				4CFA86ED1FFF02CB00F39F99 /* NSObject+ClassName.swift in Sources */,
