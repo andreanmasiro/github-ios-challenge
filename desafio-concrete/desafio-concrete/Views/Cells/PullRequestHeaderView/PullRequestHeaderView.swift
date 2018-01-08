@@ -9,7 +9,7 @@
 import UIKit
 
 class PullRequestHeaderView: UIView, NibLoadableView {
-
+  
   @IBOutlet weak var view: UIView!
   @IBOutlet weak var statusLabel: UILabel!
   
@@ -20,9 +20,9 @@ class PullRequestHeaderView: UIView, NibLoadableView {
   
   func loadNib() {
     
-    if Bundle.main.loadNibNamed(PullRequestHeaderView.defaultNibName, owner: self, options: nil) != nil {
-    
-      view.frame = bounds
+    let nibName = PullRequestHeaderView.defaultNibName
+    if Bundle.main.loadNibNamed(nibName, owner: self, options: nil) != nil {
+      
       addSubview(view)
     }
   }
@@ -32,7 +32,12 @@ class PullRequestHeaderView: UIView, NibLoadableView {
   }
   
   func config(count: Int) {
-    
-    statusLabel.text = "\(count) open"
+    let text = count == 0 ? "No pull requests" : "\(count) open"
+    statusLabel.text = text
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    view.frame = bounds
   }
 }

@@ -81,13 +81,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RnW-SF-lYb" firstAttribute="width" secondItem="rkx-PS-9ff" secondAttribute="width" id="0cy-OQ-8e9"/>
                             <constraint firstItem="RnW-SF-lYb" firstAttribute="top" secondItem="h48-TX-DQe" secondAttribute="bottom" id="Cyb-uG-KCb"/>
                             <constraint firstItem="opp-SP-hUp" firstAttribute="leading" secondItem="rkx-PS-9ff" secondAttribute="leading" id="Ke4-pY-J82"/>
+                            <constraint firstItem="RnW-SF-lYb" firstAttribute="centerX" secondItem="rkx-PS-9ff" secondAttribute="centerX" id="Xot-cx-fdJ"/>
                             <constraint firstItem="opp-SP-hUp" firstAttribute="top" secondItem="RnW-SF-lYb" secondAttribute="bottom" id="YTZ-F7-fpO"/>
                             <constraint firstItem="z0J-T0-gOW" firstAttribute="top" secondItem="opp-SP-hUp" secondAttribute="bottom" id="dNJ-OK-ja6"/>
                             <constraint firstAttribute="trailing" secondItem="opp-SP-hUp" secondAttribute="trailing" id="ehY-aa-SQE"/>
-                            <constraint firstItem="RnW-SF-lYb" firstAttribute="leading" secondItem="rkx-PS-9ff" secondAttribute="leading" id="jJQ-8z-qbA"/>
-                            <constraint firstAttribute="trailing" secondItem="RnW-SF-lYb" secondAttribute="trailing" id="tOX-Cf-4y4"/>
                         </constraints>
                     </view>
                     <connections>
