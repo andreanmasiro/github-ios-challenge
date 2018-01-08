@@ -72,7 +72,7 @@ class RepositoryListViewController: UIViewController {
       .drive(loadIndicator.rx.isAnimating)
       .disposed(by: bag)
     
-    viewModel.loadingErrorMessage
+    viewModel.errorMessage
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { message in
         
@@ -81,9 +81,10 @@ class RepositoryListViewController: UIViewController {
         var action = UIAlertAction(
           title: "Retry",
           style: .default,
-          handler:nil
+          handler: { _ in
+            viewModel.retryAction.execute(())
+          }
         )
-        action.rx.action = viewModel.retryAction
         alert.addAction(action)
         
         self.present(alert, animated: true, completion: nil)

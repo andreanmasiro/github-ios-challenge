@@ -11,7 +11,6 @@ import RxSwift
 protocol RepositoryServiceType {
   
   var finishedLoading: PublishSubject<Void> { get }
-  var loadingError: Observable<RepositoryServiceError> { get }
   
   func repositories(page: Int) -> Observable<[Repository]>
 }

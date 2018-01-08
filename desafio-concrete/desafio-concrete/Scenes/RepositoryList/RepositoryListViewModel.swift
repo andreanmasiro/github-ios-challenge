@@ -25,9 +25,12 @@ struct RepositoryListViewModel {
   private let bag = DisposeBag()
   
   let sectionedRepositories: Driver<[RepositoriesSection]>
-  let loadingErrorMessage: Observable<String>
+  
   let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
+  
+  let errorMessage: Observable<String>
+  private let errorSubject = PublishSubject<RepositoryServiceError>()
   
   init(coordinator: SceneCoordinatorType, service: RepositoryServiceType) {
     self.coordinator = coordinator
@@ -40,30 +43,41 @@ struct RepositoryListViewModel {
       .bind(to: finishedLoading)
       .disposed(by: bag)
     
-    loadingErrorMessage = service.loadingError
-      .debug()
-      .map {
-        $0.localizedDescription
-      }
+    self.errorMessage = errorSubject.asObserver()
+      .map { $0.localizedDescription }
     
     bindOutput()
   }
   
   private func bindOutput() {
     
-    trial.withLatestFrom(lastPageLoaded.asObservable())
+    trial
+      .withLatestFrom(lastPageLoaded.asObservable())
       .takeUntil(finishedLoading)
       .do(onNext: { _ in
         self.loading.value = true
       })
-      .flatMap { self.service.repositories(page: $0) }
+      .flatMap {
+        self.service.repositories(page: $0)
+          .catchError { error in
+            
+            let error = error as NSError
+            if error.code == -1001 {
+              self.errorSubject.onNext(RepositoryServiceError.timeout)
+            } else if error.code == -1009 {
+              self.errorSubject.onNext(RepositoryServiceError.noConnection)
+            } else {
+              self.errorSubject.onNext(RepositoryServiceError.unknown)
+            }
+            
+            return Observable.empty()
+        }
+      }
       .do(onNext: { _ in
         self.loading.value = false
       })
-      .catchError { error in
-        
-        return Observable.just([])
-      }
+      .catchErrorJustReturn([])
+      .debug("after error", trimOutput: true)
       .scan([Repository](), accumulator: +)
       .bind(to: repositories)
       .disposed(by: bag)
@@ -71,12 +85,13 @@ struct RepositoryListViewModel {
   
   func loadNextPage() {
     lastPageLoaded.value += 1
-    trial.onNext(())
+    retryAction.execute(())
   }
   
   var retryAction: CocoaAction {
     return CocoaAction { _ in
       self.trial.onNext(())
+      print("retry")
       return .empty()
     }
   }

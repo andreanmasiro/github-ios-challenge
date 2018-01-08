@@ -16,6 +16,7 @@ enum RepositoryServiceError: Error {
   case invalidAPIPath
   case rateLimitExceeded(refreshTime: TimeInterval)
   case timeout
+  case noConnection
   case unknown
   
   var localizedDescription: String {
@@ -24,6 +25,7 @@ enum RepositoryServiceError: Error {
     case .invalidAPIPath: return "Invalid API Path."
     case .rateLimitExceeded(let refreshTime): return "Rate limit exceeded. Try again in \(refreshTime) seconds."
     case .timeout: return "The request timed out."
+    case .noConnection: return "The Internet connection appears to be offline."
     case .unknown: return "Unknown error."
     }
   }
@@ -36,13 +38,10 @@ struct RepositoryService: RepositoryServiceType {
   private let bag = DisposeBag()
 
   let finishedLoading = PublishSubject<Void>()
-  let loadingError: Observable<RepositoryServiceError>
-  private let loadingErrorSubject = PublishSubject<RepositoryServiceError>()
   
   init(apiPath: String) {
     
     self.apiPath = apiPath
-    loadingError = loadingErrorSubject.asObservable()
   }
   
   private func retryHandler(errorObservable: Observable<Error>) -> Observable<Void> {
@@ -50,7 +49,7 @@ struct RepositoryService: RepositoryServiceType {
       
       guard case let RepositoryServiceError
         .rateLimitExceeded(refreshTime) = error else {
-          throw error
+          return Observable.error(error)
       }
       let nowTimeStamp = Date().timeIntervalSince1970
       let dueStamp = refreshTime - nowTimeStamp
@@ -65,7 +64,6 @@ struct RepositoryService: RepositoryServiceType {
   
   func repositories(page: Int) -> Observable<[Repository]> {
     
-    loadingErrorSubject.onNext(RepositoryServiceError.timeout)
     guard let url = URL(string: apiPath) else {
       return .error(RepositoryServiceError.invalidAPIPath)
     }
@@ -95,28 +93,12 @@ struct RepositoryService: RepositoryServiceType {
         default: throw RepositoryServiceError.unknown
         }
       }
-      .catchError { error in
-        
-        if case RepositoryServiceError.rateLimitExceeded = error {
-          
-          throw error
-        } else {
-          
-          let error = error as NSError
-          if error.code == -1001 {
-            self.loadingErrorSubject.onNext(RepositoryServiceError.timeout)
-          } else {
-            self.loadingErrorSubject.onNext(RepositoryServiceError.unknown)
-          }
-          return .just([])
-        }
-      }
-      .retryWhen(retryHandler)
       .do(onNext: { newRepos in
         if newRepos.count < self.perPage {
           self.finishedLoading.onNext(())
           self.finishedLoading.onCompleted()
         }
       })
+      .retryWhen(retryHandler)
   }
 }
