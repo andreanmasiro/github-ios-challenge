@@ -26,7 +26,7 @@ class RepositoryTableViewCellSpec: QuickSpec {
         
         it("should be prepared to display the correct information") {
 
-          let repository = Repository.fake
+          let repository = Repository.fake()
           
           cell.config(model: repository)
 

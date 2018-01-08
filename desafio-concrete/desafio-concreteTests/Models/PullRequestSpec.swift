@@ -49,6 +49,28 @@ class PullRequestSpec: QuickSpec {
             .notTo(throwError())
         }
       }
+      
+      context("when comparing") {
+        
+        it("should compare the id property") {
+          
+          let pull0 = PullRequest.fake(id: 0)
+          let pull1 = PullRequest.fake(id: 1)
+          
+          expect(pull0 == pull1) == false
+          expect(pull0 == pull0) == true
+        }
+      }
+      
+      describe("identifiable") {
+        
+        it("should return the id property") {
+          
+          let repo = Repository.fake()
+          
+          expect(repo.identity) == repo.id
+        }
+      }
     }
   }
 }

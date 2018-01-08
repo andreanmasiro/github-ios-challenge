@@ -56,7 +56,6 @@ class RepositoryListViewModelSpec: QuickSpec {
           viewModel.sectionedRepositories
             .filter { !$0[0].items.isEmpty }
             .drive(onNext: {
-              print($0.count)
               repositories.append(contentsOf: $0[0].items)
             })
             .disposed(by: disposeBag)

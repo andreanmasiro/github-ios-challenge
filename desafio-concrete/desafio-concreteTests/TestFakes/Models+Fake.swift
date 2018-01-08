@@ -24,13 +24,13 @@ extension User {
 }
 
 extension Repository {
-
-  static var fake: Repository {
-    return Repository()
+  
+  static func fake(id: Int = 0) -> Repository {
+    return self.init(id: id)
   }
   
-  private init() {
-    self.id = 0
+  private init(id: Int) {
+    self.id = id
     self.name = ""
     self.description = ""
     self.forksCount = 0
@@ -42,13 +42,13 @@ extension Repository {
 
 extension PullRequest {
   
-  static var fake: PullRequest {
-    return PullRequest()
+  static func fake(id: Int = 0) -> PullRequest {
+    return self.init(id: id)
   }
   
-  private init() {
+  private init(id: Int) {
     
-    self.id = 0
+    self.id = id
     self.title = ""
     self.body = ""
     self.createdAt = Date()

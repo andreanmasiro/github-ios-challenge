@@ -26,7 +26,7 @@ class PullRequestTableViewCellSpec: QuickSpec {
         
         it("should be prepared to display the correct information") {
           
-          let pullRequest = PullRequest.fake
+          let pullRequest = PullRequest.fake()
           
           cell.config(model: pullRequest)
           

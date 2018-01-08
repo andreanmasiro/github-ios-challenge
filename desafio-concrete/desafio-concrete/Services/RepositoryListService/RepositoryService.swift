@@ -38,7 +38,7 @@ struct RepositoryService: RepositoryServiceType {
       }
       let nowTimeStamp = Date().timeIntervalSince1970
       let dueStamp = refreshTime - nowTimeStamp
-      print("will retry in", dueStamp)
+      
       return Observable<Int>
         .timer(max(0, dueStamp),
                period: nil,

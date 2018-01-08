@@ -58,6 +58,28 @@ class RepositorySpec: QuickSpec {
             .to(throwError(RepositoryDecodingError.invalidPullsURL))
         }
       }
+      
+      context("when comparing") {
+        
+        it("should compare the id property") {
+          
+          let repo0 = Repository.fake(id: 0)
+          let repo1 = Repository.fake(id: 1)
+          
+          expect(repo0 == repo1) == false
+          expect(repo0 == repo0) == true
+        }
+      }
+      
+      describe("identifiable") {
+        
+        it("should return the id property") {
+          
+          let pull = PullRequest.fake()
+          
+          expect(pull.identity) == pull.id
+        }
+      }
     }
   }
 }
