@@ -12,9 +12,21 @@ import RxAlamofire
 import RxCocoa
 
 enum RepositoryServiceError: Error {
+  
   case invalidAPIPath
   case rateLimitExceeded(refreshTime: TimeInterval)
+  case timeout
   case unknown
+  
+  var localizedDescription: String {
+    
+    switch self {
+    case .invalidAPIPath: return "Invalid API Path."
+    case .rateLimitExceeded(let refreshTime): return "Rate limit exceeded. Try again in \(refreshTime) seconds."
+    case .timeout: return "The request timed out."
+    case .unknown: return "Unknown error."
+    }
+  }
 }
 
 struct RepositoryService: RepositoryServiceType {
@@ -24,6 +36,7 @@ struct RepositoryService: RepositoryServiceType {
   private let bag = DisposeBag()
 
   let finishedLoading = PublishSubject<Void>()
+  let loadingError = PublishSubject<RepositoryServiceError>()
   
   init(apiPath: String) {
     self.apiPath = apiPath
@@ -34,7 +47,7 @@ struct RepositoryService: RepositoryServiceType {
       
       guard case let RepositoryServiceError
         .rateLimitExceeded(refreshTime) = error else {
-          return Observable.error(error)
+          throw error
       }
       let nowTimeStamp = Date().timeIntervalSince1970
       let dueStamp = refreshTime - nowTimeStamp
@@ -62,7 +75,7 @@ struct RepositoryService: RepositoryServiceType {
         switch response.statusCode {
         case 200..<300:
           
-          let decoder = JSONDecoder()
+          let decoder = JSONDecoder.modelDecoder
           let listContainer = try decoder.decode(RepositoryListContainer.self, from: json)
           return listContainer.items
           
@@ -76,6 +89,22 @@ struct RepositoryService: RepositoryServiceType {
             .rateLimitExceeded(refreshTime: refreshTime)
           
         default: throw RepositoryServiceError.unknown
+        }
+      }
+      .catchError { error in
+        
+        if case RepositoryServiceError.rateLimitExceeded = error {
+          
+          throw error
+        } else {
+          
+          let error = error as NSError
+          if error.code == -1001 {
+            self.loadingError.onNext(RepositoryServiceError.timeout)
+          } else {
+            self.loadingError.onNext(RepositoryServiceError.unknown)
+          }
+          return .just([])
         }
       }
       .retryWhen(retryHandler)

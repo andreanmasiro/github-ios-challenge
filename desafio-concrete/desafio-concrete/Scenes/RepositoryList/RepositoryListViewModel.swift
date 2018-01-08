@@ -51,6 +51,10 @@ struct RepositoryListViewModel {
       .do(onNext: { _ in
         self.loading.value = false
       })
+      .catchError { error in
+        
+        return Observable.just([])
+      }
       .scan([Repository](), accumulator: +)
       .bind(to: repositories)
       .disposed(by: bag)
