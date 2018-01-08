@@ -10,12 +10,15 @@ import RxSwift
 
 @testable import desafio_concrete
 
+fileprivate var fakeError: Error?
 struct FakeRepositoryService: RepositoryServiceType {
   
   private let page1: [Repository]
   private let emptyPage = [Repository]()
   
   init(bundle: Bundle) {
+    
+    fakeError = nil
     
     let page1Path = bundle.path(forResource: "RepositoryListPage", ofType: "json")!
     let jsonData = NSData.init(contentsOfFile: page1Path)! as Data
@@ -29,12 +32,20 @@ struct FakeRepositoryService: RepositoryServiceType {
   
   func repositories(page: Int) -> Observable<[Repository]> {
     
-    return Observable.just((page == 1 ? self.page1 : self.emptyPage))
-      .do(onNext: {
-        if $0.isEmpty {
-          self.finishedLoading.onNext(())
-          self.finishedLoading.onCompleted()
-        }
-      })
+    if let error = fakeError {
+      return .error(error)
+    } else {
+      return Observable.just((page == 1 ? self.page1 : self.emptyPage))
+        .do(onNext: {
+          if $0.isEmpty {
+            self.finishedLoading.onNext(())
+            self.finishedLoading.onCompleted()
+          }
+        })
+    }
+  }
+  
+  func setError(_ error: Error?) {
+    return fakeError = error
   }
 }

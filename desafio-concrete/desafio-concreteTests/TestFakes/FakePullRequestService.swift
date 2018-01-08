@@ -10,6 +10,7 @@ import RxSwift
 
 @testable import desafio_concrete
 
+fileprivate var fakeError: Error?
 struct FakePullRequestService: PullRequestServiceType {
   
   private let page1: [PullRequest]
@@ -18,6 +19,8 @@ struct FakePullRequestService: PullRequestServiceType {
   
   init(bundle: Bundle) {
     
+    fakeError = nil
+    
     let page1Path = bundle.path(forResource: "PullRequestListPage", ofType: "json")!
     let jsonData = NSData.init(contentsOfFile: page1Path)! as Data
     
@@ -25,12 +28,20 @@ struct FakePullRequestService: PullRequestServiceType {
   }
   
   func pullRequests(page: Int) -> Observable<[PullRequest]> {
-    return Observable.just((page == 1 ? self.page1 : self.emptyPage))
-      .do(onNext: {
-        if $0.isEmpty {
-          self.finishedLoading.onNext(())
-          self.finishedLoading.onCompleted()
-        }
-      })
+    if let error = fakeError {
+      return .error(error)
+    } else {
+      return Observable.just((page == 1 ? self.page1 : self.emptyPage))
+        .do(onNext: {
+          if $0.isEmpty {
+            self.finishedLoading.onNext(())
+            self.finishedLoading.onCompleted()
+          }
+        })
+    }
+  }
+  
+  func setError(_ error: Error?) {
+    return fakeError = error
   }
 }

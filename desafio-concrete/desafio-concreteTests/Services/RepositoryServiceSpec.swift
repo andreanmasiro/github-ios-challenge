@@ -120,7 +120,7 @@ class RepositoryServiceSpec: QuickSpec {
               })
               .disposed(by: disposeBag)
             
-            expect(error).toEventually(matchError(RepositoryServiceError.unknown))
+            expect(error).toEventually(matchError(ServiceError.unknown))
           }
           
           it("should fail fetching repositories due to fail code other than 403") {
@@ -139,7 +139,7 @@ class RepositoryServiceSpec: QuickSpec {
               })
               .disposed(by: disposeBag)
             
-            expect(error).toEventually(matchError(RepositoryServiceError.unknown))
+            expect(error).toEventually(matchError(ServiceError.unknown))
           }
           
           it("should fail fetching repositories due to invalid JSON") {
@@ -177,7 +177,7 @@ class RepositoryServiceSpec: QuickSpec {
               })
               .disposed(by: disposeBag)
             
-            expect(error).toEventually(matchError(RepositoryServiceError.invalidAPIPath))
+            expect(error).toEventually(matchError(ServiceError.Repository.invalidAPIPath))
           }
         }
       }

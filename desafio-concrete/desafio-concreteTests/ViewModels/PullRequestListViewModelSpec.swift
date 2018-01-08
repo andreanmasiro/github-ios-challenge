@@ -91,6 +91,53 @@ class PullRequestListViewModelSpec: QuickSpec {
           viewModel.loadNextPage()
           expect(finishedLoading).toEventually(beTruthy())
         }
+        
+        context("on error") {
+          
+          afterEach {
+            fakeService.setError(nil)
+          }
+          
+          context("service error") {
+            
+            it("should send error localizedDescription as message") {
+              
+              let noConnection = ServiceError.noConnection
+              fakeService.setError(noConnection)
+              
+              var message: String?
+              viewModel.errorMessage
+                .subscribe(onNext: {
+                  message = $0
+                })
+                .disposed(by: disposeBag)
+              
+              viewModel.loadNextPage()
+              
+              expect(message).toEventually(match(noConnection.localizedDescription))
+            }
+          }
+          
+          context("nserror") {
+            
+            it("should parse and send localizedDescription as message") {
+              
+              let error = NSError(domain: "", code: -1001, userInfo: nil)
+              fakeService.setError(error)
+              
+              var message: String?
+              viewModel.errorMessage
+                .subscribe(onNext: {
+                  message = $0
+                })
+                .disposed(by: disposeBag)
+              
+              viewModel.loadNextPage()
+              
+              expect(message).toEventually(match(ServiceError.timeout.localizedDescription))
+            }
+          }
+        }
       }
       
       context("when show pull request action run") {

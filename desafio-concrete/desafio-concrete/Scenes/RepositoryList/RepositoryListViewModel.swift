@@ -60,8 +60,14 @@ struct RepositoryListViewModel {
         self.service.repositories(page: $0)
           .catchError { error in
             
-            let nserror = error as NSError
-            self.errorSubject.onNext(.withNSError(nserror))
+            if let serviceError = error as? ServiceError {
+              
+              self.errorSubject.onNext(serviceError)
+            } else {
+              
+              let nserror = error as NSError
+              self.errorSubject.onNext(.withNSError(nserror))
+            }
             
             return Observable.empty()
           }
