@@ -105,7 +105,11 @@ class PullRequestListViewControllerSpec: QuickSpec {
               })
               .disposed(by: disposeBag)
             
-            tableView.delegate!.tableView!(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+            guard let delegate = tableView.delegate else {
+              fail("nil tableview delegate")
+              return
+            }
+            delegate.tableView?(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
             
             expect(calledTransition).toEventually(beTrue())
           }
