@@ -16,7 +16,7 @@ protocol PageReloadableViewController {
   var scrollView: UIScrollView { get }
   var reloadBottomOffsetThreshold: CGFloat { get }
   var loading: Bool { get }
-  var bag: DisposeBag { get }
+  var disposeBag: DisposeBag { get }
   var finishedLoading: Completable? { get }
   
   var loadNextPage: (() -> ())? { get }
@@ -31,7 +31,7 @@ extension PageReloadableViewController where Self: UIViewController {
         self.loadIndicator.stopAnimating()
         self.fixBottomInset()
       })
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     scrollView.rx.contentOffset
       .map { $0.y > self.scrollView.contentSize.height - self.scrollView.bounds.height - self.reloadBottomOffsetThreshold }
@@ -40,7 +40,7 @@ extension PageReloadableViewController where Self: UIViewController {
       .subscribe(onNext: { _ in
         self.loadNextPage?()
       })
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
   }
   
   private func fixBottomInset() {

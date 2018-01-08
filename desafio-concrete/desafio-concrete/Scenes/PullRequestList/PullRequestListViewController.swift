@@ -21,7 +21,7 @@ class PullRequestListViewController: UIViewController {
   var loadNextPage: (() -> ())?
   var finishedLoading: Completable?
   
-  let bag = DisposeBag()
+  let disposeBag = DisposeBag()
   
   override func viewDidLoad() {
     
@@ -49,27 +49,36 @@ class PullRequestListViewController: UIViewController {
         self.headerView.config(count: sections[0].items.count)
       })
       .drive(tableView.rx.items(dataSource: dataSource))
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     viewModel.repositoryName
       .drive(navigationItem.rx.title)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     viewModel.loading.asDriver()
       .drive(loadIndicator.rx.isAnimating)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
+    
+    viewModel.errorMessage
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: {
+        self.showErrorAlert(message: $0, retryHandler: { _ in
+          viewModel.retry()
+        })
+      })
+      .disposed(by: disposeBag)
     
     tableView.rx.itemSelected.asDriver()
       .drive(onNext: {
         self.tableView.deselectRow(at: $0, animated: true)
       })
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     tableView.rx.modelSelected(PullRequest.self).asDriver()
       .drive(onNext: {
         viewModel.showPullRequestAction.execute($0)
       })
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     loadNextPage = viewModel.loadNextPage
     finishedLoading = viewModel.finishedLoading.ignoreElements()

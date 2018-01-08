@@ -17,10 +17,15 @@ struct PullRequestListViewModel {
   private let coordinator: SceneCoordinatorType
   private let service: PullRequestServiceType
   
+  private let trial = PublishSubject<Void>()
   private let lastPageLoaded = Variable<Int>(0)
+  
   private let pullRequests = Variable<[PullRequest]>([])
   
-  private let bag = DisposeBag()
+  let errorMessage: Observable<String>
+  private let errorSubject = PublishSubject<ServiceError>()
+  
+  private let disposeBag = DisposeBag()
   
   let finishedLoading = PublishSubject<Void>()
   let loading = Variable<Bool>(false)
@@ -41,7 +46,10 @@ struct PullRequestListViewModel {
     
     service.finishedLoading
       .bind(to: finishedLoading)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
+    
+    self.errorMessage = errorSubject.asObservable()
+      .map { $0.localizedDescription }
     
     bindOutput()
   }
@@ -49,22 +57,36 @@ struct PullRequestListViewModel {
   private func bindOutput() {
     
     loading.value = true
-    lastPageLoaded.asObservable().skip(1)
+    trial.withLatestFrom(lastPageLoaded.asObservable())
       .takeUntil(finishedLoading)
       .do(onNext: { _ in
         self.loading.value = true
       })
-      .flatMap { self.service.pullRequests(page: $0) }
+      .flatMap {
+        self.service.pullRequests(page: $0)
+          .catchError { error in
+            
+            let nserror = error as NSError
+            self.errorSubject.onNext(.withNSError(nserror))
+            
+            return Observable.empty()
+          }
+      }
       .do(onNext: { _ in
         self.loading.value = false
       })
       .scan([PullRequest](), accumulator: +)
       .bind(to: pullRequests)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
   }
   
   func loadNextPage() {
     lastPageLoaded.value += 1
+    retry()
+  }
+  
+  func retry() {
+    trial.onNext(())
   }
   
   var showPullRequestAction: Action<PullRequest, Void> {

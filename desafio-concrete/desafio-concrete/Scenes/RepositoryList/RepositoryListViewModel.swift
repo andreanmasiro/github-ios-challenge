@@ -22,7 +22,7 @@ struct RepositoryListViewModel {
   
   private let repositories = Variable<[Repository]>([])
   
-  private let bag = DisposeBag()
+  private let disposeBag = DisposeBag()
   
   let sectionedRepositories: Driver<[RepositoriesSection]>
   
@@ -41,7 +41,7 @@ struct RepositoryListViewModel {
     
     service.finishedLoading
       .bind(to: finishedLoading)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
     
     self.errorMessage = errorSubject.asObserver()
       .map { $0.localizedDescription }
@@ -64,7 +64,7 @@ struct RepositoryListViewModel {
             self.errorSubject.onNext(.withNSError(nserror))
             
             return Observable.empty()
-        }
+          }
       }
       .do(onNext: { _ in
         self.loading.value = false
@@ -73,7 +73,7 @@ struct RepositoryListViewModel {
       .debug("after error", trimOutput: true)
       .scan([Repository](), accumulator: +)
       .bind(to: repositories)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
   }
   
   func loadNextPage() {

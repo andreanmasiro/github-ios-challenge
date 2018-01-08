@@ -15,7 +15,7 @@ struct PullRequestService: PullRequestServiceType {
   
   private let apiURL: URL
   private let perPage = 30
-  private let bag = DisposeBag()
+  private let disposeBag = DisposeBag()
   
   let finishedLoading = PublishSubject<Void>()
   

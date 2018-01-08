@@ -11,7 +11,7 @@ import UIKit
 protocol MessengerViewController {
   
   @discardableResult
-  func showAlert(title: String, message: String, actionData: [(title: String, handler: ((UIAlertAction) -> ())?, style: UIAlertActionStyle)])
+  func showAlert(title: String, message: String, actionData: [(title: String, handler: ((UIAlertAction) -> ())?, style: UIAlertActionStyle)]) -> UIAlertController
 }
 
 extension MessengerViewController where Self: UIViewController {
@@ -33,7 +33,9 @@ extension MessengerViewController where Self: UIViewController {
   
   func showErrorAlert(message: String, retryHandler: @escaping (UIAlertAction) -> ()) {
     
-    showAlert(title: "An error ocurred:", message: message, actionData: [("retry", retryHandler, .default)])
+    showAlert(title: "An error ocurred:",
+              message: message,
+              actionData: [("Retry", retryHandler, .default)])
   }
 }
 

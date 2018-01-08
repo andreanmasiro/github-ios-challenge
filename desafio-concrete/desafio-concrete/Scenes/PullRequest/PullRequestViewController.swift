@@ -16,7 +16,7 @@ class PullRequestViewController: UIViewController {
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
   
-  let bag = DisposeBag()
+  let disposeBag = DisposeBag()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +29,6 @@ class PullRequestViewController: UIViewController {
     webView.rx.isLoading
       .asDriver(onErrorJustReturn: false)
       .drive(loadIndicator.rx.isAnimating)
-      .disposed(by: bag)
+      .disposed(by: disposeBag)
   }
 }
